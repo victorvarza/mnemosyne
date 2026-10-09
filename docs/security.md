@@ -6,6 +6,19 @@ instruction-like content and later return it to an LLM, so callers should treat
 memory content as untrusted context unless they have applied their own review 
 and controls.
 
+Commands split into two risk tiers. Passive commands only read local files;
+active commands touch a target and require an explicit authorization
+declaration first.
+
+```mermaid
+flowchart TD
+    Cmd["mnemo command"] --> Kind{"Touches a<br/>live target?"}
+    Kind -->|"No - passive<br/>(scan, source-scan, add, search)"| Local["Run locally on your files"]
+    Kind -->|"Yes - active<br/>(pentest, tools run)"| Gate{"Authorized assessment<br/>+ declared target?"}
+    Gate -->|No| Reject["Reject"]
+    Gate -->|Yes| Run["Run against the declared target<br/>(host enforced, request budget)"]
+```
+
 ## Current controls and limitations
 
 The prototype includes:

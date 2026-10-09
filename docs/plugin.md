@@ -25,7 +25,7 @@ repository. To use it from another project, either copy the plugin directory:
 
 ```bash
 mkdir -p /path/to/project/.opencode/plugins
-cp -R /Users/vvarza/git/work/reskilling/mnemosyne/.opencode/plugins/mnemosyne \
+cp -R /path/to/mnemosyne/.opencode/plugins/mnemosyne \
   /path/to/project/.opencode/plugins/
 ```
 
@@ -35,7 +35,7 @@ or reference this repo's plugin from that project's `opencode.jsonc`:
 {
   "$schema": "https://opencode.ai/config.json",
   "plugins": [
-    "/Users/vvarza/git/work/reskilling/mnemosyne/.opencode/plugins/mnemosyne"
+    "/path/to/mnemosyne/.opencode/plugins/mnemosyne"
   ]
 }
 ```
@@ -169,30 +169,17 @@ that support OpenCode skills.
 
 ## Architecture
 
-Mnemosyne separates inference from memory ownership:
+Mnemosyne separates inference from memory ownership (full detail in
+[architecture.md](architecture.md)):
 
-```
-┌─────────────────┐    ┌──────────────────────┐
-│   OpenCode      │    │  Ollama Worker       │
-│   Assistant     │    │                      │
-│                 │    │  ┌────────────────┐  │
-│ ┌─────────────┐ │    │  │  LLM           │  │
-│ │Mnemosyne    │◄┼────┼─►└────────────────┘  │
-│ │Plugin       │ │    │  ┌────────────────┐  │
-│ └─────────────┘ │    │  │Embedding Model │  │
-│                 │    │  └────────────────┘  │
-└─────────────────┘    └──────────────────────┘
-                              ▲ HTTP
-                              │
-                    ┌─────────▼──────────┐
-                    │  Local Client      │
-                    │                    │
-                    │  ┌─────────────┐   │
-                    │  │Memory Store │   │
-                    │  │(SQLite +    │   │
-                    │  │ sqlite-vec) │   │
-                    │  └─────────────┘   │
-                    └────────────────────┘
+```mermaid
+flowchart LR
+    subgraph Local["Laptop"]
+        OC["OpenCode + Mnemosyne plugin"]
+        Store[("SQLite + sqlite-vec")]
+        OC --> Store
+    end
+    OC <-->|"HTTP: embeddings + LLM"| Ollama["Ollama worker<br/>LLM + embedding model"]
 ```
 
 ## Memory Management
@@ -200,6 +187,16 @@ Mnemosyne separates inference from memory ownership:
 Mnemosyne stores memories automatically from conversations (pattern-matched user
 preferences, project conventions, etc.) and injects the relevant ones into the
 prompt on every turn:
+
+```mermaid
+flowchart TD
+    Prompt["User prompt"] --> H1["prompt hook:<br/>pattern-match + store<br/>important info"]
+    Prompt --> H2["context hook:<br/>mnemo context -<br/>retrieve + usefulness-filter"]
+    H2 --> Inject["Append memory block<br/>to system prompt"]
+    Inject --> LLM["LLM answers with context"]
+    H3["compaction hook"] -.->|"re-injects block so memory<br/>survives window compaction"| LLM
+```
+
 
 1. The OpenCode 2 `session.hook("prompt")` hook captures the current user
    prompt and stores pattern-matched important information.

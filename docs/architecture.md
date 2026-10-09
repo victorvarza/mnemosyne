@@ -1,141 +1,164 @@
-# Mnemosyne -- Current Architecture
+# Architecture
 
-Mnemosyne separates inference from memory ownership.
+Mnemosyne is a **personalized context memory** system for AI assistants. It
+stores interaction history as embeddings, retrieves the relevant memories for a
+new prompt, uses a trained model to keep only the useful ones, and injects them
+into the prompt — while keeping all memory data local to the user's machine.
+
+The one design rule everything follows: **inference is remote, memory is
+local.** A worker runs the models; your laptop owns the database.
 
 ```mermaid
 flowchart LR
-    subgraph Laptop["Laptop / local client"]
+    subgraph Laptop["Laptop / local client (owns the data)"]
         CLI["mnemo CLI"]
-        OpenCode["OpenCode Plugin"]
-        Store[("Local SQLite + sqlite-vec<br/>memory.db")]
+        OC["OpenCode plugin"]
+        Store[("SQLite + sqlite-vec<br/>memory.db")]
         CLI --> Store
-        OpenCode --> Store
+        OC --> Store
     end
 
-    subgraph Worker["Ubuntu inference worker"]
+    subgraph Worker["Inference worker (stateless)"]
         Ollama["Ollama"]
-        Models["Qwen + embedding models"]
+        Models["qwen2.5:7b (LLM)<br/>nomic-embed-text (embeddings)"]
         Ollama --> Models
     end
 
-    CLI <-->|"Protected HTTP<br/>embeddings and LLM calls"| Ollama
-    OpenCode <-->|"Protected HTTP<br/>embeddings and LLM calls"| Ollama
+    CLI <-->|"HTTP: embeddings + LLM calls"| Ollama
+    OC  <-->|"HTTP: embeddings + LLM calls"| Ollama
 ```
 
-## Worker
+The worker only runs Ollama and the models; it never sees the database. The
+laptop creates embeddings through the worker and stores everything locally. See
+[usage.md](usage.md) for how to provision each side.
 
-The Ubuntu worker is only responsible for Ollama startup and model
-provisioning; it does not install or run the Python client or demo. Ollama is
-exposed on `0.0.0.0:11434` by default, so deploy it only on an appropriately
-protected network. See the [setup and usage guide](usage.md) for provisioning,
-listener configuration, readiness behavior, and model configuration.
+## Components
 
-## Local client
+| Area | Module | Responsibility |
+|---|---|---|
+| Core | `core/embeddings.py` | Turn text into vectors via the Ollama worker |
+| Core | `core/store.py` | SQLite + `sqlite-vec` storage and similarity search |
+| Core | `core/llm.py` | LLM calls to the worker (answers, optional classification) |
+| Core | `core/types.py` | `Memory`, `MemoryQuery`, `MemoryResult`, enums |
+| Retrieval | `ops/retrieve.py` | Similarity + recency ranking, optional model re-rank |
+| Retrieval | `ops/inject.py` | Format the chosen memories into a prompt block |
+| Selection | `eval/usefulness.py` | Trained model that predicts "is this memory helpful?" |
+| Lifecycle | `lifecycle/manager.py` | Decay, deduplication, conflict/stale handling |
+| Evaluation | `eval/benchmark.py`, `eval/dataset.py` | Ablation benchmark + synthetic data |
+| Interface | `cli.py` | The `mnemo` command |
+| Interface | `.opencode/` | OpenCode plugin + skills (see [plugin.md](plugin.md)) |
+| Security | `security/` | Authorized assessment tooling (see [security.md](security.md)) |
 
-The laptop runs the CLI, creates embeddings through the worker, and owns the
-SQLite database. `MNEMO_OLLAMA_URL` selects the worker; its default is
-`http://localhost:11434`. `MNEMO_LLM_MODEL` and `MNEMO_EMBED_MODEL` default to
-`qwen2.5:7b` and `nomic-embed-text`. CLI options override environment values.
+## The memory record
 
-The implemented operations are:
+Every memory is one `Memory` row (`core/types.py`):
 
-- `add`: embed and store an explicit memory locally.
-- `search`: embed a query, use sqlite-vec similarity search, then apply
-  recency weighting.
-- `list`, `forget`, and `stats`: inspect or manage the local store.
+| Field | Meaning |
+|---|---|
+| `content` | The remembered text |
+| `memory_type` | `episodic`, `semantic`, or `procedural` |
+| `trust_level` | `user_stated`, `agent_inferred`, `external_document`, `unknown` |
+| `source` | Where it came from |
+| `embedding` | The vector (stored in the `sqlite-vec` table) |
+| `created_at` / `last_accessed` / `access_count` | Timing + usage, used for recency and decay |
+| `decay_score` | Current relevance, recomputed by the lifecycle pass |
+| `metadata` | Free-form extra fields |
 
-`Memory` records content, type, trust label, source, timestamps, access count,
-decay score, metadata, and its embedding. The store uses a metadata table plus
-a sqlite-vec table, written together.
+## The memory pipeline
 
-## Memory flows
-
-### Store and retrieve context
-
-```mermaid
-sequenceDiagram
-    participant User
-    participant CLI as mnemo CLI
-    participant OpenCode as OpenCode Plugin
-    participant Worker as Ollama worker
-    participant Store as Local memory store
-
-    User->>CLI: add explicit memory
-    CLI->>Worker: create embedding
-    Worker-->>CLI: vector
-    CLI->>Store: save memory, metadata, and vector
-
-    User->>CLI: search for context
-    CLI->>Worker: create query embedding
-    Worker-->>CLI: query vector
-    CLI->>Store: similarity search
-    Store-->>CLI: matching memories
-    CLI->>CLI: apply recency weighting and format context
-    CLI-->>User: provenance-labelled context block
-
-    User->>OpenCode: converse naturally
-    OpenCode->>OpenCode: detect important info
-    OpenCode->>Worker: create embedding
-    Worker-->>OpenCode: vector
-    OpenCode->>OpenCode: predict memory usefulness
-    OpenCode->>Store: save memory automatically (if useful)
-
-    User->>OpenCode: ask question
-    OpenCode->>Worker: create query embedding
-    Worker-->>OpenCode: query vector
-    OpenCode->>Store: similarity search
-    Store-->>OpenCode: matching memories
-    OpenCode->>OpenCode: apply recency weighting and usefulness ranking
-    OpenCode-->>User: context-enriched response
-```
-
-### Authorized assessment memory
+This is the core task, split across the project's four phases.
 
 ```mermaid
 flowchart TD
-    Start["Developer starts an assessment"] --> Authorization{"Explicit target and<br/>authorization declaration?"}
-    Authorization -->|No| Stop["Reject request"]
-    Authorization -->|Yes| Context["Store local assessment context"]
-    Context --> Source["Analyze selected local source<br/>with Bandit, Semgrep, and Trivy"]
-    Source --> ScanRecord["Store source path and<br/>findings summary locally"]
-    ScanRecord --> Record["Store observation, finding, evidence,<br/>verification state, or project preference"]
-    Record --> Retrieve["Retrieve relevant context in later sessions"]
-    Retrieve --> Result["Reduce duplicate investigation<br/>and preserve assessment continuity"]
-    Record --> Pentest["Perform authorized pentesting<br/>against deployed targets"]
-    Pentest --> Report["Generate vulnerability report"]
+    Q["New prompt / query"] --> E["Embed query<br/>(Phase 1)"]
+    E --> S["Similarity + recency search<br/>sqlite-vec (Phase 1)"]
+    S --> U{"Usefulness model?<br/>(Phase 2)"}
+    U -->|"trained model present"| R["Score each candidate,<br/>drop below threshold,<br/>re-rank by P(helpful)"]
+    U -->|"no model"| K["Keep top-k by score"]
+    R --> I["Format memory block<br/>(Phase 1: inject)"]
+    K --> I
+    I --> P["Prompt sent to LLM"]
+
+    L["Lifecycle pass (Phase 3):<br/>decay · dedup · conflicts"] -.->|"maintains the store"| S
 ```
 
-Assessment records are stored in the same local-memory model with an assessment
-identifier and authorization metadata. The component records user-provided
-context and can analyze a user-selected local source directory. It does not
-scan targets, execute runtime tools, or exploit systems.
+**Phase 1 — encoding, retrieval, injection.** `ops/retrieve.py` embeds the
+query, runs a `sqlite-vec` similarity search, and blends in a recency score
+(exponential decay of time since last access). `ops/inject.py` renders the
+result as a provenance-labelled `## Remembered Context` block that is appended
+to the prompt.
 
-With the OpenCode plugin, Mnemosyne also provides pentest capabilities that can
-perform authorized security testing against deployed applications based on
-source code analysis.
+**Phase 2 — learned selection.** `eval/usefulness.py` trains a
+logistic-regression classifier that predicts `P(helpful | query, memory)` from
+three features: embedding similarity, recency, and trust level. When a trained
+model is present, `retrieve()` scores each candidate, drops those below the
+threshold, and re-ranks the rest. The model is stored as plain JSON (a weight
+vector), so inference needs no scikit-learn. Train it with `mnemo
+train-usefulness`.
 
-### ML-Enhanced Memory Management
+> The feature set is deliberately small. An earlier 9-feature version learned a
+> spurious negative weight on access count, so a memory stopped being injected
+> after a few uses. See [evaluation.md](evaluation.md) for that analysis.
 
-Mnemosyne plans to implement few-shot learning techniques to predict which retrieved memories are helpful.
+**Phase 3 — lifecycle.** `lifecycle/manager.py` keeps the store healthy
+(`mnemo lifecycle`):
 
-The OpenCode plugin includes a framework for Qwen LLM integration to rate memories on a 1-5 scale based on:
-- **Relevance** to the current context
-- **Actionability** of the information
-- **Specificity** of the details
-- **Potential impact** on response quality
+- **Decay** — recompute `decay_score` as exponential decay since last access; optionally prune the faded ones.
+- **Deduplication** — cluster near-identical embeddings (cosine above a threshold) so duplicates can be merged.
+- **Conflicts / stale facts** — flag near-duplicate memories that disagree (negation cues, or same subject with a different value) and mark the older one stale.
 
-Low-rated memories would be automatically filtered out to prevent context pollution,
-while high-rated memories would be prioritized in retrieval. This ML-enhanced
-approach aims to improve the quality of context provided to the AI assistant.
+**Phase 4 — impact analysis.** `eval/benchmark.py` runs the whole pipeline
+under several configurations (no-memory / memory-only / +selection /
++lifecycle) and reports QA F1, Recall@k, and a **stale-bias rate** — a direct
+measure of when memory *helps* versus when it *introduces bias*. Full results
+are in [evaluation.md](evaluation.md).
 
-## Scope and security status
+## CLI surface
 
-This is an authorized security-assessment prototype, not a multi-tenant memory
-service. There are no scopes/RBAC, automated extraction, deduplication,
-conflict resolution, retention workflow, token budgeting, or target scanning.
+`mnemo` exposes the pipeline end to end:
 
-Trust labels and sanitization/detection helpers exist, but the normal CLI
-`add` path does not currently invoke sanitization. Consequently, stored memory
-must not be represented as uniformly sanitized or trusted. Assessment tools
-are useful for evaluating the prototype; they do not make the system a
-complete security solution.
+| Group | Commands |
+|---|---|
+| Memory | `add`, `search`, `list`, `forget`, `stats`, `context`, `score` |
+| Selection (Phase 2) | `generate-dataset`, `label-usefulness`, `train-usefulness` |
+| Lifecycle (Phase 3) | `lifecycle` |
+| Evaluation (Phase 4) | `benchmark` |
+| Assessment (security) | `assess create/record/preference/source-scan/list`, `scan`, `redteam`, `pentest`, `tools list/run` |
+
+Run `mnemo --help` for options. Normal memory commands use
+`~/.local/share/mnemo/memory.db` by default; `--db` selects another local path.
+
+## Assessment subsystem
+
+Mnemosyne also ships an **authorized security-assessment** toolset that reuses
+the same local-memory model to retain engagement context across sessions. It is
+summarized here and documented in full in [security.md](security.md).
+
+```mermaid
+flowchart TD
+    Start["Start an assessment"] --> Auth{"Target + explicit<br/>authorization given?"}
+    Auth -->|No| Stop["Reject"]
+    Auth -->|Yes| Ctx["Store local assessment context"]
+    Ctx --> Scan["Scan selected local source<br/>(Bandit / Semgrep / Trivy)"]
+    Scan --> Rec["Record observations, findings,<br/>evidence, verification state"]
+    Rec --> Later["Retrieve context in later sessions"]
+    Rec --> Pentest["mnemo pentest:<br/>active test against declared target"]
+    Pentest --> Report["JSON + Markdown report"]
+```
+
+## Scope and honest limitations
+
+Mnemosyne is a research prototype, not a multi-tenant memory service. What that
+means in practice:
+
+- **No scopes / RBAC.** The authorization declaration on an assessment is an
+  audit note, not access control or proof an engagement is approved.
+- **`mnemo add` does not sanitize.** Explicit CLI input is written to the store
+  as-is; the sanitization and detection helpers exist but are not on the `add`
+  path. Treat stored memory as untrusted context.
+- **Lifecycle is on demand.** Decay, dedup, and conflict resolution are
+  implemented and run by `mnemo lifecycle`, but nothing runs them
+  automatically — the plugin does not invoke them.
+- **Selection labels are synthetic.** The Phase 2 model is trained on a
+  deterministic labeler; real labels (e.g. "the memory was actually cited")
+  are the intended source but are not wired in yet.

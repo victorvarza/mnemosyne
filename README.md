@@ -91,10 +91,8 @@ See the [plugin documentation](docs/plugin.md) for detailed usage instructions.
 
 ## Documentation
 
-- **[OpenCode Plugin Guide](docs/plugin.md)** — complete plugin usage and API reference
-- **[Project requirements](docs/requirements.md)** — agreed scope and success measures
+- **[Architecture](docs/architecture.md)** — components, data flow, and the memory pipeline
 - **[Setup and usage guide](docs/usage.md)** — worker/client setup and commands
-- **[Architecture](docs/architecture.md)** — components, data flow, and integration
-- **[Security assessment notes](docs/security.md)** — threat model and safeguards
+- **[OpenCode Plugin Guide](docs/plugin.md)** — complete plugin usage and API reference
 - **[Evaluation plan](docs/evaluation.md)** — benchmarks, metrics, and experiments
-- **[Project background](docs/personalized-context-memory-for-ai-assistants.md)** — research context and project rationale
+- **[Security assessment notes](docs/security.md)** — threat model and safeguards

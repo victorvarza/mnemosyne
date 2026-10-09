@@ -5,6 +5,20 @@ owns the local memory database. This page describes how to provision each side
 and use the CLI. For the deployment rationale, see the
 [architecture overview](architecture.md).
 
+```mermaid
+flowchart LR
+    subgraph Setup["Two things to set up"]
+        direction TB
+        W["1 - Worker (Ubuntu)<br/>make run<br/>installs Ollama + pulls models"]
+        C["2 - Client (laptop)<br/>make client-setup<br/>installs the mnemo CLI"]
+    end
+    C -->|"MNEMO_OLLAMA_URL"| W
+```
+
+The worker runs the models; the client runs the CLI and owns the database. You
+set up each side once, then point the client at the worker with
+`MNEMO_OLLAMA_URL`.
+
 ## 1. Provision the Ubuntu inference worker
 
 On the Ubuntu container or host that will run Ollama, clone the repository and
@@ -86,7 +100,7 @@ heuristics, so do not claim every stored memory was sanitized.
 Mnemosyne is also available as an OpenCode plugin that provides automatic memory
 management within AI assistant workflows. The plugin automatically stores
 important user preferences and retrieves relevant context without manual
-intervention. See the [plugin documentation](../PLUGIN-README.md) for details.
+intervention. See the [plugin documentation](plugin.md) for details.
 
 When using the OpenCode plugin, you can also manually control memory operations:
 

@@ -61,6 +61,23 @@ The ablation study is implemented in `src/mnemo/eval/benchmark.py` and run via
 system component by running the benchmark suite under different
 configurations:
 
+```mermaid
+flowchart LR
+    DS["Multi-session dataset<br/>(facts, distractors,<br/>1 fact update)"] --> Cfg
+    subgraph Cfg["Run under 4 configurations"]
+        direction TB
+        A["no-memory"]
+        B["memory-only"]
+        C["memory + selection (Phase 2)"]
+        D["memory + lifecycle (Phase 3)"]
+    end
+    Cfg --> M["Metrics:<br/>QA F1 · Recall@k ·<br/>stale-bias rate"]
+```
+
+Each configuration toggles one capability so its contribution shows up in the
+metrics — most importantly the **stale-bias rate**, which answers Phase 4's
+question of when memory helps versus when it introduces bias.
+
 | Configuration | Memory | Selection model | Lifecycle | Purpose |
 |---------------|--------|----------------|-----------|---------|
 | no-memory | OFF | OFF | OFF | LLM with no memory augmentation |
