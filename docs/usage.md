@@ -19,6 +19,52 @@ The worker runs the models; the client runs the CLI and owns the database. You
 set up each side once, then point the client at the worker with
 `MNEMO_OLLAMA_URL`.
 
+## Recommended setup
+
+**Reference machine: a MacBook Pro M1 (16 GB) or equivalent.** Apple Silicon
+runs Ollama with Metal GPU acceleration, so on an M1-class laptop you can run
+**everything locally** — embeddings, retrieval, the Phase 2 selection model, the
+Phase 3 lifecycle, *and* the LLM — with no separate worker. The two-worker split
+above is for when the host is too weak to run the LLM (e.g. a CPU box without
+AVX); on an M1 you can collapse it to a single machine pointed at `localhost`.
+
+### Recommended models
+
+| Role | Model | Notes |
+|---|---|---|
+| Embeddings | **`nomic-embed-text`** | ~140M params, near-instant on Metal, 768-dim (matches the store's default). |
+| LLM | **`qwen2.5:7b-instruct`** | ~4.7 GB at Q4; mnemo's LLM work is short-answer QA + classification, not coding, so 7B is the sweet spot. |
+
+These are the project defaults — keep them unless you have a reason to change.
+
+### Pick the LLM for your unified memory
+
+| Unified memory | LLM | Why |
+|---|---|---|
+| 8 GB | `qwen2.5:3b` (or `1.5b`) | 7B swaps and crawls at 8 GB. |
+| **16 GB (recommended)** | **`qwen2.5:7b-instruct`** | Comfortable with Metal; the target config. |
+| 32 GB+ (M1 Pro/Max) | `qwen2.5:14b` optional | Sharper answers, but 7B is plenty for mnemo. |
+
+> Upgrading the **embedding** model (e.g. to `bge-m3` or `mxbai-embed-large`,
+> 1024-dim) changes the vector dimension, so you must set
+> `MemoryStore(dimensions=1024)` and rebuild the DB (`make clean`). Only worth it
+> if retrieval recall is actually limiting you.
+
+### Run it all locally on Apple Silicon
+
+```bash
+ollama pull nomic-embed-text
+ollama pull qwen2.5:7b
+export MNEMO_OLLAMA_URL=http://localhost:11434
+export MNEMO_EMBED_MODEL=nomic-embed-text
+export MNEMO_LLM_MODEL=qwen2.5:7b
+make client-setup
+make demo
+```
+
+If instead you are running the LLM on a separate host (CPU box, remote worker),
+follow the two-step worker/client setup below.
+
 ## 1. Provision the Ubuntu inference worker
 
 On the Ubuntu container or host that will run Ollama, clone the repository and
