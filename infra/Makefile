@@ -23,27 +23,76 @@ LOCALSSD ?= /mnt/localssd
 ON ?= $(shell test -d $(LOCALSSD) && echo 1)
 
 # ---------------------------------------------------------------------------
-# Model selection
-#   awq (default): QuantTrio 4-bit AWQ, ~236 GB. AWQ-Marlin kernels run natively
-#                  on Ampere and leave ~300 GB of VRAM for KV cache.
-#   fp8          : Official Qwen block-FP8, ~482 GB. A100 has no FP8 tensor cores,
-#                  so vLLM runs it as weight-only FP8 (Marlin W8A16): tighter memory,
-#                  smaller KV cache, slower than on H100.
+# Model selection  --  pick a model+quantization with MODEL_VARIANT=<value>:
+#
+#   Model                       MODEL_VARIANT   Quant   Weights  Fits on
+#   --------------------------  --------------  ------  -------  -----------------
+#   Qwen3-Coder-480B-A35B (MoE) awq (default)   AWQ-4   ~236 GB  p4de / p5 / p5en
+#                               fp8             FP8     ~482 GB  p4de / p5 / p5en
+#   Qwen3-Coder-30B-A3B   (MoE) 30b             BF16    ~61 GB   p4d+ (or g5*)
+#                               30b-fp8         FP8     ~31 GB   g5.12xlarge
+#   Qwen2.5-Coder-32B   (dense) 32b             BF16    ~64 GB   p4d / p5
+#                               32b-awq         AWQ-4   ~20 GB   g5.12xlarge
+#
+#   MoE variants (480b/30b) use the `qwen3_coder` tool parser + expert-parallel.
+#   The dense 32b variants use the `hermes` parser + expert-parallel OFF.
+#   The smaller variants (30b*, 32b*) default to TP=4; override TP_SIZE=8 to use
+#   all 8 GPUs. Every value is overridable, e.g.
+#     make run MODEL_VARIANT=30b-fp8 TP_SIZE=4 MAX_MODEL_LEN=131072
 # ---------------------------------------------------------------------------
 MODEL_VARIANT ?= awq
 ifeq ($(MODEL_VARIANT),awq)
-MODEL_ID      ?= QuantTrio/Qwen3-Coder-480B-A35B-Instruct-AWQ
-MODEL_DISK_GB ?= 240
-MAX_MODEL_LEN ?= 131072
+MODEL_ID          ?= QuantTrio/Qwen3-Coder-480B-A35B-Instruct-AWQ
+MODEL_DISK_GB     ?= 240
+MAX_MODEL_LEN     ?= 131072
+SERVED_MODEL_NAME ?= qwen3-coder-480b
+MODEL_DISPLAY     ?= Qwen3-Coder-480B-A35B (awq, vLLM)
+TOOL_CALL_PARSER  ?= qwen3_coder
 else ifeq ($(MODEL_VARIANT),fp8)
-MODEL_ID      ?= Qwen/Qwen3-Coder-480B-A35B-Instruct-FP8
-MODEL_DISK_GB ?= 490
-MAX_MODEL_LEN ?= 65536
+MODEL_ID          ?= Qwen/Qwen3-Coder-480B-A35B-Instruct-FP8
+MODEL_DISK_GB     ?= 490
+MAX_MODEL_LEN     ?= 65536
+SERVED_MODEL_NAME ?= qwen3-coder-480b
+MODEL_DISPLAY     ?= Qwen3-Coder-480B-A35B (fp8, vLLM)
+TOOL_CALL_PARSER  ?= qwen3_coder
+else ifeq ($(MODEL_VARIANT),30b)
+MODEL_ID          ?= Qwen/Qwen3-Coder-30B-A3B-Instruct
+MODEL_DISK_GB     ?= 70
+MAX_MODEL_LEN     ?= 65536
+SERVED_MODEL_NAME ?= qwen3-coder-30b
+MODEL_DISPLAY     ?= Qwen3-Coder-30B-A3B (bf16, vLLM)
+TOOL_CALL_PARSER  ?= qwen3_coder
+TP_SIZE           ?= 4
+else ifeq ($(MODEL_VARIANT),30b-fp8)
+MODEL_ID          ?= Qwen/Qwen3-Coder-30B-A3B-Instruct-FP8
+MODEL_DISK_GB     ?= 40
+MAX_MODEL_LEN     ?= 65536
+SERVED_MODEL_NAME ?= qwen3-coder-30b
+MODEL_DISPLAY     ?= Qwen3-Coder-30B-A3B (fp8, vLLM)
+TOOL_CALL_PARSER  ?= qwen3_coder
+TP_SIZE           ?= 4
+else ifeq ($(MODEL_VARIANT),32b-awq)
+MODEL_ID          ?= Qwen/Qwen2.5-Coder-32B-Instruct-AWQ
+MODEL_DISK_GB     ?= 30
+MAX_MODEL_LEN     ?= 32768
+SERVED_MODEL_NAME ?= qwen2.5-coder-32b
+MODEL_DISPLAY     ?= Qwen2.5-Coder-32B (awq, vLLM)
+TOOL_CALL_PARSER  ?= hermes
+TP_SIZE           ?= 4
+EXPERT_PARALLEL   ?= 0
+else ifeq ($(MODEL_VARIANT),32b)
+MODEL_ID          ?= Qwen/Qwen2.5-Coder-32B-Instruct
+MODEL_DISK_GB     ?= 70
+MAX_MODEL_LEN     ?= 32768
+SERVED_MODEL_NAME ?= qwen2.5-coder-32b
+MODEL_DISPLAY     ?= Qwen2.5-Coder-32B (bf16, vLLM)
+TOOL_CALL_PARSER  ?= hermes
+TP_SIZE           ?= 4
+EXPERT_PARALLEL   ?= 0
 else
-$(error MODEL_VARIANT must be 'awq' or 'fp8' (got '$(MODEL_VARIANT)'))
+$(error MODEL_VARIANT must be one of: awq, fp8, 30b, 30b-fp8, 32b-awq, 32b (got '$(MODEL_VARIANT)'))
 endif
 MODEL_REVISION    ?= main
-SERVED_MODEL_NAME ?= qwen3-coder-480b
 
 # ---------------------------------------------------------------------------
 # vLLM runtime
@@ -97,7 +146,7 @@ VLLM_ARGS := \
 	--gpu-memory-utilization $(GPU_MEM_UTIL) \
 	--max-num-seqs $(MAX_NUM_SEQS) \
 	--enable-auto-tool-choice \
-	--tool-call-parser qwen3_coder \
+	--tool-call-parser $(TOOL_CALL_PARSER) \
 	--host $(VLLM_HOST) \
 	--port $(VLLM_PORT) \
 	$(EXTRA_VLLM_ARGS)
@@ -310,7 +359,7 @@ client_env = if [ -f "$(ENV_FILE)" ]; then set -a; . "$(ENV_FILE)"; set +a; fi; 
 opencode-config: ## [client] Generate the OpenCode provider config for the vLLM endpoint
 	@$(client_env); \
 	"$(SCRIPTS)/opencode-config.sh" "$(OPENCODE_CONFIG_FILE)" "$$base" \
-		"$(SERVED_MODEL_NAME)" "Qwen3-Coder-480B-A35B ($(MODEL_VARIANT), vLLM)" \
+		"$(SERVED_MODEL_NAME)" "$(MODEL_DISPLAY)" \
 		"$(MAX_MODEL_LEN)" "$(OPENCODE_OUTPUT_LIMIT)"
 
 opencode: opencode-config ## [client] Launch OpenCode in PROJECT_DIR (reads VLLM_HOST_URL/VLLM_API_KEY from .env)

@@ -4,6 +4,37 @@ Reference for picking an open-source coding model and the AWS GPU instance to
 serve it on with vLLM, feeding the OpenCode CLI (see `infra/Makefile` and the
 `VLLM_HOST_URL` wiring).
 
+## Selecting the served model
+
+Pick the model + quantization with a single switch, `MODEL_VARIANT`. It sets the
+model ID, tool-call parser, tensor-parallel size, expert-parallel, context
+length, and the name OpenCode sees — so you pass the **same** value to the
+server (`make run`) and the client (`make opencode`).
+
+| Model | `MODEL_VARIANT` | Quant | Weights | Serve on | TP / EP / parser |
+|---|---|---|---|---|---|
+| **Qwen3-Coder-480B-A35B** (MoE) | `awq` *(default)* | AWQ-4 | ~236 GB | p4de / p5 / p5en | 8 / on / `qwen3_coder` |
+| | `fp8` | FP8 | ~482 GB | p4de / p5 / p5en | 8 / on / `qwen3_coder` |
+| **Qwen3-Coder-30B-A3B** (MoE) | `30b` | BF16 | ~61 GB | p4d+ (or g5) | 4 / on / `qwen3_coder` |
+| | `30b-fp8` | FP8 | ~31 GB | g5.12xlarge | 4 / on / `qwen3_coder` |
+| **Qwen2.5-Coder-32B** (dense) | `32b` | BF16 | ~64 GB | p4d / p5 | 4 / off / `hermes` |
+| | `32b-awq` | AWQ-4 | ~20 GB | g5.12xlarge | 4 / off / `hermes` |
+
+```bash
+# server (on the GPU host) — choose one:
+make run MODEL_VARIANT=awq        # Qwen3-Coder-480B (default, p4de)
+make run MODEL_VARIANT=30b-fp8    # Qwen3-Coder-30B   (g5.12xlarge)
+make run MODEL_VARIANT=32b-awq    # Qwen2.5-Coder-32B (g5.12xlarge)
+
+# client (on your laptop) — pass the SAME variant:
+make tunnel SSH_HOST=ubuntu@<host>
+make opencode MODEL_VARIANT=32b-awq
+```
+
+Any field is overridable, e.g. `make run MODEL_VARIANT=30b-fp8 TP_SIZE=8
+MAX_MODEL_LEN=131072`. On an 8-GPU box the smaller variants default to TP=4
+(using 4 GPUs) — pass `TP_SIZE=8` to use all of them.
+
 ## Sizing rule of thumb (vLLM serving)
 
 Weights ≈ **2 GB/B** at BF16, **~1 GB/B** at FP8, **~0.5 GB/B** at 4-bit
