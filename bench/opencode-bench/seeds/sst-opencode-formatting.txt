@@ -1,0 +1,12 @@
+# Seed memories for opencode-bench task `sst-opencode-formatting` (sst/opencode@090d27d).
+# One memory per line; lines starting with # are ignored.
+# Sources, all at the task's starting commit: AGENTS.md, packages/opencode/AGENTS.md
+# and CONTRIBUTING.md. Nothing comes from the task's diff.patch or its target commit.
+# Note: OpenCode already loads this repo's AGENTS.md into the prompt, so these
+# memories mostly duplicate it. Expect a small effect; that is a finding, not a bug.
+In sst/opencode the runtime is Bun with TypeScript ESM modules; prefer Bun APIs such as Bun.file().
+In sst/opencode, typecheck with `bun run typecheck` and run tests with `bun test` from packages/opencode.
+sst/opencode code style: avoid else statements, avoid try/catch (prefer .catch()), avoid let and the any type, and avoid unnecessary destructuring.
+sst/opencode prefers keeping logic in one function unless it is reused, and single-word variable names where they stay descriptive.
+sst/opencode organizes code by namespaces such as Tool.define() and Session.create(), validates inputs with Zod schemas, and logs with Log.create({ service: "name" }).
+In sst/opencode, packages/opencode holds the core logic and server, the TUI is in packages/opencode/src/cli/cmd/tui/ (SolidJS with opentui), and packages/plugin is @opencode-ai/plugin.

@@ -1,0 +1,36 @@
+timestamp=2026-10-06T19:26:16.368Z level=INFO run=d2ea3b1c message="creating instance" directory=$LIVE/project
+timestamp=2026-10-06T19:26:16.370Z level=INFO run=d2ea3b1c message=fromDirectory directory=$LIVE/project
+timestamp=2026-10-06T19:26:16.510Z level=INFO run=d2ea3b1c message=bootstrapping directory=$LIVE/project
+timestamp=2026-10-06T19:26:16.521Z level=INFO run=d2ea3b1c message=loading path=$LIVE/config/opencode/config.json
+timestamp=2026-10-06T19:26:16.521Z level=INFO run=d2ea3b1c message=loading path=$LIVE/config/opencode/opencode.json
+timestamp=2026-10-06T19:26:16.526Z level=INFO run=d2ea3b1c message=loading path=$LIVE/config/opencode/opencode.jsonc
+timestamp=2026-10-06T19:26:16.812Z level=INFO run=d2ea3b1c message="Mnemosyne plugin initialized"
+timestamp=2026-10-06T19:26:16.815Z level=INFO run=d2ea3b1c message="all LSPs are disabled"
+timestamp=2026-10-06T19:26:16.815Z level=INFO run=d2ea3b1c message="all formatters are disabled"
+timestamp=2026-10-06T19:26:16.816Z level=INFO run=d2ea3b1c message=init
+timestamp=2026-10-06T19:26:16.835Z level=INFO run=d2ea3b1c message=created id=ses_eed51acfdffeEVkm9qqdD9yqYk slug=neon-comet version=1.18.34 projectID=global directory=$LIVE/project path="" workspaceID=undefined parentID=undefined title="New session - 2026-10-06T19:26:16.835Z" agent=undefined model=undefined metadata=undefined permission="[{\"permission\":\"question\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"plan_enter\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"plan_exit\",\"pattern\":\"*\",\"action\":\"deny\"}]" cost=0 tokens.input=0 tokens.output=0 tokens.reasoning=0 tokens.cache.read=0 tokens.cache.write=0 time.created=1791314776835 time.updated=1791314776835
+timestamp=2026-10-06T19:26:16.844Z level=DEBUG run=d2ea3b1c message="New session created"
+timestamp=2026-10-06T19:26:16.849Z level=INFO run=d2ea3b1c message="event connected"
+timestamp=2026-10-06T19:26:17.290Z level=INFO run=d2ea3b1c message=loop session.id=ses_eed51acfdffeEVkm9qqdD9yqYk step=0
+[0m
+> build · qwen2.5:7b-16k
+[0m
+timestamp=2026-10-06T19:26:17.308Z level=INFO run=d2ea3b1c message=stream providerID=ollama modelID=qwen2.5:7b-16k session.id=ses_eed51acfdffeEVkm9qqdD9yqYk small=true agent=title mode=primary
+timestamp=2026-10-06T19:26:17.414Z level=INFO run=d2ea3b1c message=tracking hash=5dadd1311caf60dbb1c640bf8060a87309319eee cwd=$LIVE/project git=$LIVE/data/opencode/snapshot/global/364ff5499e82585c351c4a19d87bdd773ba8e246
+timestamp=2026-10-06T19:26:17.420Z level=INFO run=d2ea3b1c message="shell tool using shell" shell=/bin/bash
+timestamp=2026-10-06T19:26:17.434Z level=INFO run=d2ea3b1c message=init count=14
+timestamp=2026-10-06T19:26:18.273Z level=INFO run=d2ea3b1c message="watcher backend" directory=$LIVE/project platform=darwin backend=fs-events
+timestamp=2026-10-06T19:26:18.284Z level=INFO run=d2ea3b1c message="project copy refresh started" projectID=global
+timestamp=2026-10-06T19:26:18.289Z level=INFO run=d2ea3b1c message="project copy refresh done" projectID=global updated=[] removed=[]
+timestamp=2026-10-06T19:26:18.301Z level=INFO run=d2ea3b1c message="Injected 1 memories into system prompt" query="\"Which database do we run in production, and in which AWS region? Answer in one sentence, without using tools.\""
+timestamp=2026-10-06T19:26:18.303Z level=INFO run=d2ea3b1c message="llm runtime selected" llm.runtime=ai-sdk llm.provider=ollama llm.model=qwen2.5:7b-16k
+timestamp=2026-10-06T19:26:18.714Z level=INFO run=d2ea3b1c message="booting location services" directory=$LIVE/project workspaceID=undefined
+timestamp=2026-10-06T19:26:18.723Z level=INFO run=d2ea3b1c message=process session.id=ses_eed51acfdffeEVkm9qqdD9yqYk messageID=msg_112ae54cc001Db1AXyS4pqxFY1
+timestamp=2026-10-06T19:26:18.723Z level=INFO run=d2ea3b1c message=stream providerID=ollama modelID=qwen2.5:7b-16k session.id=ses_eed51acfdffeEVkm9qqdD9yqYk small=false agent=build mode=primary
+timestamp=2026-10-06T19:26:18.724Z level=INFO run=d2ea3b1c message="Injected 1 memories into system prompt" query="\"Which database do we run in production, and in which AWS region? Answer in one sentence, without using tools.\""
+timestamp=2026-10-06T19:26:18.725Z level=INFO run=d2ea3b1c message="llm runtime selected" llm.runtime=ai-sdk llm.provider=ollama llm.model=qwen2.5:7b-16k
+Our production database runs on PostgreSQL 16 in the eu-west-1 region of AWS.
+timestamp=2026-10-06T19:26:47.437Z level=INFO run=d2ea3b1c message=tracking hash=5dadd1311caf60dbb1c640bf8060a87309319eee cwd=$LIVE/project git=$LIVE/data/opencode/snapshot/global/364ff5499e82585c351c4a19d87bdd773ba8e246
+timestamp=2026-10-06T19:26:47.508Z level=INFO run=d2ea3b1c message=loop session.id=ses_eed51acfdffeEVkm9qqdD9yqYk step=1
+timestamp=2026-10-06T19:26:47.509Z level=INFO run=d2ea3b1c message="exiting loop" session.id=ses_eed51acfdffeEVkm9qqdD9yqYk
+timestamp=2026-10-06T19:26:47.517Z level=INFO run=d2ea3b1c message="disposing instance" directory=$LIVE/project

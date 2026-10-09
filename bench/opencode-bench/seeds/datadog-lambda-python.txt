@@ -1,0 +1,13 @@
+# Seed memories for opencode-bench task `datadog-lambda-python` (DataDog/datadog-lambda-python@93d4a07).
+# One memory per line; lines starting with # are ignored.
+# Sources, all at the task's starting commit: CONTRIBUTING.md, scripts/run_tests.sh,
+# pyproject.toml, .flake8 and the top-level file layout. Nothing comes from the
+# task's diff.patch or its target commit.
+# Unlike sst/opencode, this repo has no AGENTS.md, so OpenCode has none of
+# these conventions unless memory supplies them.
+datadog-lambda-python supports Python 3.8 through 3.13, so all code must stay compatible with Python 3.8.
+In datadog-lambda-python, unit tests use pytest and live in tests/, with one test_<module>.py per datadog_lambda/<module>.py.
+In datadog-lambda-python, flake8 checks datadog_lambda/ with a maximum line length of 100.
+datadog-lambda-python is a poetry project; its dev extras are pytest, pytest-benchmark, flake8, botocore and requests.
+The datadog_lambda package contains modules such as api, config, metric, tracing, trigger, wrapper and xray.
+datadog-lambda-python's unit test script runs pytest and flake8 in Docker for each supported Python version.

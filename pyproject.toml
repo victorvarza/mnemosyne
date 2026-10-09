@@ -1,0 +1,47 @@
+[project]
+name = "mnemo"
+version = "0.1.0"
+description = "Mnemosyne (mnemo) — security-focused personalized context memory for AI assistants, powered by local Qwen"
+readme = "README.md"
+authors = [
+    { name = "Victor Varza", email = "victor.varza@gmail.com" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "httpx>=0.27",
+    "sqlite-vec>=0.1.6",
+    "typer>=0.15",
+    "rich>=13.0",
+    "pydantic>=2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.24",
+    "ruff>=0.8",
+]
+ml = [
+    "scikit-learn>=1.4",
+]
+security = [
+    "bandit>=1.7",
+]
+
+[project.scripts]
+mnemo = "mnemo.cli:app"
+
+[build-system]
+requires = ["uv_build>=0.8.22,<0.9.0"]
+build-backend = "uv_build"
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.ruff.lint.per-file-ignores]
+# Typer declares CLI options as `typer.Option(...)` defaults by design.
+"src/mnemo/cli.py" = ["B008"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

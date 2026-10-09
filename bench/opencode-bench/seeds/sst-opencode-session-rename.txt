@@ -1,0 +1,14 @@
+# Seed memories for opencode-bench task `sst-opencode-session-rename` (sst/opencode@5f7e1e0).
+# One memory per line; lines starting with # are ignored.
+# Sources, all at the task's starting commit: AGENTS.md, packages/opencode/AGENTS.md,
+# packages/desktop/AGENTS.md and CONTRIBUTING.md. Nothing comes from the task's
+# diff.patch or its target commit.
+# Note: OpenCode already loads this repo's AGENTS.md files into the prompt, so
+# these memories mostly duplicate them. Expect a small effect.
+In sst/opencode the runtime is Bun with TypeScript ESM modules; prefer Bun APIs such as Bun.file().
+In sst/opencode, typecheck with `bun run typecheck` and run tests with `bun test` from packages/opencode.
+sst/opencode code style: avoid else statements, avoid try/catch (prefer .catch()), avoid let and the any type, and avoid unnecessary destructuring.
+sst/opencode organizes code by namespaces such as Tool.define() and Session.create(), validates inputs with Zod schemas, and logs with Log.create({ service: "name" }).
+In sst/opencode, packages/opencode holds the core logic and server, and the TUI is in packages/opencode/src/cli/cmd/tui/ (SolidJS with opentui).
+In sst/opencode packages/desktop (SolidJS with TailwindCSS), validate changes with `bun run typecheck` only; do not build or add automated tests there.
+sst/opencode packages/desktop formatting: Prettier with semicolons disabled and 120-character lines; import from src through the @/ alias.

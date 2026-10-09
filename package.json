@@ -1,0 +1,41 @@
+{
+  "name": "opencode-mnemosyne-plugin",
+  "version": "0.1.0",
+  "description": "Mnemosyne - OpenCode plugin for persistent memory management and security assessment in AI assistants",
+  "main": "opencode-plugin.js",
+  "type": "module",
+  "scripts": {
+    "test": "python -m pytest tests/",
+    "test:plugin": "node --test tests/plugin/*.test.js"
+  },
+  "keywords": [
+    "opencode",
+    "plugin",
+    "security",
+    "memory",
+    "ai",
+    "assistant",
+    "pentest",
+    "vulnerability"
+  ],
+  "author": "Mnemosyne Team",
+  "license": "MIT",
+  "dependencies": {
+    "@opencode/plugin": "^2.0.26",
+    "shescape": "^2.1.0"
+  },
+  "devDependencies": {
+    "@opencode-ai/plugin": "^1.15.3"
+  },
+  "files": [
+    "opencode-plugin.js",
+    ".opencode/plugins/",
+    ".opencode/skill/",
+    "src/",
+    "docs/",
+    "README.md"
+  ],
+  "opencode": {
+    "plugin": "./opencode-plugin.js"
+  }
+}

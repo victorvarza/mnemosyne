@@ -1,0 +1,3681 @@
+{
+  "configurations": [
+    {
+      "configuration": "no-memory",
+      "n_questions": 80,
+      "mean_f1": 0.09095238095238095,
+      "recall_at_k": null,
+      "stale_bias_rate": null,
+      "results": [
+        {
+          "question": "Which programming language do I prefer?",
+          "reference": "Python",
+          "prediction": "That depends on your needs and preferences.",
+          "f1": 0.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which editor do I use?",
+          "reference": "VS Code",
+          "prediction": "It depends on your needs. Try Visual Studio Code, Sublime Text, or Atom.",
+          "f1": 0.13333333333333336,
+          "is_update_query": true,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which OS does my machine run?",
+          "reference": "macOS",
+          "prediction": "Check \"System Properties\" or use the command `uname -o`.",
+          "f1": 0.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "What is our production database?",
+          "reference": "PostgreSQL",
+          "prediction": "It's the live database used for active data operations.",
+          "f1": 0.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which cloud do we deploy on?",
+          "reference": "AWS",
+          "prediction": "AWS Cloud.",
+          "f1": 0.6666666666666666,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which test framework do I use?",
+          "reference": "pytest",
+          "prediction": "It depends on your project needs. Popular choices include Jest, Mocha, and PyTest.",
+          "f1": 0.14285714285714288,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which city do I live in?",
+          "reference": "Bucharest",
+          "prediction": "You need to specify your location or check your address.",
+          "f1": 0.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which team do I work on?",
+          "reference": "Gemini Platform",
+          "prediction": "Check your assignment or HR system.",
+          "f1": 0.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which programming language do I prefer?",
+          "reference": "TypeScript",
+          "prediction": "That depends on your needs and preferences.",
+          "f1": 0.0,
+          "is_update_query": true,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which editor do I use?",
+          "reference": "Neovim",
+          "prediction": "It depends on your needs. Try Visual Studio Code, Sublime Text, or Atom.",
+          "f1": 0.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which OS does my machine run?",
+          "reference": "macOS",
+          "prediction": "Check \"System Properties\" or use the command `uname -o`.",
+          "f1": 0.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "What is our production database?",
+          "reference": "PostgreSQL",
+          "prediction": "It's the live database used for active data operations.",
+          "f1": 0.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which cloud do we deploy on?",
+          "reference": "AWS",
+          "prediction": "AWS Cloud.",
+          "f1": 0.6666666666666666,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which test framework do I use?",
+          "reference": "pytest",
+          "prediction": "It depends on your project needs. Popular choices include Jest, Mocha, and PyTest.",
+          "f1": 0.14285714285714288,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which city do I live in?",
+          "reference": "Bucharest",
+          "prediction": "You need to specify your location or check your address.",
+          "f1": 0.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which team do I work on?",
+          "reference": "Gemini Platform",
+          "prediction": "Check your assignment or HR system.",
+          "f1": 0.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which programming language do I prefer?",
+          "reference": "Python",
+          "prediction": "That depends on your needs and preferences.",
+          "f1": 0.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which editor do I use?",
+          "reference": "Neovim",
+          "prediction": "It depends on your needs. Try Visual Studio Code, Sublime Text, or Atom.",
+          "f1": 0.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which OS does my machine run?",
+          "reference": "macOS",
+          "prediction": "Check \"System Properties\" or use the command `uname -o`.",
+          "f1": 0.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "What is our production database?",
+          "reference": "PostgreSQL",
+          "prediction": "It's the live database used for active data operations.",
+          "f1": 0.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which cloud do we deploy on?",
+          "reference": "AWS",
+          "prediction": "AWS Cloud.",
+          "f1": 0.6666666666666666,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which test framework do I use?",
+          "reference": "pytest",
+          "prediction": "It depends on your project needs. Popular choices include Jest, Mocha, and PyTest.",
+          "f1": 0.14285714285714288,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which city do I live in?",
+          "reference": "Amsterdam",
+          "prediction": "You need to specify your location or check your address.",
+          "f1": 0.0,
+          "is_update_query": true,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which team do I work on?",
+          "reference": "Gemini Platform",
+          "prediction": "Check your assignment or HR system.",
+          "f1": 0.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which programming language do I prefer?",
+          "reference": "Python",
+          "prediction": "That depends on your needs and preferences.",
+          "f1": 0.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which editor do I use?",
+          "reference": "Neovim",
+          "prediction": "It depends on your needs. Try Visual Studio Code, Sublime Text, or Atom.",
+          "f1": 0.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which OS does my machine run?",
+          "reference": "macOS",
+          "prediction": "Check \"System Properties\" or use the command `uname -o`.",
+          "f1": 0.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "What is our production database?",
+          "reference": "PostgreSQL",
+          "prediction": "It's the live database used for active data operations.",
+          "f1": 0.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which cloud do we deploy on?",
+          "reference": "Azure",
+          "prediction": "AWS Cloud.",
+          "f1": 0.0,
+          "is_update_query": true,
+          "answered_with_stale_fact": true,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which test framework do I use?",
+          "reference": "pytest",
+          "prediction": "It depends on your project needs. Popular choices include Jest, Mocha, and PyTest.",
+          "f1": 0.14285714285714288,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which city do I live in?",
+          "reference": "Bucharest",
+          "prediction": "You need to specify your location or check your address.",
+          "f1": 0.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which team do I work on?",
+          "reference": "Gemini Platform",
+          "prediction": "Check your assignment or HR system.",
+          "f1": 0.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which programming language do I prefer?",
+          "reference": "Python",
+          "prediction": "That depends on your needs and preferences.",
+          "f1": 0.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which editor do I use?",
+          "reference": "Emacs",
+          "prediction": "It depends on your needs. Try Visual Studio Code, Sublime Text, or Atom.",
+          "f1": 0.0,
+          "is_update_query": true,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which OS does my machine run?",
+          "reference": "macOS",
+          "prediction": "Check \"System Properties\" or use the command `uname -o`.",
+          "f1": 0.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "What is our production database?",
+          "reference": "PostgreSQL",
+          "prediction": "It's the live database used for active data operations.",
+          "f1": 0.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which cloud do we deploy on?",
+          "reference": "AWS",
+          "prediction": "AWS Cloud.",
+          "f1": 0.6666666666666666,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which test framework do I use?",
+          "reference": "pytest",
+          "prediction": "It depends on your project needs. Popular choices include Jest, Mocha, and PyTest.",
+          "f1": 0.14285714285714288,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which city do I live in?",
+          "reference": "Bucharest",
+          "prediction": "You need to specify your location or check your address.",
+          "f1": 0.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which team do I work on?",
+          "reference": "Gemini Platform",
+          "prediction": "Check your assignment or HR system.",
+          "f1": 0.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which programming language do I prefer?",
+          "reference": "Python",
+          "prediction": "That depends on your needs and preferences.",
+          "f1": 0.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which editor do I use?",
+          "reference": "Neovim",
+          "prediction": "It depends on your needs. Try Visual Studio Code, Sublime Text, or Atom.",
+          "f1": 0.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which OS does my machine run?",
+          "reference": "macOS",
+          "prediction": "Check \"System Properties\" or use the command `uname -o`.",
+          "f1": 0.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "What is our production database?",
+          "reference": "PostgreSQL",
+          "prediction": "It's the live database used for active data operations.",
+          "f1": 0.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which cloud do we deploy on?",
+          "reference": "AWS",
+          "prediction": "AWS Cloud.",
+          "f1": 0.6666666666666666,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which test framework do I use?",
+          "reference": "unittest",
+          "prediction": "It depends on your project needs. Popular choices include Jest, Mocha, and PyTest.",
+          "f1": 0.0,
+          "is_update_query": true,
+          "answered_with_stale_fact": true,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which city do I live in?",
+          "reference": "Bucharest",
+          "prediction": "You need to specify your location or check your address.",
+          "f1": 0.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which team do I work on?",
+          "reference": "Gemini Platform",
+          "prediction": "Check your assignment or HR system.",
+          "f1": 0.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which programming language do I prefer?",
+          "reference": "Python",
+          "prediction": "That depends on your needs and preferences.",
+          "f1": 0.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which editor do I use?",
+          "reference": "Neovim",
+          "prediction": "It depends on your needs. Try Visual Studio Code, Sublime Text, or Atom.",
+          "f1": 0.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which OS does my machine run?",
+          "reference": "macOS",
+          "prediction": "Check \"System Properties\" or use the command `uname -o`.",
+          "f1": 0.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "What is our production database?",
+          "reference": "PostgreSQL",
+          "prediction": "It's the live database used for active data operations.",
+          "f1": 0.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which cloud do we deploy on?",
+          "reference": "AWS",
+          "prediction": "AWS Cloud.",
+          "f1": 0.6666666666666666,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which test framework do I use?",
+          "reference": "unittest",
+          "prediction": "It depends on your project needs. Popular choices include Jest, Mocha, and PyTest.",
+          "f1": 0.0,
+          "is_update_query": true,
+          "answered_with_stale_fact": true,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which city do I live in?",
+          "reference": "Bucharest",
+          "prediction": "You need to specify your location or check your address.",
+          "f1": 0.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which team do I work on?",
+          "reference": "Gemini Platform",
+          "prediction": "Check your assignment or HR system.",
+          "f1": 0.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which programming language do I prefer?",
+          "reference": "Python",
+          "prediction": "That depends on your needs and preferences.",
+          "f1": 0.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which editor do I use?",
+          "reference": "Emacs",
+          "prediction": "It depends on your needs. Try Visual Studio Code, Sublime Text, or Atom.",
+          "f1": 0.0,
+          "is_update_query": true,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which OS does my machine run?",
+          "reference": "macOS",
+          "prediction": "Check \"System Properties\" or use the command `uname -o`.",
+          "f1": 0.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "What is our production database?",
+          "reference": "PostgreSQL",
+          "prediction": "It's the live database used for active data operations.",
+          "f1": 0.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which cloud do we deploy on?",
+          "reference": "AWS",
+          "prediction": "AWS Cloud.",
+          "f1": 0.6666666666666666,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which test framework do I use?",
+          "reference": "pytest",
+          "prediction": "It depends on your project needs. Popular choices include Jest, Mocha, and PyTest.",
+          "f1": 0.14285714285714288,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which city do I live in?",
+          "reference": "Bucharest",
+          "prediction": "You need to specify your location or check your address.",
+          "f1": 0.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which team do I work on?",
+          "reference": "Gemini Platform",
+          "prediction": "Check your assignment or HR system.",
+          "f1": 0.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which programming language do I prefer?",
+          "reference": "Python",
+          "prediction": "That depends on your needs and preferences.",
+          "f1": 0.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which editor do I use?",
+          "reference": "Neovim",
+          "prediction": "It depends on your needs. Try Visual Studio Code, Sublime Text, or Atom.",
+          "f1": 0.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which OS does my machine run?",
+          "reference": "macOS",
+          "prediction": "Check \"System Properties\" or use the command `uname -o`.",
+          "f1": 0.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "What is our production database?",
+          "reference": "PostgreSQL",
+          "prediction": "It's the live database used for active data operations.",
+          "f1": 0.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which cloud do we deploy on?",
+          "reference": "AWS",
+          "prediction": "AWS Cloud.",
+          "f1": 0.6666666666666666,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which test framework do I use?",
+          "reference": "pytest",
+          "prediction": "It depends on your project needs. Popular choices include Jest, Mocha, and PyTest.",
+          "f1": 0.14285714285714288,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which city do I live in?",
+          "reference": "Bucharest",
+          "prediction": "You need to specify your location or check your address.",
+          "f1": 0.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which team do I work on?",
+          "reference": "Express",
+          "prediction": "Check your assignment or HR system.",
+          "f1": 0.0,
+          "is_update_query": true,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which programming language do I prefer?",
+          "reference": "Python",
+          "prediction": "That depends on your needs and preferences.",
+          "f1": 0.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which editor do I use?",
+          "reference": "Neovim",
+          "prediction": "It depends on your needs. Try Visual Studio Code, Sublime Text, or Atom.",
+          "f1": 0.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which OS does my machine run?",
+          "reference": "macOS",
+          "prediction": "Check \"System Properties\" or use the command `uname -o`.",
+          "f1": 0.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "What is our production database?",
+          "reference": "MongoDB",
+          "prediction": "It's the live database used for active data operations.",
+          "f1": 0.0,
+          "is_update_query": true,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which cloud do we deploy on?",
+          "reference": "AWS",
+          "prediction": "AWS Cloud.",
+          "f1": 0.6666666666666666,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which test framework do I use?",
+          "reference": "pytest",
+          "prediction": "It depends on your project needs. Popular choices include Jest, Mocha, and PyTest.",
+          "f1": 0.14285714285714288,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which city do I live in?",
+          "reference": "Bucharest",
+          "prediction": "You need to specify your location or check your address.",
+          "f1": 0.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        },
+        {
+          "question": "Which team do I work on?",
+          "reference": "Gemini Platform",
+          "prediction": "Check your assignment or HR system.",
+          "f1": 0.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": []
+        }
+      ]
+    },
+    {
+      "configuration": "memory-only",
+      "n_questions": 80,
+      "mean_f1": 0.5986129148629149,
+      "recall_at_k": 1.0,
+      "stale_bias_rate": 1.0,
+      "results": [
+        {
+          "question": "Which programming language do I prefer?",
+          "reference": "Python",
+          "prediction": "Python.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "d208e267eb094ed3bb5334f383d99944",
+            "520c766648214376b6996aa5dad2bdda",
+            "7acb29d73cf4442eb0d1fab8b866785d",
+            "c9d5491a4f234a6cb868c2a8323c3b79"
+          ]
+        },
+        {
+          "question": "Which editor do I use?",
+          "reference": "VS Code",
+          "prediction": "You use VS Code and Neovim as your editors.",
+          "f1": 0.3636363636363636,
+          "is_update_query": true,
+          "answered_with_stale_fact": true,
+          "retrieved_ids": [
+            "d208e267eb094ed3bb5334f383d99944",
+            "c9d5491a4f234a6cb868c2a8323c3b79",
+            "520c766648214376b6996aa5dad2bdda",
+            "7acb29d73cf4442eb0d1fab8b866785d"
+          ]
+        },
+        {
+          "question": "Which OS does my machine run?",
+          "reference": "macOS",
+          "prediction": "macOS.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "d208e267eb094ed3bb5334f383d99944",
+            "6cab5b15fb74479093595497d1fb2e53"
+          ]
+        },
+        {
+          "question": "What is our production database?",
+          "reference": "PostgreSQL",
+          "prediction": "Our production database is PostgreSQL.",
+          "f1": 0.33333333333333337,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "422d0ceb8eb24f11b8a738909ab754ce",
+            "d208e267eb094ed3bb5334f383d99944"
+          ]
+        },
+        {
+          "question": "Which cloud do we deploy on?",
+          "reference": "AWS",
+          "prediction": "AWS.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "08d28c6fccb048eabd4520d2a6e3c737",
+            "d208e267eb094ed3bb5334f383d99944",
+            "9b87a5c4057d42769231df6f102857ec",
+            "422d0ceb8eb24f11b8a738909ab754ce"
+          ]
+        },
+        {
+          "question": "Which test framework do I use?",
+          "reference": "pytest",
+          "prediction": "You use pytest for tests.",
+          "f1": 0.33333333333333337,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "d208e267eb094ed3bb5334f383d99944",
+            "7acb29d73cf4442eb0d1fab8b866785d"
+          ]
+        },
+        {
+          "question": "Which city do I live in?",
+          "reference": "Bucharest",
+          "prediction": "You live in Bucharest.",
+          "f1": 0.4,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "d208e267eb094ed3bb5334f383d99944",
+            "abe9a58d6f55466eb103622ef4a74fb2"
+          ]
+        },
+        {
+          "question": "Which team do I work on?",
+          "reference": "Gemini Platform",
+          "prediction": "You work on the Gemini Platform team.",
+          "f1": 0.4444444444444445,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "d208e267eb094ed3bb5334f383d99944",
+            "9b87a5c4057d42769231df6f102857ec"
+          ]
+        },
+        {
+          "question": "Which programming language do I prefer?",
+          "reference": "TypeScript",
+          "prediction": "You prefer Python.",
+          "f1": 0.0,
+          "is_update_query": true,
+          "answered_with_stale_fact": true,
+          "retrieved_ids": [
+            "49855ce0a79d406791dd860f70e8b2d1",
+            "b9a4f2650c0442eaa4e8014ee35c309a",
+            "6867667d713246dcb7bb90205ca19e1c",
+            "4435ea79f0b346cdbf92819a614a6c5c"
+          ]
+        },
+        {
+          "question": "Which editor do I use?",
+          "reference": "Neovim",
+          "prediction": "Neovim.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "49855ce0a79d406791dd860f70e8b2d1",
+            "4435ea79f0b346cdbf92819a614a6c5c",
+            "b9a4f2650c0442eaa4e8014ee35c309a",
+            "6867667d713246dcb7bb90205ca19e1c"
+          ]
+        },
+        {
+          "question": "Which OS does my machine run?",
+          "reference": "macOS",
+          "prediction": "macOS.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "49855ce0a79d406791dd860f70e8b2d1",
+            "1e3a1d179ff24beb8b20e979bb18bf23"
+          ]
+        },
+        {
+          "question": "What is our production database?",
+          "reference": "PostgreSQL",
+          "prediction": "Our production database is PostgreSQL.",
+          "f1": 0.33333333333333337,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "129a2c1b088846358f4a2a365e9d0b9a",
+            "49855ce0a79d406791dd860f70e8b2d1"
+          ]
+        },
+        {
+          "question": "Which cloud do we deploy on?",
+          "reference": "AWS",
+          "prediction": "We deploy on AWS.",
+          "f1": 0.4,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "fdd590aabc794b3fa30f15e6e51c61c3",
+            "49855ce0a79d406791dd860f70e8b2d1",
+            "7886eb7014674dfcb8fe28d22f4f9f7c",
+            "129a2c1b088846358f4a2a365e9d0b9a"
+          ]
+        },
+        {
+          "question": "Which test framework do I use?",
+          "reference": "pytest",
+          "prediction": "You use pytest for tests.",
+          "f1": 0.33333333333333337,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "49855ce0a79d406791dd860f70e8b2d1",
+            "6867667d713246dcb7bb90205ca19e1c"
+          ]
+        },
+        {
+          "question": "Which city do I live in?",
+          "reference": "Bucharest",
+          "prediction": "Bucharest.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "49855ce0a79d406791dd860f70e8b2d1",
+            "7d0838218587416ba51fd2231e316e03"
+          ]
+        },
+        {
+          "question": "Which team do I work on?",
+          "reference": "Gemini Platform",
+          "prediction": "You work on the Gemini Platform team.",
+          "f1": 0.4444444444444445,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "49855ce0a79d406791dd860f70e8b2d1",
+            "7886eb7014674dfcb8fe28d22f4f9f7c"
+          ]
+        },
+        {
+          "question": "Which programming language do I prefer?",
+          "reference": "Python",
+          "prediction": "Python.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "fa13d7a247e042bfb1e3ab4e58067d54",
+            "839c4d1f00c54f7488b0f4d2448c2210",
+            "786b64784cb144b4aa73d5d96c45fa51",
+            "910a8c7aa5a94e27b0ea9bef1fa8a874"
+          ]
+        },
+        {
+          "question": "Which editor do I use?",
+          "reference": "Neovim",
+          "prediction": "You use Neovim as your editor.",
+          "f1": 0.2857142857142857,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "839c4d1f00c54f7488b0f4d2448c2210",
+            "910a8c7aa5a94e27b0ea9bef1fa8a874",
+            "fa13d7a247e042bfb1e3ab4e58067d54",
+            "786b64784cb144b4aa73d5d96c45fa51"
+          ]
+        },
+        {
+          "question": "Which OS does my machine run?",
+          "reference": "macOS",
+          "prediction": "macOS.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "839c4d1f00c54f7488b0f4d2448c2210",
+            "24a7fe350f074ff2b0ab3356ee4ad21b"
+          ]
+        },
+        {
+          "question": "What is our production database?",
+          "reference": "PostgreSQL",
+          "prediction": "Our production database is PostgreSQL.",
+          "f1": 0.33333333333333337,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "2b77541b6d9c4524a30b49308549ac1a",
+            "839c4d1f00c54f7488b0f4d2448c2210"
+          ]
+        },
+        {
+          "question": "Which cloud do we deploy on?",
+          "reference": "AWS",
+          "prediction": "We deploy on AWS.",
+          "f1": 0.4,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "839c4d1f00c54f7488b0f4d2448c2210",
+            "3a55c21302bf4a59be5b5ae6580637d8",
+            "0e6115f5432a48db8409454a2c19a205",
+            "2b77541b6d9c4524a30b49308549ac1a"
+          ]
+        },
+        {
+          "question": "Which test framework do I use?",
+          "reference": "pytest",
+          "prediction": "You use pytest.",
+          "f1": 0.5,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "839c4d1f00c54f7488b0f4d2448c2210",
+            "786b64784cb144b4aa73d5d96c45fa51"
+          ]
+        },
+        {
+          "question": "Which city do I live in?",
+          "reference": "Amsterdam",
+          "prediction": "You live in Bucharest.",
+          "f1": 0.0,
+          "is_update_query": true,
+          "answered_with_stale_fact": true,
+          "retrieved_ids": [
+            "839c4d1f00c54f7488b0f4d2448c2210",
+            "23729a4119504ba8ac996a57d266d682"
+          ]
+        },
+        {
+          "question": "Which team do I work on?",
+          "reference": "Gemini Platform",
+          "prediction": "You work on the Gemini Platform team.",
+          "f1": 0.4444444444444445,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "839c4d1f00c54f7488b0f4d2448c2210",
+            "0e6115f5432a48db8409454a2c19a205"
+          ]
+        },
+        {
+          "question": "Which programming language do I prefer?",
+          "reference": "Python",
+          "prediction": "Python.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "a6c13b2e28104a279652cdc2a5443407",
+            "3080a43d969447098fac4f5bc01f7d00",
+            "ecc949e4b4dd4aa0ae38bc398ef88ab1",
+            "cf2467c120264ab99bc3826c8656f296"
+          ]
+        },
+        {
+          "question": "Which editor do I use?",
+          "reference": "Neovim",
+          "prediction": "You use Neovim as your editor.",
+          "f1": 0.2857142857142857,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "3080a43d969447098fac4f5bc01f7d00",
+            "cf2467c120264ab99bc3826c8656f296",
+            "a6c13b2e28104a279652cdc2a5443407",
+            "ecc949e4b4dd4aa0ae38bc398ef88ab1"
+          ]
+        },
+        {
+          "question": "Which OS does my machine run?",
+          "reference": "macOS",
+          "prediction": "macOS.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "3080a43d969447098fac4f5bc01f7d00",
+            "6aa57f3b8e324319b94a975da15e9ea1"
+          ]
+        },
+        {
+          "question": "What is our production database?",
+          "reference": "PostgreSQL",
+          "prediction": "Our production database is PostgreSQL.",
+          "f1": 0.33333333333333337,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "1a5568ec3e314536b8fd3b0f1661737f",
+            "3080a43d969447098fac4f5bc01f7d00"
+          ]
+        },
+        {
+          "question": "Which cloud do we deploy on?",
+          "reference": "Azure",
+          "prediction": "You deploy on Azure and AWS.",
+          "f1": 0.2857142857142857,
+          "is_update_query": true,
+          "answered_with_stale_fact": true,
+          "retrieved_ids": [
+            "3080a43d969447098fac4f5bc01f7d00",
+            "8cbd5f26aa6b4f62906ad837e6a77dbd",
+            "4bf14cb87c844dc8913b577b39a34272",
+            "1a5568ec3e314536b8fd3b0f1661737f"
+          ]
+        },
+        {
+          "question": "Which test framework do I use?",
+          "reference": "pytest",
+          "prediction": "You use pytest.",
+          "f1": 0.5,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "3080a43d969447098fac4f5bc01f7d00",
+            "ecc949e4b4dd4aa0ae38bc398ef88ab1"
+          ]
+        },
+        {
+          "question": "Which city do I live in?",
+          "reference": "Bucharest",
+          "prediction": "You live in Bucharest.",
+          "f1": 0.4,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "3080a43d969447098fac4f5bc01f7d00",
+            "b3e59c11f30a4eca88d259d9a149dd29"
+          ]
+        },
+        {
+          "question": "Which team do I work on?",
+          "reference": "Gemini Platform",
+          "prediction": "You work on the Gemini Platform team.",
+          "f1": 0.4444444444444445,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "3080a43d969447098fac4f5bc01f7d00",
+            "4bf14cb87c844dc8913b577b39a34272"
+          ]
+        },
+        {
+          "question": "Which programming language do I prefer?",
+          "reference": "Python",
+          "prediction": "Python.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "aff46cb71e4742749b57696d828cd1d7",
+            "e670edcfc91c49d1a8c146b143a9f0ee",
+            "87169f66ae784b0ba627941014e1746b",
+            "dec39424220f41858f0105f41be79d37"
+          ]
+        },
+        {
+          "question": "Which editor do I use?",
+          "reference": "Emacs",
+          "prediction": "You use Emacs and Neovim as your editors.",
+          "f1": 0.2222222222222222,
+          "is_update_query": true,
+          "answered_with_stale_fact": true,
+          "retrieved_ids": [
+            "aff46cb71e4742749b57696d828cd1d7",
+            "dec39424220f41858f0105f41be79d37",
+            "e670edcfc91c49d1a8c146b143a9f0ee",
+            "87169f66ae784b0ba627941014e1746b"
+          ]
+        },
+        {
+          "question": "Which OS does my machine run?",
+          "reference": "macOS",
+          "prediction": "macOS.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "aff46cb71e4742749b57696d828cd1d7",
+            "e9488c44e51d4e97a01c2f1dcb896231"
+          ]
+        },
+        {
+          "question": "What is our production database?",
+          "reference": "PostgreSQL",
+          "prediction": "Our production database is PostgreSQL.",
+          "f1": 0.33333333333333337,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "62aa95f8b79442a993005a206ffd4a53",
+            "aff46cb71e4742749b57696d828cd1d7"
+          ]
+        },
+        {
+          "question": "Which cloud do we deploy on?",
+          "reference": "AWS",
+          "prediction": "AWS.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "aff46cb71e4742749b57696d828cd1d7",
+            "8944c51056d04b128123c43584fa8fdf",
+            "ad46550e43c243249ddc90b24a70cc88",
+            "62aa95f8b79442a993005a206ffd4a53"
+          ]
+        },
+        {
+          "question": "Which test framework do I use?",
+          "reference": "pytest",
+          "prediction": "You use pytest for tests.",
+          "f1": 0.33333333333333337,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "aff46cb71e4742749b57696d828cd1d7",
+            "87169f66ae784b0ba627941014e1746b"
+          ]
+        },
+        {
+          "question": "Which city do I live in?",
+          "reference": "Bucharest",
+          "prediction": "You live in Bucharest.",
+          "f1": 0.4,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "aff46cb71e4742749b57696d828cd1d7",
+            "429f5c454796476ab2592a94bea84dc4"
+          ]
+        },
+        {
+          "question": "Which team do I work on?",
+          "reference": "Gemini Platform",
+          "prediction": "You work on the Gemini Platform team.",
+          "f1": 0.4444444444444445,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "aff46cb71e4742749b57696d828cd1d7",
+            "ad46550e43c243249ddc90b24a70cc88"
+          ]
+        },
+        {
+          "question": "Which programming language do I prefer?",
+          "reference": "Python",
+          "prediction": "Python.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "e450c54ee65d4b86b61000ef5c6a1fff",
+            "934910ca616c4d6b8447bd6487212a54",
+            "b0a64bdd70cd41148e6cae8983435724",
+            "b314c73c76784e16bc147c64331303a2"
+          ]
+        },
+        {
+          "question": "Which editor do I use?",
+          "reference": "Neovim",
+          "prediction": "Neovim.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "934910ca616c4d6b8447bd6487212a54",
+            "b314c73c76784e16bc147c64331303a2",
+            "e450c54ee65d4b86b61000ef5c6a1fff",
+            "b0a64bdd70cd41148e6cae8983435724"
+          ]
+        },
+        {
+          "question": "Which OS does my machine run?",
+          "reference": "macOS",
+          "prediction": "macOS.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "d43cec35c4b14be1b31545f58f1c8788",
+            "934910ca616c4d6b8447bd6487212a54"
+          ]
+        },
+        {
+          "question": "What is our production database?",
+          "reference": "PostgreSQL",
+          "prediction": "Our production database is PostgreSQL.",
+          "f1": 0.33333333333333337,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "2c1d28d20a5549b88d211b755ab524a8",
+            "934910ca616c4d6b8447bd6487212a54"
+          ]
+        },
+        {
+          "question": "Which cloud do we deploy on?",
+          "reference": "AWS",
+          "prediction": "AWS.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "f4c140fee149404489173438c88661de",
+            "934910ca616c4d6b8447bd6487212a54",
+            "ffb9802d5ee745839d752abca791c3fc",
+            "2c1d28d20a5549b88d211b755ab524a8"
+          ]
+        },
+        {
+          "question": "Which test framework do I use?",
+          "reference": "unittest",
+          "prediction": "You use pytest.",
+          "f1": 0.0,
+          "is_update_query": true,
+          "answered_with_stale_fact": true,
+          "retrieved_ids": [
+            "934910ca616c4d6b8447bd6487212a54",
+            "b0a64bdd70cd41148e6cae8983435724"
+          ]
+        },
+        {
+          "question": "Which city do I live in?",
+          "reference": "Bucharest",
+          "prediction": "Bucharest.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "934910ca616c4d6b8447bd6487212a54",
+            "68030ed895a5471baa15a588935f236c"
+          ]
+        },
+        {
+          "question": "Which team do I work on?",
+          "reference": "Gemini Platform",
+          "prediction": "You work on the Gemini Platform team.",
+          "f1": 0.4444444444444445,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "934910ca616c4d6b8447bd6487212a54",
+            "ffb9802d5ee745839d752abca791c3fc"
+          ]
+        },
+        {
+          "question": "Which programming language do I prefer?",
+          "reference": "Python",
+          "prediction": "Python.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "3cd8f76b21754127b9244445d79db55e",
+            "a6e7f8d828bb47f384d37da18a904c27",
+            "f5d923b476264446b58eefac4ad2edf0",
+            "faecc1951a6d4af58cafd83f1e63dd4a"
+          ]
+        },
+        {
+          "question": "Which editor do I use?",
+          "reference": "Neovim",
+          "prediction": "Neovim.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "a6e7f8d828bb47f384d37da18a904c27",
+            "faecc1951a6d4af58cafd83f1e63dd4a",
+            "3cd8f76b21754127b9244445d79db55e",
+            "f5d923b476264446b58eefac4ad2edf0"
+          ]
+        },
+        {
+          "question": "Which OS does my machine run?",
+          "reference": "macOS",
+          "prediction": "macOS.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "9b06ef7f456f48578997bebc1fcbd9b0",
+            "a6e7f8d828bb47f384d37da18a904c27"
+          ]
+        },
+        {
+          "question": "What is our production database?",
+          "reference": "PostgreSQL",
+          "prediction": "Our production database is PostgreSQL.",
+          "f1": 0.33333333333333337,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "af46f7f42da74bb4935fcd37ac57c975",
+            "a6e7f8d828bb47f384d37da18a904c27"
+          ]
+        },
+        {
+          "question": "Which cloud do we deploy on?",
+          "reference": "AWS",
+          "prediction": "AWS.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "3957fbc1fd20484bbe2e6fa1519bd5d7",
+            "a6e7f8d828bb47f384d37da18a904c27",
+            "042f488fb0ad4ad5b99c48bec6f1d321",
+            "af46f7f42da74bb4935fcd37ac57c975"
+          ]
+        },
+        {
+          "question": "Which test framework do I use?",
+          "reference": "unittest",
+          "prediction": "You use pytest.",
+          "f1": 0.0,
+          "is_update_query": true,
+          "answered_with_stale_fact": true,
+          "retrieved_ids": [
+            "a6e7f8d828bb47f384d37da18a904c27",
+            "f5d923b476264446b58eefac4ad2edf0"
+          ]
+        },
+        {
+          "question": "Which city do I live in?",
+          "reference": "Bucharest",
+          "prediction": "Bucharest.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "a6e7f8d828bb47f384d37da18a904c27",
+            "825cd4eafc2c431b9dba12c9bd8feb6d"
+          ]
+        },
+        {
+          "question": "Which team do I work on?",
+          "reference": "Gemini Platform",
+          "prediction": "You work on the Gemini Platform team.",
+          "f1": 0.4444444444444445,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "a6e7f8d828bb47f384d37da18a904c27",
+            "042f488fb0ad4ad5b99c48bec6f1d321"
+          ]
+        },
+        {
+          "question": "Which programming language do I prefer?",
+          "reference": "Python",
+          "prediction": "Python.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "f2bfc8a7a4424f4b83c690de2c7bb00f",
+            "af2fab419fa94b02826526188f485010",
+            "9e6794baa47d4a2f80744c4716141676",
+            "529215f77f8347049fda82d4d7f3503a"
+          ]
+        },
+        {
+          "question": "Which editor do I use?",
+          "reference": "Emacs",
+          "prediction": "You use Emacs and Neovim as your editors.",
+          "f1": 0.2222222222222222,
+          "is_update_query": true,
+          "answered_with_stale_fact": true,
+          "retrieved_ids": [
+            "f2bfc8a7a4424f4b83c690de2c7bb00f",
+            "529215f77f8347049fda82d4d7f3503a",
+            "af2fab419fa94b02826526188f485010",
+            "9e6794baa47d4a2f80744c4716141676"
+          ]
+        },
+        {
+          "question": "Which OS does my machine run?",
+          "reference": "macOS",
+          "prediction": "macOS.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "f2bfc8a7a4424f4b83c690de2c7bb00f",
+            "cf267a3639614dbe8c894f37a6a3870a"
+          ]
+        },
+        {
+          "question": "What is our production database?",
+          "reference": "PostgreSQL",
+          "prediction": "Our production database is PostgreSQL.",
+          "f1": 0.33333333333333337,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "79180b46f90a4923b8d9c33017516ddc",
+            "f2bfc8a7a4424f4b83c690de2c7bb00f"
+          ]
+        },
+        {
+          "question": "Which cloud do we deploy on?",
+          "reference": "AWS",
+          "prediction": "AWS.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "f2bfc8a7a4424f4b83c690de2c7bb00f",
+            "f0c5d05fb9394abab6698b4f382aa41a",
+            "84419f17c1f34508a158021b9034d315",
+            "79180b46f90a4923b8d9c33017516ddc"
+          ]
+        },
+        {
+          "question": "Which test framework do I use?",
+          "reference": "pytest",
+          "prediction": "You use pytest for tests.",
+          "f1": 0.33333333333333337,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "f2bfc8a7a4424f4b83c690de2c7bb00f",
+            "9e6794baa47d4a2f80744c4716141676"
+          ]
+        },
+        {
+          "question": "Which city do I live in?",
+          "reference": "Bucharest",
+          "prediction": "You live in Bucharest.",
+          "f1": 0.4,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "f2bfc8a7a4424f4b83c690de2c7bb00f",
+            "7704f516521049f9ae7cb2a3838dc172"
+          ]
+        },
+        {
+          "question": "Which team do I work on?",
+          "reference": "Gemini Platform",
+          "prediction": "You work on the Gemini Platform team.",
+          "f1": 0.4444444444444445,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "f2bfc8a7a4424f4b83c690de2c7bb00f",
+            "84419f17c1f34508a158021b9034d315"
+          ]
+        },
+        {
+          "question": "Which programming language do I prefer?",
+          "reference": "Python",
+          "prediction": "Python.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "f1c2dd72c67e4583b3ff10b245680104",
+            "45b5f40c413446aca54f3d220367e530",
+            "aad043792b824d858ad556d94713623d",
+            "7ff29493ea054150b1f025f03591b8a0"
+          ]
+        },
+        {
+          "question": "Which editor do I use?",
+          "reference": "Neovim",
+          "prediction": "You use Neovim as your editor.",
+          "f1": 0.2857142857142857,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "45b5f40c413446aca54f3d220367e530",
+            "7ff29493ea054150b1f025f03591b8a0",
+            "f1c2dd72c67e4583b3ff10b245680104",
+            "aad043792b824d858ad556d94713623d"
+          ]
+        },
+        {
+          "question": "Which OS does my machine run?",
+          "reference": "macOS",
+          "prediction": "macOS.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "45b5f40c413446aca54f3d220367e530",
+            "9ef42f414a25460e94823e8cb7cdd10c"
+          ]
+        },
+        {
+          "question": "What is our production database?",
+          "reference": "PostgreSQL",
+          "prediction": "Our production database is PostgreSQL.",
+          "f1": 0.33333333333333337,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "9eea091617f2430fa0316e26cf95ce69",
+            "45b5f40c413446aca54f3d220367e530"
+          ]
+        },
+        {
+          "question": "Which cloud do we deploy on?",
+          "reference": "AWS",
+          "prediction": "AWS.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "45b5f40c413446aca54f3d220367e530",
+            "1c51e0e24d944f939f777cbef64c357e",
+            "b781be7dc29749dea54a961ed85ccb35",
+            "9eea091617f2430fa0316e26cf95ce69"
+          ]
+        },
+        {
+          "question": "Which test framework do I use?",
+          "reference": "pytest",
+          "prediction": "You use pytest.",
+          "f1": 0.5,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "45b5f40c413446aca54f3d220367e530",
+            "aad043792b824d858ad556d94713623d"
+          ]
+        },
+        {
+          "question": "Which city do I live in?",
+          "reference": "Bucharest",
+          "prediction": "You live in Bucharest.",
+          "f1": 0.4,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "45b5f40c413446aca54f3d220367e530",
+            "0fa11858293246009586deec75a0c411"
+          ]
+        },
+        {
+          "question": "Which team do I work on?",
+          "reference": "Express",
+          "prediction": "You work on the Gemini Platform team.",
+          "f1": 0.0,
+          "is_update_query": true,
+          "answered_with_stale_fact": true,
+          "retrieved_ids": [
+            "45b5f40c413446aca54f3d220367e530",
+            "b781be7dc29749dea54a961ed85ccb35"
+          ]
+        },
+        {
+          "question": "Which programming language do I prefer?",
+          "reference": "Python",
+          "prediction": "Python.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "61d9eb0699254cc4a16bcc0d56ce0cbf",
+            "842e044922d24aab9725d404430dbb67",
+            "ec6636e914c848abb8e7c1c8e0f591f8",
+            "7f80b35d15b649b4b4b02a4c8795f063"
+          ]
+        },
+        {
+          "question": "Which editor do I use?",
+          "reference": "Neovim",
+          "prediction": "You use Neovim as your editor.",
+          "f1": 0.2857142857142857,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "842e044922d24aab9725d404430dbb67",
+            "7f80b35d15b649b4b4b02a4c8795f063",
+            "61d9eb0699254cc4a16bcc0d56ce0cbf",
+            "ec6636e914c848abb8e7c1c8e0f591f8"
+          ]
+        },
+        {
+          "question": "Which OS does my machine run?",
+          "reference": "macOS",
+          "prediction": "macOS.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "842e044922d24aab9725d404430dbb67",
+            "f7f7149945ba41bebdfd3d1fc1f6fe89"
+          ]
+        },
+        {
+          "question": "What is our production database?",
+          "reference": "MongoDB",
+          "prediction": "It's either MongoDB or PostgreSQL.",
+          "f1": 0.2857142857142857,
+          "is_update_query": true,
+          "answered_with_stale_fact": true,
+          "retrieved_ids": [
+            "842e044922d24aab9725d404430dbb67",
+            "8984758a54fb4d849c3aa930e5fa0d26"
+          ]
+        },
+        {
+          "question": "Which cloud do we deploy on?",
+          "reference": "AWS",
+          "prediction": "AWS.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "842e044922d24aab9725d404430dbb67",
+            "61385e4f7b9d4f8db9d22163e6441d2b",
+            "5e4951e526b644a5a6d967dae50e9872",
+            "8984758a54fb4d849c3aa930e5fa0d26"
+          ]
+        },
+        {
+          "question": "Which test framework do I use?",
+          "reference": "pytest",
+          "prediction": "You use pytest for tests.",
+          "f1": 0.33333333333333337,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "842e044922d24aab9725d404430dbb67",
+            "ec6636e914c848abb8e7c1c8e0f591f8"
+          ]
+        },
+        {
+          "question": "Which city do I live in?",
+          "reference": "Bucharest",
+          "prediction": "You live in Bucharest.",
+          "f1": 0.4,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "842e044922d24aab9725d404430dbb67",
+            "710c0687105c4280b13d47edc1b4c047"
+          ]
+        },
+        {
+          "question": "Which team do I work on?",
+          "reference": "Gemini Platform",
+          "prediction": "You work on the Gemini Platform team.",
+          "f1": 0.4444444444444445,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "842e044922d24aab9725d404430dbb67",
+            "5e4951e526b644a5a6d967dae50e9872"
+          ]
+        }
+      ]
+    },
+    {
+      "configuration": "memory+selection",
+      "n_questions": 80,
+      "mean_f1": 0.5747438672438673,
+      "recall_at_k": 1.0,
+      "stale_bias_rate": 1.0,
+      "results": [
+        {
+          "question": "Which programming language do I prefer?",
+          "reference": "Python",
+          "prediction": "Python.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "07796da72b9d435a9e549d74be3b8aaf",
+            "1e334a36970c42c7ad67ec90af44a43e"
+          ]
+        },
+        {
+          "question": "Which editor do I use?",
+          "reference": "VS Code",
+          "prediction": "You use VS Code and Neovim as your editors.",
+          "f1": 0.3636363636363636,
+          "is_update_query": true,
+          "answered_with_stale_fact": true,
+          "retrieved_ids": [
+            "1e334a36970c42c7ad67ec90af44a43e",
+            "4617c8278b5a4bb4b241e83bc82c6c2b",
+            "07796da72b9d435a9e549d74be3b8aaf"
+          ]
+        },
+        {
+          "question": "Which OS does my machine run?",
+          "reference": "macOS",
+          "prediction": "macOS.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "30e203acfcbd470f85a4b1d6a3adbe4e"
+          ]
+        },
+        {
+          "question": "What is our production database?",
+          "reference": "PostgreSQL",
+          "prediction": "It is a PostgreSQL database.",
+          "f1": 0.33333333333333337,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "62cae720b49e436d8d79ae7131b9ad94"
+          ]
+        },
+        {
+          "question": "Which cloud do we deploy on?",
+          "reference": "AWS",
+          "prediction": "AWS.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "aa4a435700194c8ca04ae30f67e693c1"
+          ]
+        },
+        {
+          "question": "Which test framework do I use?",
+          "reference": "pytest",
+          "prediction": "You use pytest.",
+          "f1": 0.5,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "fcaeac2d72394e7c8bae59ed5cdba582"
+          ]
+        },
+        {
+          "question": "Which city do I live in?",
+          "reference": "Bucharest",
+          "prediction": "You live in Bucharest.",
+          "f1": 0.4,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "9f2ae622bb7f48c29a802c497ec9374a"
+          ]
+        },
+        {
+          "question": "Which team do I work on?",
+          "reference": "Gemini Platform",
+          "prediction": "You work on the Gemini Platform team.",
+          "f1": 0.4444444444444445,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "4a750719eb9d4dafb1d724622348b103"
+          ]
+        },
+        {
+          "question": "Which programming language do I prefer?",
+          "reference": "TypeScript",
+          "prediction": "Python.",
+          "f1": 0.0,
+          "is_update_query": true,
+          "answered_with_stale_fact": true,
+          "retrieved_ids": [
+            "c844f9fa5ff5414d87450062d71b04ce",
+            "1720f21667d44d2ba26323e14fc2ce44"
+          ]
+        },
+        {
+          "question": "Which editor do I use?",
+          "reference": "Neovim",
+          "prediction": "You use Neovim as your editor.",
+          "f1": 0.2857142857142857,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "df1c01b6ac1945178db1a34f25daa256",
+            "1720f21667d44d2ba26323e14fc2ce44"
+          ]
+        },
+        {
+          "question": "Which OS does my machine run?",
+          "reference": "macOS",
+          "prediction": "macOS.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "eebda9ba87394b1fa91f839a0414dcc7"
+          ]
+        },
+        {
+          "question": "What is our production database?",
+          "reference": "PostgreSQL",
+          "prediction": "It is a PostgreSQL database.",
+          "f1": 0.33333333333333337,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "edf56409b94147b0acaee3730862b8a7"
+          ]
+        },
+        {
+          "question": "Which cloud do we deploy on?",
+          "reference": "AWS",
+          "prediction": "AWS.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "0daf4614e84c4e84bcaef9a1b37bf565"
+          ]
+        },
+        {
+          "question": "Which test framework do I use?",
+          "reference": "pytest",
+          "prediction": "You use pytest.",
+          "f1": 0.5,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "8955dd7670244309954285a07ee13bad"
+          ]
+        },
+        {
+          "question": "Which city do I live in?",
+          "reference": "Bucharest",
+          "prediction": "You live in Bucharest.",
+          "f1": 0.4,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "63f6f07b174140e3a821ee4f2ff0a05e"
+          ]
+        },
+        {
+          "question": "Which team do I work on?",
+          "reference": "Gemini Platform",
+          "prediction": "You work on the Gemini Platform team.",
+          "f1": 0.4444444444444445,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "2674baeed7b148ad9f5d58b34f22f040"
+          ]
+        },
+        {
+          "question": "Which programming language do I prefer?",
+          "reference": "Python",
+          "prediction": "Python.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "441e7a66db844cf4b060c254ebf4fc8c"
+          ]
+        },
+        {
+          "question": "Which editor do I use?",
+          "reference": "Neovim",
+          "prediction": "You use Neovim as your editor.",
+          "f1": 0.2857142857142857,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "bd2148f0845548b48f7529661168ccad",
+            "441e7a66db844cf4b060c254ebf4fc8c"
+          ]
+        },
+        {
+          "question": "Which OS does my machine run?",
+          "reference": "macOS",
+          "prediction": "macOS.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "4b8c1cedb61d4f55beab90a89105b00c"
+          ]
+        },
+        {
+          "question": "What is our production database?",
+          "reference": "PostgreSQL",
+          "prediction": "It is a PostgreSQL database.",
+          "f1": 0.33333333333333337,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "8cf373c4cfe4416f913a7f657c9a86f4"
+          ]
+        },
+        {
+          "question": "Which cloud do we deploy on?",
+          "reference": "AWS",
+          "prediction": "AWS.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "62809359457c4b798f7ac9be016314b7"
+          ]
+        },
+        {
+          "question": "Which test framework do I use?",
+          "reference": "pytest",
+          "prediction": "You use pytest.",
+          "f1": 0.5,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "b0336b474e7e4a1a98539b23147d9206"
+          ]
+        },
+        {
+          "question": "Which city do I live in?",
+          "reference": "Amsterdam",
+          "prediction": "You live in Bucharest.",
+          "f1": 0.0,
+          "is_update_query": true,
+          "answered_with_stale_fact": true,
+          "retrieved_ids": [
+            "d5c9987576304ac18a4ed51df636539b",
+            "cc76c737b21b424e910b5f9b8ea3918a"
+          ]
+        },
+        {
+          "question": "Which team do I work on?",
+          "reference": "Gemini Platform",
+          "prediction": "You work on the Gemini Platform team.",
+          "f1": 0.4444444444444445,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "d039830e1b5a4dce905d1fee176549fc"
+          ]
+        },
+        {
+          "question": "Which programming language do I prefer?",
+          "reference": "Python",
+          "prediction": "Python.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "e41121465982411b87df4883538479b5"
+          ]
+        },
+        {
+          "question": "Which editor do I use?",
+          "reference": "Neovim",
+          "prediction": "You use Neovim as your editor.",
+          "f1": 0.2857142857142857,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "6fc7244718474758a9e9bda43dde96fb",
+            "e41121465982411b87df4883538479b5"
+          ]
+        },
+        {
+          "question": "Which OS does my machine run?",
+          "reference": "macOS",
+          "prediction": "macOS.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "ef49500a2b324986b4301daa7a43043a"
+          ]
+        },
+        {
+          "question": "What is our production database?",
+          "reference": "PostgreSQL",
+          "prediction": "It is a PostgreSQL database.",
+          "f1": 0.33333333333333337,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "7835fe854728487e93b9816429a49d5c"
+          ]
+        },
+        {
+          "question": "Which cloud do we deploy on?",
+          "reference": "Azure",
+          "prediction": "You deploy on Azure and AWS.",
+          "f1": 0.2857142857142857,
+          "is_update_query": true,
+          "answered_with_stale_fact": true,
+          "retrieved_ids": [
+            "232a2abe9f5c49a6a5680d3ca5d28b66",
+            "464e03a5d9b548179d09268ad61a2d9f"
+          ]
+        },
+        {
+          "question": "Which test framework do I use?",
+          "reference": "pytest",
+          "prediction": "You use pytest.",
+          "f1": 0.5,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "1201ce026a2c4b3293bd949aa32cdc93"
+          ]
+        },
+        {
+          "question": "Which city do I live in?",
+          "reference": "Bucharest",
+          "prediction": "You live in Bucharest.",
+          "f1": 0.4,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "022c53bf2d31499fb669b7d9146e4b44"
+          ]
+        },
+        {
+          "question": "Which team do I work on?",
+          "reference": "Gemini Platform",
+          "prediction": "You work on the Gemini Platform team.",
+          "f1": 0.4444444444444445,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "a70c759ec2f3484c87f30c6c50ee4beb"
+          ]
+        },
+        {
+          "question": "Which programming language do I prefer?",
+          "reference": "Python",
+          "prediction": "Python.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "f474fa10ab124db5bbc2c08946c55678"
+          ]
+        },
+        {
+          "question": "Which editor do I use?",
+          "reference": "Emacs",
+          "prediction": "You use both Emacs and Neovim as editors.",
+          "f1": 0.2222222222222222,
+          "is_update_query": true,
+          "answered_with_stale_fact": true,
+          "retrieved_ids": [
+            "8068aa2558d64a09972e774bd890737b",
+            "9d916f4c64fa46539be7dc3819554da9",
+            "f474fa10ab124db5bbc2c08946c55678"
+          ]
+        },
+        {
+          "question": "Which OS does my machine run?",
+          "reference": "macOS",
+          "prediction": "macOS.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "9bd0629463c842eba28c0ca483bbda69"
+          ]
+        },
+        {
+          "question": "What is our production database?",
+          "reference": "PostgreSQL",
+          "prediction": "It is a PostgreSQL database.",
+          "f1": 0.33333333333333337,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "89123a99935044a697bbe22a532d5876"
+          ]
+        },
+        {
+          "question": "Which cloud do we deploy on?",
+          "reference": "AWS",
+          "prediction": "AWS.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "2cd21de20326440a8a7ea0fe4fc3f6c9"
+          ]
+        },
+        {
+          "question": "Which test framework do I use?",
+          "reference": "pytest",
+          "prediction": "You use pytest.",
+          "f1": 0.5,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "a9c90eb2e50040fa899a7d1c3a715099"
+          ]
+        },
+        {
+          "question": "Which city do I live in?",
+          "reference": "Bucharest",
+          "prediction": "You live in Bucharest.",
+          "f1": 0.4,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "7d1a62de1c6b431ebad43e971cc70c20"
+          ]
+        },
+        {
+          "question": "Which team do I work on?",
+          "reference": "Gemini Platform",
+          "prediction": "You work on the Gemini Platform team.",
+          "f1": 0.4444444444444445,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "0bbf01c3c3f54c4cbad10448d355da08"
+          ]
+        },
+        {
+          "question": "Which programming language do I prefer?",
+          "reference": "Python",
+          "prediction": "Python.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "d4b77ea15f334b03a9182808cd668a1c"
+          ]
+        },
+        {
+          "question": "Which editor do I use?",
+          "reference": "Neovim",
+          "prediction": "You use Neovim as your editor.",
+          "f1": 0.2857142857142857,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "06ca1a4449094ce8b9de7f67a2c26c30",
+            "d4b77ea15f334b03a9182808cd668a1c"
+          ]
+        },
+        {
+          "question": "Which OS does my machine run?",
+          "reference": "macOS",
+          "prediction": "macOS.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "a7ac3d13243e4433ac45ddc36b3dddc5"
+          ]
+        },
+        {
+          "question": "What is our production database?",
+          "reference": "PostgreSQL",
+          "prediction": "It is a PostgreSQL database.",
+          "f1": 0.33333333333333337,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "1beea8f9a29e49799228e451d32af612"
+          ]
+        },
+        {
+          "question": "Which cloud do we deploy on?",
+          "reference": "AWS",
+          "prediction": "AWS.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "39f4a665b62d46449b44709c67cc11f1"
+          ]
+        },
+        {
+          "question": "Which test framework do I use?",
+          "reference": "unittest",
+          "prediction": "You use pytest.",
+          "f1": 0.0,
+          "is_update_query": true,
+          "answered_with_stale_fact": true,
+          "retrieved_ids": [
+            "a330760bb3964d66b52f2fea116fb8f7",
+            "371fa612f1ad4ac2953f139e4cbe23df"
+          ]
+        },
+        {
+          "question": "Which city do I live in?",
+          "reference": "Bucharest",
+          "prediction": "You live in Bucharest.",
+          "f1": 0.4,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "98697a0497f44d73aff6d61d48b671fb"
+          ]
+        },
+        {
+          "question": "Which team do I work on?",
+          "reference": "Gemini Platform",
+          "prediction": "You work on the Gemini Platform team.",
+          "f1": 0.4444444444444445,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "694ddfdc06cb4a14a8d51c80560ef28e"
+          ]
+        },
+        {
+          "question": "Which programming language do I prefer?",
+          "reference": "Python",
+          "prediction": "Python.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "06b0982f4e634da0a7f4cdc9877f24f6"
+          ]
+        },
+        {
+          "question": "Which editor do I use?",
+          "reference": "Neovim",
+          "prediction": "You use Neovim as your editor.",
+          "f1": 0.2857142857142857,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "fa804d88c23b4d229a492ac7f35fdd27",
+            "06b0982f4e634da0a7f4cdc9877f24f6"
+          ]
+        },
+        {
+          "question": "Which OS does my machine run?",
+          "reference": "macOS",
+          "prediction": "macOS.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "d575b81d4499426db78853889cbcdcbc"
+          ]
+        },
+        {
+          "question": "What is our production database?",
+          "reference": "PostgreSQL",
+          "prediction": "It is a PostgreSQL database.",
+          "f1": 0.33333333333333337,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "b5fe44d61add4622a84ac6c466378d3e"
+          ]
+        },
+        {
+          "question": "Which cloud do we deploy on?",
+          "reference": "AWS",
+          "prediction": "AWS.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "e994743afb2840eeab080788435a459a"
+          ]
+        },
+        {
+          "question": "Which test framework do I use?",
+          "reference": "unittest",
+          "prediction": "You use pytest.",
+          "f1": 0.0,
+          "is_update_query": true,
+          "answered_with_stale_fact": true,
+          "retrieved_ids": [
+            "01ddf98734224b8cb7898a8f96fd93cd",
+            "46284d1518704597b5a5a52310498961"
+          ]
+        },
+        {
+          "question": "Which city do I live in?",
+          "reference": "Bucharest",
+          "prediction": "You live in Bucharest.",
+          "f1": 0.4,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "5c26a07a08574450806d2160119b47b0"
+          ]
+        },
+        {
+          "question": "Which team do I work on?",
+          "reference": "Gemini Platform",
+          "prediction": "You work on the Gemini Platform team.",
+          "f1": 0.4444444444444445,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "7da681746ea648ce9d06cb50abef324f"
+          ]
+        },
+        {
+          "question": "Which programming language do I prefer?",
+          "reference": "Python",
+          "prediction": "Python.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "321d81a7550e4e0c920463d06dcf4c44"
+          ]
+        },
+        {
+          "question": "Which editor do I use?",
+          "reference": "Emacs",
+          "prediction": "You use both Emacs and Neovim as editors.",
+          "f1": 0.2222222222222222,
+          "is_update_query": true,
+          "answered_with_stale_fact": true,
+          "retrieved_ids": [
+            "2c190cd8a06043d587861103d754d10c",
+            "3596631889ae41a0bf284a39bf688e3e",
+            "321d81a7550e4e0c920463d06dcf4c44"
+          ]
+        },
+        {
+          "question": "Which OS does my machine run?",
+          "reference": "macOS",
+          "prediction": "macOS.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "1a05620ec23c46d3a4969dcf78c9c154"
+          ]
+        },
+        {
+          "question": "What is our production database?",
+          "reference": "PostgreSQL",
+          "prediction": "It is a PostgreSQL database.",
+          "f1": 0.33333333333333337,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "78b7ae3c99814bf380bf9350af112733"
+          ]
+        },
+        {
+          "question": "Which cloud do we deploy on?",
+          "reference": "AWS",
+          "prediction": "AWS.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "8dc99269654d466ebcb9a527a9287b69"
+          ]
+        },
+        {
+          "question": "Which test framework do I use?",
+          "reference": "pytest",
+          "prediction": "You use pytest.",
+          "f1": 0.5,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "5090b8e839df432e983cbbf526c643c9"
+          ]
+        },
+        {
+          "question": "Which city do I live in?",
+          "reference": "Bucharest",
+          "prediction": "You live in Bucharest.",
+          "f1": 0.4,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "518c03ce9353400c9bd7c84c277187ba"
+          ]
+        },
+        {
+          "question": "Which team do I work on?",
+          "reference": "Gemini Platform",
+          "prediction": "You work on the Gemini Platform team.",
+          "f1": 0.4444444444444445,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "50cbc933a268498f88136990968cf2e8"
+          ]
+        },
+        {
+          "question": "Which programming language do I prefer?",
+          "reference": "Python",
+          "prediction": "Python.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "a0970f86cce7471fab30f5cd2f4f6e55"
+          ]
+        },
+        {
+          "question": "Which editor do I use?",
+          "reference": "Neovim",
+          "prediction": "You use Neovim as your editor.",
+          "f1": 0.2857142857142857,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "a0a351222dfb4b649eb486f028c3667c",
+            "a0970f86cce7471fab30f5cd2f4f6e55"
+          ]
+        },
+        {
+          "question": "Which OS does my machine run?",
+          "reference": "macOS",
+          "prediction": "macOS.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "4664babfcf754e8abb100743e5a2844c"
+          ]
+        },
+        {
+          "question": "What is our production database?",
+          "reference": "PostgreSQL",
+          "prediction": "It is a PostgreSQL database.",
+          "f1": 0.33333333333333337,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "336d44246390406ba001afb37c9af16a"
+          ]
+        },
+        {
+          "question": "Which cloud do we deploy on?",
+          "reference": "AWS",
+          "prediction": "AWS.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "a789cf9b26424b3d953396e6ac0adbff"
+          ]
+        },
+        {
+          "question": "Which test framework do I use?",
+          "reference": "pytest",
+          "prediction": "You use pytest.",
+          "f1": 0.5,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "c385d02994034c0b9f2b4fc47f77ef4d"
+          ]
+        },
+        {
+          "question": "Which city do I live in?",
+          "reference": "Bucharest",
+          "prediction": "You live in Bucharest.",
+          "f1": 0.4,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "09a5820af9794064afba27ff9f668fab"
+          ]
+        },
+        {
+          "question": "Which team do I work on?",
+          "reference": "Express",
+          "prediction": "You work on the Gemini Platform team.",
+          "f1": 0.0,
+          "is_update_query": true,
+          "answered_with_stale_fact": true,
+          "retrieved_ids": [
+            "2a69150f5e744832b574ae5508d12ea9",
+            "3aa779386145457bb13d1ce37db1d2c9"
+          ]
+        },
+        {
+          "question": "Which programming language do I prefer?",
+          "reference": "Python",
+          "prediction": "Python.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "2b0e914ec6a34a52a264e4ee917ee0fe"
+          ]
+        },
+        {
+          "question": "Which editor do I use?",
+          "reference": "Neovim",
+          "prediction": "You use Neovim as your editor.",
+          "f1": 0.2857142857142857,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "dc11dae2f90a49cca593800d1bcbb79e",
+            "2b0e914ec6a34a52a264e4ee917ee0fe"
+          ]
+        },
+        {
+          "question": "Which OS does my machine run?",
+          "reference": "macOS",
+          "prediction": "macOS.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "5fe90f02809d4c76ae63e0f41f5d5899"
+          ]
+        },
+        {
+          "question": "What is our production database?",
+          "reference": "MongoDB",
+          "prediction": "It's either MongoDB or PostgreSQL.",
+          "f1": 0.2857142857142857,
+          "is_update_query": true,
+          "answered_with_stale_fact": true,
+          "retrieved_ids": [
+            "1bb49e9c8da64015b3447e1bb99d76ea",
+            "e7a58b95db5743c59de7be3289fd5724"
+          ]
+        },
+        {
+          "question": "Which cloud do we deploy on?",
+          "reference": "AWS",
+          "prediction": "AWS.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "ecc0fa01e6054ee98cf1785ee7180ab0"
+          ]
+        },
+        {
+          "question": "Which test framework do I use?",
+          "reference": "pytest",
+          "prediction": "You use pytest.",
+          "f1": 0.5,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "ea2256d65dd345dfa2242a024c56118c"
+          ]
+        },
+        {
+          "question": "Which city do I live in?",
+          "reference": "Bucharest",
+          "prediction": "You live in Bucharest.",
+          "f1": 0.4,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "c7662feb8be444e2a2cc30739c40462a"
+          ]
+        },
+        {
+          "question": "Which team do I work on?",
+          "reference": "Gemini Platform",
+          "prediction": "You work on the Gemini Platform team.",
+          "f1": 0.4444444444444445,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "e6e5385cca7f4958ae1dffca3ccc0fc6"
+          ]
+        }
+      ]
+    },
+    {
+      "configuration": "memory+lifecycle",
+      "n_questions": 80,
+      "mean_f1": 0.6524404761904762,
+      "recall_at_k": 1.0,
+      "stale_bias_rate": 0.0,
+      "results": [
+        {
+          "question": "Which programming language do I prefer?",
+          "reference": "Python",
+          "prediction": "Python.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "15ecd97ba78540ff89739b2db86847d6",
+            "1952e3953c044357abfcea8d65b9a819",
+            "2d951b5858af49ad821c3221bf1678ec"
+          ]
+        },
+        {
+          "question": "Which editor do I use?",
+          "reference": "VS Code",
+          "prediction": "You use VS Code.",
+          "f1": 0.6666666666666666,
+          "is_update_query": true,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "15ecd97ba78540ff89739b2db86847d6",
+            "1952e3953c044357abfcea8d65b9a819",
+            "2d951b5858af49ad821c3221bf1678ec"
+          ]
+        },
+        {
+          "question": "Which OS does my machine run?",
+          "reference": "macOS",
+          "prediction": "macOS.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "15ecd97ba78540ff89739b2db86847d6",
+            "eaaabe8fc52949c197e6d6d5fa7e70dc"
+          ]
+        },
+        {
+          "question": "What is our production database?",
+          "reference": "PostgreSQL",
+          "prediction": "Our production database is PostgreSQL.",
+          "f1": 0.33333333333333337,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "4dd7b19cf40b4e328ba2bf72e11d1d12",
+            "15ecd97ba78540ff89739b2db86847d6"
+          ]
+        },
+        {
+          "question": "Which cloud do we deploy on?",
+          "reference": "AWS",
+          "prediction": "AWS.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "716b91d419bc4ab09646035e1eadfeda",
+            "15ecd97ba78540ff89739b2db86847d6",
+            "edb5f08176ff494fadcf5ae437274574",
+            "4dd7b19cf40b4e328ba2bf72e11d1d12"
+          ]
+        },
+        {
+          "question": "Which test framework do I use?",
+          "reference": "pytest",
+          "prediction": "You use pytest for tests.",
+          "f1": 0.33333333333333337,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "15ecd97ba78540ff89739b2db86847d6",
+            "2d951b5858af49ad821c3221bf1678ec"
+          ]
+        },
+        {
+          "question": "Which city do I live in?",
+          "reference": "Bucharest",
+          "prediction": "You live in Bucharest.",
+          "f1": 0.4,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "15ecd97ba78540ff89739b2db86847d6",
+            "40b26561c04c493da961aa90f25fca08"
+          ]
+        },
+        {
+          "question": "Which team do I work on?",
+          "reference": "Gemini Platform",
+          "prediction": "You work on the Gemini Platform team.",
+          "f1": 0.4444444444444445,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "15ecd97ba78540ff89739b2db86847d6",
+            "edb5f08176ff494fadcf5ae437274574"
+          ]
+        },
+        {
+          "question": "Which programming language do I prefer?",
+          "reference": "TypeScript",
+          "prediction": "TypeScript.",
+          "f1": 1.0,
+          "is_update_query": true,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "d2a2746917b348269d150a7fac6ac46e",
+            "f1956d1aed6a4ceba31a0028bc864939",
+            "fb7fb5f5fd384214b60c61a31fece67f"
+          ]
+        },
+        {
+          "question": "Which editor do I use?",
+          "reference": "Neovim",
+          "prediction": "Neovim.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "d2a2746917b348269d150a7fac6ac46e",
+            "fb7fb5f5fd384214b60c61a31fece67f",
+            "f1956d1aed6a4ceba31a0028bc864939"
+          ]
+        },
+        {
+          "question": "Which OS does my machine run?",
+          "reference": "macOS",
+          "prediction": "macOS.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "d2a2746917b348269d150a7fac6ac46e",
+            "c2ba89bd6ee8424b98bfd0bf2a78167d"
+          ]
+        },
+        {
+          "question": "What is our production database?",
+          "reference": "PostgreSQL",
+          "prediction": "Our production database is PostgreSQL.",
+          "f1": 0.33333333333333337,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "2ac46302cc9e4b9a90dcbe87f205537b",
+            "d2a2746917b348269d150a7fac6ac46e"
+          ]
+        },
+        {
+          "question": "Which cloud do we deploy on?",
+          "reference": "AWS",
+          "prediction": "We deploy on AWS.",
+          "f1": 0.4,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "4ac33d9e80fb485b8668d5725e025605",
+            "d2a2746917b348269d150a7fac6ac46e",
+            "b1559b38cd034f8ea5cacaf2bba0de65",
+            "2ac46302cc9e4b9a90dcbe87f205537b"
+          ]
+        },
+        {
+          "question": "Which test framework do I use?",
+          "reference": "pytest",
+          "prediction": "You use pytest for tests.",
+          "f1": 0.33333333333333337,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "d2a2746917b348269d150a7fac6ac46e",
+            "f1956d1aed6a4ceba31a0028bc864939"
+          ]
+        },
+        {
+          "question": "Which city do I live in?",
+          "reference": "Bucharest",
+          "prediction": "Bucharest.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "d2a2746917b348269d150a7fac6ac46e",
+            "07051fdd9f064ef89390aef5c299ed4f"
+          ]
+        },
+        {
+          "question": "Which team do I work on?",
+          "reference": "Gemini Platform",
+          "prediction": "You work on the Gemini Platform team.",
+          "f1": 0.4444444444444445,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "d2a2746917b348269d150a7fac6ac46e",
+            "b1559b38cd034f8ea5cacaf2bba0de65"
+          ]
+        },
+        {
+          "question": "Which programming language do I prefer?",
+          "reference": "Python",
+          "prediction": "Python.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "fc69b8df418b4c9a958d7f4268210c87",
+            "c1d4bd7accb84076b0e531fb1165f122",
+            "efea7494f7e3440cbb16714b8e9657a6",
+            "6fffb196103447b3976301d12aaac77c"
+          ]
+        },
+        {
+          "question": "Which editor do I use?",
+          "reference": "Neovim",
+          "prediction": "You use Neovim as your editor.",
+          "f1": 0.2857142857142857,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "c1d4bd7accb84076b0e531fb1165f122",
+            "6fffb196103447b3976301d12aaac77c",
+            "fc69b8df418b4c9a958d7f4268210c87",
+            "efea7494f7e3440cbb16714b8e9657a6"
+          ]
+        },
+        {
+          "question": "Which OS does my machine run?",
+          "reference": "macOS",
+          "prediction": "macOS.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "c1d4bd7accb84076b0e531fb1165f122",
+            "b9419cc631034f4f9c4ed037b8e25567"
+          ]
+        },
+        {
+          "question": "What is our production database?",
+          "reference": "PostgreSQL",
+          "prediction": "Our production database is PostgreSQL.",
+          "f1": 0.33333333333333337,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "1d015e1e2c38420eab7c0eba74d1052f",
+            "c1d4bd7accb84076b0e531fb1165f122"
+          ]
+        },
+        {
+          "question": "Which cloud do we deploy on?",
+          "reference": "AWS",
+          "prediction": "We deploy on AWS.",
+          "f1": 0.4,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "c1d4bd7accb84076b0e531fb1165f122",
+            "8f83c1efd2f941da8adb8caa8f81d7dc",
+            "21f1726c181b4d1396545f1aa568faff",
+            "1d015e1e2c38420eab7c0eba74d1052f"
+          ]
+        },
+        {
+          "question": "Which test framework do I use?",
+          "reference": "pytest",
+          "prediction": "You use pytest.",
+          "f1": 0.5,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "c1d4bd7accb84076b0e531fb1165f122",
+            "efea7494f7e3440cbb16714b8e9657a6"
+          ]
+        },
+        {
+          "question": "Which city do I live in?",
+          "reference": "Amsterdam",
+          "prediction": "You live in Amsterdam.",
+          "f1": 0.4,
+          "is_update_query": true,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "c1d4bd7accb84076b0e531fb1165f122"
+          ]
+        },
+        {
+          "question": "Which team do I work on?",
+          "reference": "Gemini Platform",
+          "prediction": "You work on the Gemini Platform team.",
+          "f1": 0.4444444444444445,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "c1d4bd7accb84076b0e531fb1165f122",
+            "21f1726c181b4d1396545f1aa568faff"
+          ]
+        },
+        {
+          "question": "Which programming language do I prefer?",
+          "reference": "Python",
+          "prediction": "Python.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "7ed667e2553b4502b1c6237870fdef61",
+            "ed90d49f9d1946febcaae370ae091ed8",
+            "14429cdd073548688032ae28fc1c1425",
+            "8eae56d788854bdfaac430bb8b979bda"
+          ]
+        },
+        {
+          "question": "Which editor do I use?",
+          "reference": "Neovim",
+          "prediction": "You use Neovim as your editor.",
+          "f1": 0.2857142857142857,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "ed90d49f9d1946febcaae370ae091ed8",
+            "8eae56d788854bdfaac430bb8b979bda",
+            "7ed667e2553b4502b1c6237870fdef61",
+            "14429cdd073548688032ae28fc1c1425"
+          ]
+        },
+        {
+          "question": "Which OS does my machine run?",
+          "reference": "macOS",
+          "prediction": "macOS.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "ed90d49f9d1946febcaae370ae091ed8",
+            "07e1a9599cee474688cb3180fb81b652"
+          ]
+        },
+        {
+          "question": "What is our production database?",
+          "reference": "PostgreSQL",
+          "prediction": "Our production database is PostgreSQL.",
+          "f1": 0.33333333333333337,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "f1e450a9068a4bc988937987475d9b65",
+            "ed90d49f9d1946febcaae370ae091ed8"
+          ]
+        },
+        {
+          "question": "Which cloud do we deploy on?",
+          "reference": "Azure",
+          "prediction": "Azure.",
+          "f1": 1.0,
+          "is_update_query": true,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "ed90d49f9d1946febcaae370ae091ed8",
+            "f3a65cd3ef0f43349246a1bfb8ab53c0",
+            "f1e450a9068a4bc988937987475d9b65"
+          ]
+        },
+        {
+          "question": "Which test framework do I use?",
+          "reference": "pytest",
+          "prediction": "You use pytest.",
+          "f1": 0.5,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "ed90d49f9d1946febcaae370ae091ed8",
+            "14429cdd073548688032ae28fc1c1425"
+          ]
+        },
+        {
+          "question": "Which city do I live in?",
+          "reference": "Bucharest",
+          "prediction": "You live in Bucharest.",
+          "f1": 0.4,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "ed90d49f9d1946febcaae370ae091ed8",
+            "519be65c0e55421287f85e275abf67f9"
+          ]
+        },
+        {
+          "question": "Which team do I work on?",
+          "reference": "Gemini Platform",
+          "prediction": "You work on the Gemini Platform team.",
+          "f1": 0.4444444444444445,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "ed90d49f9d1946febcaae370ae091ed8",
+            "f3a65cd3ef0f43349246a1bfb8ab53c0"
+          ]
+        },
+        {
+          "question": "Which programming language do I prefer?",
+          "reference": "Python",
+          "prediction": "Python.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "5fa2cb23de4b47fd9e6d3ea9740b1e0e",
+            "a2f0e665e91d4ee9bac6b180185639cd",
+            "2c4427e9a5e0457fbcc6dbe0db6821d4"
+          ]
+        },
+        {
+          "question": "Which editor do I use?",
+          "reference": "Emacs",
+          "prediction": "You use Emacs.",
+          "f1": 0.5,
+          "is_update_query": true,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "5fa2cb23de4b47fd9e6d3ea9740b1e0e",
+            "a2f0e665e91d4ee9bac6b180185639cd",
+            "2c4427e9a5e0457fbcc6dbe0db6821d4"
+          ]
+        },
+        {
+          "question": "Which OS does my machine run?",
+          "reference": "macOS",
+          "prediction": "macOS.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "5fa2cb23de4b47fd9e6d3ea9740b1e0e",
+            "3e7bdc2197e746f2a027128d8106f68e"
+          ]
+        },
+        {
+          "question": "What is our production database?",
+          "reference": "PostgreSQL",
+          "prediction": "Our production database is PostgreSQL.",
+          "f1": 0.33333333333333337,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "0b9df25ca03f4d86859651d27afb4501",
+            "5fa2cb23de4b47fd9e6d3ea9740b1e0e"
+          ]
+        },
+        {
+          "question": "Which cloud do we deploy on?",
+          "reference": "AWS",
+          "prediction": "AWS.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "5fa2cb23de4b47fd9e6d3ea9740b1e0e",
+            "4b09d137d13c409fa5ef549ddb61960b",
+            "11ee13e0368a4b2f92ad04282ef64d16",
+            "0b9df25ca03f4d86859651d27afb4501"
+          ]
+        },
+        {
+          "question": "Which test framework do I use?",
+          "reference": "pytest",
+          "prediction": "You use pytest for tests.",
+          "f1": 0.33333333333333337,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "5fa2cb23de4b47fd9e6d3ea9740b1e0e",
+            "2c4427e9a5e0457fbcc6dbe0db6821d4"
+          ]
+        },
+        {
+          "question": "Which city do I live in?",
+          "reference": "Bucharest",
+          "prediction": "You live in Bucharest.",
+          "f1": 0.4,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "5fa2cb23de4b47fd9e6d3ea9740b1e0e",
+            "9b9d8ac3ef5f4638b8aed64e38e59674"
+          ]
+        },
+        {
+          "question": "Which team do I work on?",
+          "reference": "Gemini Platform",
+          "prediction": "You work on the Gemini Platform team.",
+          "f1": 0.4444444444444445,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "5fa2cb23de4b47fd9e6d3ea9740b1e0e",
+            "11ee13e0368a4b2f92ad04282ef64d16"
+          ]
+        },
+        {
+          "question": "Which programming language do I prefer?",
+          "reference": "Python",
+          "prediction": "Python.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "3306472f83fd4b789affce149b9be12c",
+            "816cd8b5b3ad415bafb9cbb88e3bb48f",
+            "713727d3207d4073883e81df6fa32093"
+          ]
+        },
+        {
+          "question": "Which editor do I use?",
+          "reference": "Neovim",
+          "prediction": "Neovim.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "816cd8b5b3ad415bafb9cbb88e3bb48f",
+            "713727d3207d4073883e81df6fa32093",
+            "3306472f83fd4b789affce149b9be12c"
+          ]
+        },
+        {
+          "question": "Which OS does my machine run?",
+          "reference": "macOS",
+          "prediction": "macOS.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "5bbef04575224682b748ba3f39db7bbe",
+            "816cd8b5b3ad415bafb9cbb88e3bb48f"
+          ]
+        },
+        {
+          "question": "What is our production database?",
+          "reference": "PostgreSQL",
+          "prediction": "Our production database is PostgreSQL.",
+          "f1": 0.33333333333333337,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "bdf0e471d8ba4296b943ff81cb65cab2",
+            "816cd8b5b3ad415bafb9cbb88e3bb48f"
+          ]
+        },
+        {
+          "question": "Which cloud do we deploy on?",
+          "reference": "AWS",
+          "prediction": "AWS.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "155ab194de9b4ae0b9f5051ee29bd6f8",
+            "816cd8b5b3ad415bafb9cbb88e3bb48f",
+            "c4e2f118d38f4a5db32fbe7d7e6d52d3",
+            "bdf0e471d8ba4296b943ff81cb65cab2"
+          ]
+        },
+        {
+          "question": "Which test framework do I use?",
+          "reference": "unittest",
+          "prediction": "You use unittest.",
+          "f1": 0.5,
+          "is_update_query": true,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "816cd8b5b3ad415bafb9cbb88e3bb48f"
+          ]
+        },
+        {
+          "question": "Which city do I live in?",
+          "reference": "Bucharest",
+          "prediction": "Bucharest.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "816cd8b5b3ad415bafb9cbb88e3bb48f",
+            "427a0c62ee044b4a952ca3f4a11c5a58"
+          ]
+        },
+        {
+          "question": "Which team do I work on?",
+          "reference": "Gemini Platform",
+          "prediction": "You work on the Gemini Platform team.",
+          "f1": 0.4444444444444445,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "816cd8b5b3ad415bafb9cbb88e3bb48f",
+            "c4e2f118d38f4a5db32fbe7d7e6d52d3"
+          ]
+        },
+        {
+          "question": "Which programming language do I prefer?",
+          "reference": "Python",
+          "prediction": "Python.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "6aa59a6873fa4d559c6438fac353a2e3",
+            "a71310a0e9e94787b0d053650eabd69a",
+            "64585af9a4854a8d9c78e46e34530a87"
+          ]
+        },
+        {
+          "question": "Which editor do I use?",
+          "reference": "Neovim",
+          "prediction": "Neovim.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "a71310a0e9e94787b0d053650eabd69a",
+            "64585af9a4854a8d9c78e46e34530a87",
+            "6aa59a6873fa4d559c6438fac353a2e3"
+          ]
+        },
+        {
+          "question": "Which OS does my machine run?",
+          "reference": "macOS",
+          "prediction": "macOS.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "75f5ba7c9bdb48338bcb8d3d023c2d78",
+            "a71310a0e9e94787b0d053650eabd69a"
+          ]
+        },
+        {
+          "question": "What is our production database?",
+          "reference": "PostgreSQL",
+          "prediction": "Our production database is PostgreSQL.",
+          "f1": 0.33333333333333337,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "752a2626ff394a77a58c7f38b4abb5e6",
+            "a71310a0e9e94787b0d053650eabd69a"
+          ]
+        },
+        {
+          "question": "Which cloud do we deploy on?",
+          "reference": "AWS",
+          "prediction": "AWS.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "c89b3ecaceb947bd8fab2c136a5b2fe6",
+            "a71310a0e9e94787b0d053650eabd69a",
+            "174cfb7c8be64269922ae7be419933e1",
+            "752a2626ff394a77a58c7f38b4abb5e6"
+          ]
+        },
+        {
+          "question": "Which test framework do I use?",
+          "reference": "unittest",
+          "prediction": "You use unittest.",
+          "f1": 0.5,
+          "is_update_query": true,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "a71310a0e9e94787b0d053650eabd69a"
+          ]
+        },
+        {
+          "question": "Which city do I live in?",
+          "reference": "Bucharest",
+          "prediction": "Bucharest.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "a71310a0e9e94787b0d053650eabd69a",
+            "1776006426134c41bfddfd956668c75c"
+          ]
+        },
+        {
+          "question": "Which team do I work on?",
+          "reference": "Gemini Platform",
+          "prediction": "You work on the Gemini Platform team.",
+          "f1": 0.4444444444444445,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "a71310a0e9e94787b0d053650eabd69a",
+            "174cfb7c8be64269922ae7be419933e1"
+          ]
+        },
+        {
+          "question": "Which programming language do I prefer?",
+          "reference": "Python",
+          "prediction": "Python.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "c9c538e3ceb84e69a21d710c46186a2c",
+            "91b0a71648164174aac8d1786354df74",
+            "69cb19505b0a4f32b179d463092a8cc6"
+          ]
+        },
+        {
+          "question": "Which editor do I use?",
+          "reference": "Emacs",
+          "prediction": "You use Emacs.",
+          "f1": 0.5,
+          "is_update_query": true,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "c9c538e3ceb84e69a21d710c46186a2c",
+            "91b0a71648164174aac8d1786354df74",
+            "69cb19505b0a4f32b179d463092a8cc6"
+          ]
+        },
+        {
+          "question": "Which OS does my machine run?",
+          "reference": "macOS",
+          "prediction": "macOS.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "c9c538e3ceb84e69a21d710c46186a2c",
+            "8cf9ce9a05ca46238ae5cf8cc730a65b"
+          ]
+        },
+        {
+          "question": "What is our production database?",
+          "reference": "PostgreSQL",
+          "prediction": "Our production database is PostgreSQL.",
+          "f1": 0.33333333333333337,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "b2a7c6b63cde4446a18448293d45149f",
+            "c9c538e3ceb84e69a21d710c46186a2c"
+          ]
+        },
+        {
+          "question": "Which cloud do we deploy on?",
+          "reference": "AWS",
+          "prediction": "AWS.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "c9c538e3ceb84e69a21d710c46186a2c",
+            "99b69c448a2a4afda1d864b890161edc",
+            "b840613e3b1947bea190c8e0ae151f74",
+            "b2a7c6b63cde4446a18448293d45149f"
+          ]
+        },
+        {
+          "question": "Which test framework do I use?",
+          "reference": "pytest",
+          "prediction": "You use pytest for tests.",
+          "f1": 0.33333333333333337,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "c9c538e3ceb84e69a21d710c46186a2c",
+            "69cb19505b0a4f32b179d463092a8cc6"
+          ]
+        },
+        {
+          "question": "Which city do I live in?",
+          "reference": "Bucharest",
+          "prediction": "You live in Bucharest.",
+          "f1": 0.4,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "c9c538e3ceb84e69a21d710c46186a2c",
+            "0c311b5b6f1e4b638e79e52f8d45a1be"
+          ]
+        },
+        {
+          "question": "Which team do I work on?",
+          "reference": "Gemini Platform",
+          "prediction": "You work on the Gemini Platform team.",
+          "f1": 0.4444444444444445,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "c9c538e3ceb84e69a21d710c46186a2c",
+            "b840613e3b1947bea190c8e0ae151f74"
+          ]
+        },
+        {
+          "question": "Which programming language do I prefer?",
+          "reference": "Python",
+          "prediction": "Python.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "4eb6cea81d6e4506821992b524e368d7",
+            "9187b9c800f94befaeaae9704cab84c0",
+            "dd4060dca41c4410b7780901b9f14ac1",
+            "acd5efe6dcc24c78bd962b3936e02bf7"
+          ]
+        },
+        {
+          "question": "Which editor do I use?",
+          "reference": "Neovim",
+          "prediction": "You use Neovim as your editor.",
+          "f1": 0.2857142857142857,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "9187b9c800f94befaeaae9704cab84c0",
+            "acd5efe6dcc24c78bd962b3936e02bf7",
+            "4eb6cea81d6e4506821992b524e368d7",
+            "dd4060dca41c4410b7780901b9f14ac1"
+          ]
+        },
+        {
+          "question": "Which OS does my machine run?",
+          "reference": "macOS",
+          "prediction": "macOS.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "9187b9c800f94befaeaae9704cab84c0",
+            "5c07afaa4af4408a80e65cee1abc0d35"
+          ]
+        },
+        {
+          "question": "What is our production database?",
+          "reference": "PostgreSQL",
+          "prediction": "Our production database is PostgreSQL.",
+          "f1": 0.33333333333333337,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "5bc18c8d0f7e4e1cada261bccd9db466",
+            "9187b9c800f94befaeaae9704cab84c0"
+          ]
+        },
+        {
+          "question": "Which cloud do we deploy on?",
+          "reference": "AWS",
+          "prediction": "AWS.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "9187b9c800f94befaeaae9704cab84c0",
+            "f58d07e2c92e47c0af84a34415909d1e",
+            "5bc18c8d0f7e4e1cada261bccd9db466"
+          ]
+        },
+        {
+          "question": "Which test framework do I use?",
+          "reference": "pytest",
+          "prediction": "You use pytest.",
+          "f1": 0.5,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "9187b9c800f94befaeaae9704cab84c0",
+            "dd4060dca41c4410b7780901b9f14ac1"
+          ]
+        },
+        {
+          "question": "Which city do I live in?",
+          "reference": "Bucharest",
+          "prediction": "You live in Bucharest.",
+          "f1": 0.4,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "9187b9c800f94befaeaae9704cab84c0",
+            "4d3bfea633bc45b0a6212f1f71e7508c"
+          ]
+        },
+        {
+          "question": "Which team do I work on?",
+          "reference": "Express",
+          "prediction": "You work on the Express team.",
+          "f1": 0.2857142857142857,
+          "is_update_query": true,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "9187b9c800f94befaeaae9704cab84c0"
+          ]
+        },
+        {
+          "question": "Which programming language do I prefer?",
+          "reference": "Python",
+          "prediction": "Python.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "f2dccd0e90ab493e96bb990c270654d3",
+            "11187419ff1d4cbba4742b14aea3b4ef",
+            "d084774568f342fe8830d605982644e2",
+            "55c2537cd84646d4a68160c5ac103e0d"
+          ]
+        },
+        {
+          "question": "Which editor do I use?",
+          "reference": "Neovim",
+          "prediction": "You use Neovim as your editor.",
+          "f1": 0.2857142857142857,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "11187419ff1d4cbba4742b14aea3b4ef",
+            "55c2537cd84646d4a68160c5ac103e0d",
+            "f2dccd0e90ab493e96bb990c270654d3",
+            "d084774568f342fe8830d605982644e2"
+          ]
+        },
+        {
+          "question": "Which OS does my machine run?",
+          "reference": "macOS",
+          "prediction": "macOS.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "11187419ff1d4cbba4742b14aea3b4ef",
+            "0f387ca2e08f4b42bfd38fbaf2d87cae"
+          ]
+        },
+        {
+          "question": "What is our production database?",
+          "reference": "MongoDB",
+          "prediction": "Our production database is MongoDB.",
+          "f1": 0.33333333333333337,
+          "is_update_query": true,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "11187419ff1d4cbba4742b14aea3b4ef"
+          ]
+        },
+        {
+          "question": "Which cloud do we deploy on?",
+          "reference": "AWS",
+          "prediction": "AWS.",
+          "f1": 1.0,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "11187419ff1d4cbba4742b14aea3b4ef",
+            "0598032f93cb4058b2069acc4372b92a",
+            "6493d0737a4b485cb11b8721e1a68d73"
+          ]
+        },
+        {
+          "question": "Which test framework do I use?",
+          "reference": "pytest",
+          "prediction": "You use pytest for tests.",
+          "f1": 0.33333333333333337,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "11187419ff1d4cbba4742b14aea3b4ef",
+            "d084774568f342fe8830d605982644e2"
+          ]
+        },
+        {
+          "question": "Which city do I live in?",
+          "reference": "Bucharest",
+          "prediction": "You live in Bucharest.",
+          "f1": 0.4,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "11187419ff1d4cbba4742b14aea3b4ef",
+            "ef3a726ebd3f4723880c93ed82b78607"
+          ]
+        },
+        {
+          "question": "Which team do I work on?",
+          "reference": "Gemini Platform",
+          "prediction": "You work on the Gemini Platform team.",
+          "f1": 0.4444444444444445,
+          "is_update_query": false,
+          "answered_with_stale_fact": false,
+          "retrieved_ids": [
+            "11187419ff1d4cbba4742b14aea3b4ef",
+            "6493d0737a4b485cb11b8721e1a68d73"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+timestamp=2026-10-06T19:26:49.564Z level=INFO run=58506b20 message="creating instance" directory=$LIVE/project
+timestamp=2026-10-06T19:26:49.571Z level=INFO run=58506b20 message=fromDirectory directory=$LIVE/project
+timestamp=2026-10-06T19:26:49.842Z level=INFO run=58506b20 message=bootstrapping directory=$LIVE/project
+timestamp=2026-10-06T19:26:49.854Z level=INFO run=58506b20 message=loading path=$LIVE/config/opencode/config.json
+timestamp=2026-10-06T19:26:49.860Z level=INFO run=58506b20 message=loading path=$LIVE/config/opencode/opencode.json
+timestamp=2026-10-06T19:26:49.877Z level=INFO run=58506b20 message=loading path=$LIVE/config/opencode/opencode.jsonc
+timestamp=2026-10-06T19:26:50.173Z level=INFO run=58506b20 message="Mnemosyne plugin initialized"
+timestamp=2026-10-06T19:26:50.177Z level=INFO run=58506b20 message="all LSPs are disabled"
+timestamp=2026-10-06T19:26:50.177Z level=INFO run=58506b20 message="all formatters are disabled"
+timestamp=2026-10-06T19:26:50.177Z level=INFO run=58506b20 message=init
+timestamp=2026-10-06T19:26:50.204Z level=INFO run=58506b20 message="event connected"
+timestamp=2026-10-06T19:26:50.566Z level=INFO run=58506b20 message=loop session.id=ses_eed51acfdffeEVkm9qqdD9yqYk step=0
+[0m
+> build · qwen2.5:7b-16k
+[0m
+timestamp=2026-10-06T19:26:50.684Z level=INFO run=58506b20 message=tracking hash=5dadd1311caf60dbb1c640bf8060a87309319eee cwd=$LIVE/project git=$LIVE/data/opencode/snapshot/global/364ff5499e82585c351c4a19d87bdd773ba8e246
+timestamp=2026-10-06T19:26:50.690Z level=INFO run=58506b20 message="shell tool using shell" shell=/bin/bash
+timestamp=2026-10-06T19:26:50.723Z level=INFO run=58506b20 message=init count=14
+timestamp=2026-10-06T19:26:51.423Z level=INFO run=58506b20 message="watcher backend" directory=$LIVE/project platform=darwin backend=fs-events
+timestamp=2026-10-06T19:26:51.424Z level=INFO run=58506b20 message="project copy refresh started" projectID=global
+timestamp=2026-10-06T19:26:51.425Z level=INFO run=58506b20 message="project copy refresh done" projectID=global updated=[] removed=[]
+timestamp=2026-10-06T19:26:51.733Z level=INFO run=58506b20 message="booting location services" directory=$LIVE/project workspaceID=undefined
+timestamp=2026-10-06T19:26:51.737Z level=INFO run=58506b20 message=process session.id=ses_eed51acfdffeEVkm9qqdD9yqYk messageID=msg_112aed6c9001gu9d3Hywf0PB50
+timestamp=2026-10-06T19:26:51.738Z level=INFO run=58506b20 message=stream providerID=ollama modelID=qwen2.5:7b-16k session.id=ses_eed51acfdffeEVkm9qqdD9yqYk small=false agent=build mode=primary
+timestamp=2026-10-06T19:26:53.142Z level=INFO run=58506b20 message="Injected 1 memories into system prompt" query="\"Which tools do I prefer for testing and linting? Answer in one sentence, without using tools.\""
+timestamp=2026-10-06T19:26:53.146Z level=INFO run=58506b20 message="llm runtime selected" llm.runtime=ai-sdk llm.provider=ollama llm.model=qwen2.5:7b-16k
+You prefer pytest for testing and ruff for linting.
+timestamp=2026-10-06T19:27:17.242Z level=INFO run=58506b20 message=tracking hash=5dadd1311caf60dbb1c640bf8060a87309319eee cwd=$LIVE/project git=$LIVE/data/opencode/snapshot/global/364ff5499e82585c351c4a19d87bdd773ba8e246
+timestamp=2026-10-06T19:27:17.299Z level=INFO run=58506b20 message=loop session.id=ses_eed51acfdffeEVkm9qqdD9yqYk step=1
+timestamp=2026-10-06T19:27:17.300Z level=INFO run=58506b20 message="exiting loop" session.id=ses_eed51acfdffeEVkm9qqdD9yqYk
+timestamp=2026-10-06T19:27:17.308Z level=INFO run=58506b20 message="disposing instance" directory=$LIVE/project

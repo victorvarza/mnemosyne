@@ -1,0 +1,32 @@
+timestamp=2026-10-06T19:27:32.788Z level=INFO run=ca27d16d message="creating instance" directory=$LIVE/project
+timestamp=2026-10-06T19:27:32.789Z level=INFO run=ca27d16d message=fromDirectory directory=$LIVE/project
+timestamp=2026-10-06T19:27:32.899Z level=INFO run=ca27d16d message=bootstrapping directory=$LIVE/project
+timestamp=2026-10-06T19:27:32.908Z level=INFO run=ca27d16d message=loading path=$LIVE/config-off/opencode/config.json
+timestamp=2026-10-06T19:27:32.908Z level=INFO run=ca27d16d message=loading path=$LIVE/config-off/opencode/opencode.json
+timestamp=2026-10-06T19:27:32.912Z level=INFO run=ca27d16d message=loading path=$LIVE/config-off/opencode/opencode.jsonc
+timestamp=2026-10-06T19:27:32.966Z level=INFO run=ca27d16d message="all LSPs are disabled"
+timestamp=2026-10-06T19:27:32.967Z level=INFO run=ca27d16d message="all formatters are disabled"
+timestamp=2026-10-06T19:27:32.967Z level=INFO run=ca27d16d message=init
+timestamp=2026-10-06T19:27:33.176Z level=INFO run=ca27d16d message=created id=ses_eed5082c7ffeyRseg8WvK50cs6 slug=hidden-falcon version=1.18.34 projectID=global directory=$LIVE/project path="" workspaceID=undefined parentID=undefined title="New session - 2026-10-06T19:27:33.176Z" agent=undefined model=undefined metadata=undefined permission="[{\"permission\":\"question\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"plan_enter\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"plan_exit\",\"pattern\":\"*\",\"action\":\"deny\"}]" cost=0 tokens.input=0 tokens.output=0 tokens.reasoning=0 tokens.cache.read=0 tokens.cache.write=0 time.created=1791314853176 time.updated=1791314853176
+timestamp=2026-10-06T19:27:33.187Z level=INFO run=ca27d16d message="event connected"
+timestamp=2026-10-06T19:27:33.571Z level=INFO run=ca27d16d message=loop session.id=ses_eed5082c7ffeyRseg8WvK50cs6 step=0
+[0m
+> build · qwen2.5:7b-16k
+[0m
+timestamp=2026-10-06T19:27:33.586Z level=INFO run=ca27d16d message=stream providerID=ollama modelID=qwen2.5:7b-16k session.id=ses_eed5082c7ffeyRseg8WvK50cs6 small=true agent=title mode=primary
+timestamp=2026-10-06T19:27:33.608Z level=INFO run=ca27d16d message="llm runtime selected" llm.runtime=ai-sdk llm.provider=ollama llm.model=qwen2.5:7b-16k
+timestamp=2026-10-06T19:27:33.669Z level=INFO run=ca27d16d message=tracking hash=5dadd1311caf60dbb1c640bf8060a87309319eee cwd=$LIVE/project git=$LIVE/data/opencode/snapshot/global/364ff5499e82585c351c4a19d87bdd773ba8e246
+timestamp=2026-10-06T19:27:33.673Z level=INFO run=ca27d16d message="shell tool using shell" shell=/bin/bash
+timestamp=2026-10-06T19:27:33.693Z level=INFO run=ca27d16d message=init count=14
+timestamp=2026-10-06T19:27:34.432Z level=INFO run=ca27d16d message="watcher backend" directory=$LIVE/project platform=darwin backend=fs-events
+timestamp=2026-10-06T19:27:34.436Z level=INFO run=ca27d16d message="project copy refresh started" projectID=global
+timestamp=2026-10-06T19:27:34.438Z level=INFO run=ca27d16d message="project copy refresh done" projectID=global updated=[] removed=[]
+timestamp=2026-10-06T19:27:34.732Z level=INFO run=ca27d16d message="booting location services" directory=$LIVE/project workspaceID=undefined
+timestamp=2026-10-06T19:27:34.742Z level=INFO run=ca27d16d message=process session.id=ses_eed5082c7ffeyRseg8WvK50cs6 messageID=msg_112af7ec5001Xika3OC2Yfrm1k
+timestamp=2026-10-06T19:27:34.743Z level=INFO run=ca27d16d message=stream providerID=ollama modelID=qwen2.5:7b-16k session.id=ses_eed5082c7ffeyRseg8WvK50cs6 small=false agent=build mode=primary
+timestamp=2026-10-06T19:27:34.744Z level=INFO run=ca27d16d message="llm runtime selected" llm.runtime=ai-sdk llm.provider=ollama llm.model=qwen2.5:7b-16k
+The production database is PostgreSQL running in the us-east-1 AWS region.
+timestamp=2026-10-06T19:28:02.593Z level=INFO run=ca27d16d message=tracking hash=5dadd1311caf60dbb1c640bf8060a87309319eee cwd=$LIVE/project git=$LIVE/data/opencode/snapshot/global/364ff5499e82585c351c4a19d87bdd773ba8e246
+timestamp=2026-10-06T19:28:02.668Z level=INFO run=ca27d16d message=loop session.id=ses_eed5082c7ffeyRseg8WvK50cs6 step=1
+timestamp=2026-10-06T19:28:02.670Z level=INFO run=ca27d16d message="exiting loop" session.id=ses_eed5082c7ffeyRseg8WvK50cs6
+timestamp=2026-10-06T19:28:02.678Z level=INFO run=ca27d16d message="disposing instance" directory=$LIVE/project

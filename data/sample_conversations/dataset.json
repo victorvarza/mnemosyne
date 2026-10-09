@@ -1,0 +1,1054 @@
+{
+  "conversations": [
+    {
+      "sessions": [
+        [
+          "Hi, let's set up my profile.",
+          "My preferred programming language is Python.",
+          "I use Neovim as my editor.",
+          "My machine runs macOS.",
+          "Our production database is PostgreSQL.",
+          "We deploy on AWS.",
+          "For tests I always use pytest.",
+          "I live in Bucharest.",
+          "I work on the Gemini Platform team."
+        ],
+        [
+          "What's a good recipe for pancakes?",
+          "Can you explain how TCP slow start works?",
+          "Let's discuss the weather this weekend."
+        ],
+        [
+          "Quick update \u2014 I've changed things: I use VS Code as my editor.",
+          "Please use that from now on."
+        ],
+        [
+          "Which programming language do I prefer?",
+          "Which editor do I use?",
+          "Which OS does my machine run?",
+          "What is our production database?",
+          "Which cloud do we deploy on?",
+          "Which test framework do I use?",
+          "Which city do I live in?",
+          "Which team do I work on?"
+        ]
+      ],
+      "memories": [
+        "My preferred programming language is Python.",
+        "I use Neovim as my editor.",
+        "My machine runs macOS.",
+        "Our production database is PostgreSQL.",
+        "We deploy on AWS.",
+        "For tests I always use pytest.",
+        "I live in Bucharest.",
+        "I work on the Gemini Platform team."
+      ],
+      "updated_memory": "I use VS Code as my editor.",
+      "stale_value": "Neovim",
+      "updated_value": "VS Code",
+      "qa_pairs": [
+        {
+          "question": "Which programming language do I prefer?",
+          "answer": "Python",
+          "relevant_fact": "My preferred programming language is Python.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "Which editor do I use?",
+          "answer": "VS Code",
+          "relevant_fact": "I use VS Code as my editor.",
+          "is_update_query": true,
+          "stale_value": "Neovim"
+        },
+        {
+          "question": "Which OS does my machine run?",
+          "answer": "macOS",
+          "relevant_fact": "My machine runs macOS.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "What is our production database?",
+          "answer": "PostgreSQL",
+          "relevant_fact": "Our production database is PostgreSQL.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "Which cloud do we deploy on?",
+          "answer": "AWS",
+          "relevant_fact": "We deploy on AWS.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "Which test framework do I use?",
+          "answer": "pytest",
+          "relevant_fact": "For tests I always use pytest.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "Which city do I live in?",
+          "answer": "Bucharest",
+          "relevant_fact": "I live in Bucharest.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "Which team do I work on?",
+          "answer": "Gemini Platform",
+          "relevant_fact": "I work on the Gemini Platform team.",
+          "is_update_query": false,
+          "stale_value": ""
+        }
+      ]
+    },
+    {
+      "sessions": [
+        [
+          "Hi, let's set up my profile.",
+          "My preferred programming language is Python.",
+          "I use Neovim as my editor.",
+          "My machine runs macOS.",
+          "Our production database is PostgreSQL.",
+          "We deploy on AWS.",
+          "For tests I always use pytest.",
+          "I live in Bucharest.",
+          "I work on the Gemini Platform team."
+        ],
+        [
+          "Can you explain how TCP slow start works?",
+          "Help me understand the CAP theorem.",
+          "Write a haiku about deadlines."
+        ],
+        [
+          "Quick update \u2014 I've changed things: My preferred programming language is TypeScript.",
+          "Please use that from now on."
+        ],
+        [
+          "Which programming language do I prefer?",
+          "Which editor do I use?",
+          "Which OS does my machine run?",
+          "What is our production database?",
+          "Which cloud do we deploy on?",
+          "Which test framework do I use?",
+          "Which city do I live in?",
+          "Which team do I work on?"
+        ]
+      ],
+      "memories": [
+        "My preferred programming language is Python.",
+        "I use Neovim as my editor.",
+        "My machine runs macOS.",
+        "Our production database is PostgreSQL.",
+        "We deploy on AWS.",
+        "For tests I always use pytest.",
+        "I live in Bucharest.",
+        "I work on the Gemini Platform team."
+      ],
+      "updated_memory": "My preferred programming language is TypeScript.",
+      "stale_value": "Python",
+      "updated_value": "TypeScript",
+      "qa_pairs": [
+        {
+          "question": "Which programming language do I prefer?",
+          "answer": "TypeScript",
+          "relevant_fact": "My preferred programming language is TypeScript.",
+          "is_update_query": true,
+          "stale_value": "Python"
+        },
+        {
+          "question": "Which editor do I use?",
+          "answer": "Neovim",
+          "relevant_fact": "I use Neovim as my editor.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "Which OS does my machine run?",
+          "answer": "macOS",
+          "relevant_fact": "My machine runs macOS.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "What is our production database?",
+          "answer": "PostgreSQL",
+          "relevant_fact": "Our production database is PostgreSQL.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "Which cloud do we deploy on?",
+          "answer": "AWS",
+          "relevant_fact": "We deploy on AWS.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "Which test framework do I use?",
+          "answer": "pytest",
+          "relevant_fact": "For tests I always use pytest.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "Which city do I live in?",
+          "answer": "Bucharest",
+          "relevant_fact": "I live in Bucharest.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "Which team do I work on?",
+          "answer": "Gemini Platform",
+          "relevant_fact": "I work on the Gemini Platform team.",
+          "is_update_query": false,
+          "stale_value": ""
+        }
+      ]
+    },
+    {
+      "sessions": [
+        [
+          "Hi, let's set up my profile.",
+          "My preferred programming language is Python.",
+          "I use Neovim as my editor.",
+          "My machine runs macOS.",
+          "Our production database is PostgreSQL.",
+          "We deploy on AWS.",
+          "For tests I always use pytest.",
+          "I live in Bucharest.",
+          "I work on the Gemini Platform team."
+        ],
+        [
+          "Write a haiku about deadlines.",
+          "Let's discuss the weather this weekend.",
+          "Help me understand the CAP theorem."
+        ],
+        [
+          "Quick update \u2014 I've changed things: I live in Amsterdam.",
+          "Please use that from now on."
+        ],
+        [
+          "Which programming language do I prefer?",
+          "Which editor do I use?",
+          "Which OS does my machine run?",
+          "What is our production database?",
+          "Which cloud do we deploy on?",
+          "Which test framework do I use?",
+          "Which city do I live in?",
+          "Which team do I work on?"
+        ]
+      ],
+      "memories": [
+        "My preferred programming language is Python.",
+        "I use Neovim as my editor.",
+        "My machine runs macOS.",
+        "Our production database is PostgreSQL.",
+        "We deploy on AWS.",
+        "For tests I always use pytest.",
+        "I live in Bucharest.",
+        "I work on the Gemini Platform team."
+      ],
+      "updated_memory": "I live in Amsterdam.",
+      "stale_value": "Bucharest",
+      "updated_value": "Amsterdam",
+      "qa_pairs": [
+        {
+          "question": "Which programming language do I prefer?",
+          "answer": "Python",
+          "relevant_fact": "My preferred programming language is Python.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "Which editor do I use?",
+          "answer": "Neovim",
+          "relevant_fact": "I use Neovim as my editor.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "Which OS does my machine run?",
+          "answer": "macOS",
+          "relevant_fact": "My machine runs macOS.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "What is our production database?",
+          "answer": "PostgreSQL",
+          "relevant_fact": "Our production database is PostgreSQL.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "Which cloud do we deploy on?",
+          "answer": "AWS",
+          "relevant_fact": "We deploy on AWS.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "Which test framework do I use?",
+          "answer": "pytest",
+          "relevant_fact": "For tests I always use pytest.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "Which city do I live in?",
+          "answer": "Amsterdam",
+          "relevant_fact": "I live in Amsterdam.",
+          "is_update_query": true,
+          "stale_value": "Bucharest"
+        },
+        {
+          "question": "Which team do I work on?",
+          "answer": "Gemini Platform",
+          "relevant_fact": "I work on the Gemini Platform team.",
+          "is_update_query": false,
+          "stale_value": ""
+        }
+      ]
+    },
+    {
+      "sessions": [
+        [
+          "Hi, let's set up my profile.",
+          "My preferred programming language is Python.",
+          "I use Neovim as my editor.",
+          "My machine runs macOS.",
+          "Our production database is PostgreSQL.",
+          "We deploy on AWS.",
+          "For tests I always use pytest.",
+          "I live in Bucharest.",
+          "I work on the Gemini Platform team."
+        ],
+        [
+          "Help me understand the CAP theorem.",
+          "What's a good recipe for pancakes?",
+          "Let's discuss the weather this weekend."
+        ],
+        [
+          "Quick update \u2014 I've changed things: We deploy on Azure.",
+          "Please use that from now on."
+        ],
+        [
+          "Which programming language do I prefer?",
+          "Which editor do I use?",
+          "Which OS does my machine run?",
+          "What is our production database?",
+          "Which cloud do we deploy on?",
+          "Which test framework do I use?",
+          "Which city do I live in?",
+          "Which team do I work on?"
+        ]
+      ],
+      "memories": [
+        "My preferred programming language is Python.",
+        "I use Neovim as my editor.",
+        "My machine runs macOS.",
+        "Our production database is PostgreSQL.",
+        "We deploy on AWS.",
+        "For tests I always use pytest.",
+        "I live in Bucharest.",
+        "I work on the Gemini Platform team."
+      ],
+      "updated_memory": "We deploy on Azure.",
+      "stale_value": "AWS",
+      "updated_value": "Azure",
+      "qa_pairs": [
+        {
+          "question": "Which programming language do I prefer?",
+          "answer": "Python",
+          "relevant_fact": "My preferred programming language is Python.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "Which editor do I use?",
+          "answer": "Neovim",
+          "relevant_fact": "I use Neovim as my editor.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "Which OS does my machine run?",
+          "answer": "macOS",
+          "relevant_fact": "My machine runs macOS.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "What is our production database?",
+          "answer": "PostgreSQL",
+          "relevant_fact": "Our production database is PostgreSQL.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "Which cloud do we deploy on?",
+          "answer": "Azure",
+          "relevant_fact": "We deploy on Azure.",
+          "is_update_query": true,
+          "stale_value": "AWS"
+        },
+        {
+          "question": "Which test framework do I use?",
+          "answer": "pytest",
+          "relevant_fact": "For tests I always use pytest.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "Which city do I live in?",
+          "answer": "Bucharest",
+          "relevant_fact": "I live in Bucharest.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "Which team do I work on?",
+          "answer": "Gemini Platform",
+          "relevant_fact": "I work on the Gemini Platform team.",
+          "is_update_query": false,
+          "stale_value": ""
+        }
+      ]
+    },
+    {
+      "sessions": [
+        [
+          "Hi, let's set up my profile.",
+          "My preferred programming language is Python.",
+          "I use Neovim as my editor.",
+          "My machine runs macOS.",
+          "Our production database is PostgreSQL.",
+          "We deploy on AWS.",
+          "For tests I always use pytest.",
+          "I live in Bucharest.",
+          "I work on the Gemini Platform team."
+        ],
+        [
+          "Let's discuss the weather this weekend.",
+          "Can you explain how TCP slow start works?",
+          "What's a good recipe for pancakes?"
+        ],
+        [
+          "Quick update \u2014 I've changed things: I use Emacs as my editor.",
+          "Please use that from now on."
+        ],
+        [
+          "Which programming language do I prefer?",
+          "Which editor do I use?",
+          "Which OS does my machine run?",
+          "What is our production database?",
+          "Which cloud do we deploy on?",
+          "Which test framework do I use?",
+          "Which city do I live in?",
+          "Which team do I work on?"
+        ]
+      ],
+      "memories": [
+        "My preferred programming language is Python.",
+        "I use Neovim as my editor.",
+        "My machine runs macOS.",
+        "Our production database is PostgreSQL.",
+        "We deploy on AWS.",
+        "For tests I always use pytest.",
+        "I live in Bucharest.",
+        "I work on the Gemini Platform team."
+      ],
+      "updated_memory": "I use Emacs as my editor.",
+      "stale_value": "Neovim",
+      "updated_value": "Emacs",
+      "qa_pairs": [
+        {
+          "question": "Which programming language do I prefer?",
+          "answer": "Python",
+          "relevant_fact": "My preferred programming language is Python.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "Which editor do I use?",
+          "answer": "Emacs",
+          "relevant_fact": "I use Emacs as my editor.",
+          "is_update_query": true,
+          "stale_value": "Neovim"
+        },
+        {
+          "question": "Which OS does my machine run?",
+          "answer": "macOS",
+          "relevant_fact": "My machine runs macOS.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "What is our production database?",
+          "answer": "PostgreSQL",
+          "relevant_fact": "Our production database is PostgreSQL.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "Which cloud do we deploy on?",
+          "answer": "AWS",
+          "relevant_fact": "We deploy on AWS.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "Which test framework do I use?",
+          "answer": "pytest",
+          "relevant_fact": "For tests I always use pytest.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "Which city do I live in?",
+          "answer": "Bucharest",
+          "relevant_fact": "I live in Bucharest.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "Which team do I work on?",
+          "answer": "Gemini Platform",
+          "relevant_fact": "I work on the Gemini Platform team.",
+          "is_update_query": false,
+          "stale_value": ""
+        }
+      ]
+    },
+    {
+      "sessions": [
+        [
+          "Hi, let's set up my profile.",
+          "My preferred programming language is Python.",
+          "I use Neovim as my editor.",
+          "My machine runs macOS.",
+          "Our production database is PostgreSQL.",
+          "We deploy on AWS.",
+          "For tests I always use pytest.",
+          "I live in Bucharest.",
+          "I work on the Gemini Platform team."
+        ],
+        [
+          "Help me understand the CAP theorem.",
+          "Write a haiku about deadlines.",
+          "What's a good recipe for pancakes?"
+        ],
+        [
+          "Quick update \u2014 I've changed things: For tests I always use unittest.",
+          "Please use that from now on."
+        ],
+        [
+          "Which programming language do I prefer?",
+          "Which editor do I use?",
+          "Which OS does my machine run?",
+          "What is our production database?",
+          "Which cloud do we deploy on?",
+          "Which test framework do I use?",
+          "Which city do I live in?",
+          "Which team do I work on?"
+        ]
+      ],
+      "memories": [
+        "My preferred programming language is Python.",
+        "I use Neovim as my editor.",
+        "My machine runs macOS.",
+        "Our production database is PostgreSQL.",
+        "We deploy on AWS.",
+        "For tests I always use pytest.",
+        "I live in Bucharest.",
+        "I work on the Gemini Platform team."
+      ],
+      "updated_memory": "For tests I always use unittest.",
+      "stale_value": "pytest",
+      "updated_value": "unittest",
+      "qa_pairs": [
+        {
+          "question": "Which programming language do I prefer?",
+          "answer": "Python",
+          "relevant_fact": "My preferred programming language is Python.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "Which editor do I use?",
+          "answer": "Neovim",
+          "relevant_fact": "I use Neovim as my editor.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "Which OS does my machine run?",
+          "answer": "macOS",
+          "relevant_fact": "My machine runs macOS.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "What is our production database?",
+          "answer": "PostgreSQL",
+          "relevant_fact": "Our production database is PostgreSQL.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "Which cloud do we deploy on?",
+          "answer": "AWS",
+          "relevant_fact": "We deploy on AWS.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "Which test framework do I use?",
+          "answer": "unittest",
+          "relevant_fact": "For tests I always use unittest.",
+          "is_update_query": true,
+          "stale_value": "pytest"
+        },
+        {
+          "question": "Which city do I live in?",
+          "answer": "Bucharest",
+          "relevant_fact": "I live in Bucharest.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "Which team do I work on?",
+          "answer": "Gemini Platform",
+          "relevant_fact": "I work on the Gemini Platform team.",
+          "is_update_query": false,
+          "stale_value": ""
+        }
+      ]
+    },
+    {
+      "sessions": [
+        [
+          "Hi, let's set up my profile.",
+          "My preferred programming language is Python.",
+          "I use Neovim as my editor.",
+          "My machine runs macOS.",
+          "Our production database is PostgreSQL.",
+          "We deploy on AWS.",
+          "For tests I always use pytest.",
+          "I live in Bucharest.",
+          "I work on the Gemini Platform team."
+        ],
+        [
+          "Write a haiku about deadlines.",
+          "What's a good recipe for pancakes?",
+          "Help me understand the CAP theorem."
+        ],
+        [
+          "Quick update \u2014 I've changed things: For tests I always use unittest.",
+          "Please use that from now on."
+        ],
+        [
+          "Which programming language do I prefer?",
+          "Which editor do I use?",
+          "Which OS does my machine run?",
+          "What is our production database?",
+          "Which cloud do we deploy on?",
+          "Which test framework do I use?",
+          "Which city do I live in?",
+          "Which team do I work on?"
+        ]
+      ],
+      "memories": [
+        "My preferred programming language is Python.",
+        "I use Neovim as my editor.",
+        "My machine runs macOS.",
+        "Our production database is PostgreSQL.",
+        "We deploy on AWS.",
+        "For tests I always use pytest.",
+        "I live in Bucharest.",
+        "I work on the Gemini Platform team."
+      ],
+      "updated_memory": "For tests I always use unittest.",
+      "stale_value": "pytest",
+      "updated_value": "unittest",
+      "qa_pairs": [
+        {
+          "question": "Which programming language do I prefer?",
+          "answer": "Python",
+          "relevant_fact": "My preferred programming language is Python.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "Which editor do I use?",
+          "answer": "Neovim",
+          "relevant_fact": "I use Neovim as my editor.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "Which OS does my machine run?",
+          "answer": "macOS",
+          "relevant_fact": "My machine runs macOS.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "What is our production database?",
+          "answer": "PostgreSQL",
+          "relevant_fact": "Our production database is PostgreSQL.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "Which cloud do we deploy on?",
+          "answer": "AWS",
+          "relevant_fact": "We deploy on AWS.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "Which test framework do I use?",
+          "answer": "unittest",
+          "relevant_fact": "For tests I always use unittest.",
+          "is_update_query": true,
+          "stale_value": "pytest"
+        },
+        {
+          "question": "Which city do I live in?",
+          "answer": "Bucharest",
+          "relevant_fact": "I live in Bucharest.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "Which team do I work on?",
+          "answer": "Gemini Platform",
+          "relevant_fact": "I work on the Gemini Platform team.",
+          "is_update_query": false,
+          "stale_value": ""
+        }
+      ]
+    },
+    {
+      "sessions": [
+        [
+          "Hi, let's set up my profile.",
+          "My preferred programming language is Python.",
+          "I use Neovim as my editor.",
+          "My machine runs macOS.",
+          "Our production database is PostgreSQL.",
+          "We deploy on AWS.",
+          "For tests I always use pytest.",
+          "I live in Bucharest.",
+          "I work on the Gemini Platform team."
+        ],
+        [
+          "Help me understand the CAP theorem.",
+          "Let's discuss the weather this weekend.",
+          "Can you explain how TCP slow start works?"
+        ],
+        [
+          "Quick update \u2014 I've changed things: I use Emacs as my editor.",
+          "Please use that from now on."
+        ],
+        [
+          "Which programming language do I prefer?",
+          "Which editor do I use?",
+          "Which OS does my machine run?",
+          "What is our production database?",
+          "Which cloud do we deploy on?",
+          "Which test framework do I use?",
+          "Which city do I live in?",
+          "Which team do I work on?"
+        ]
+      ],
+      "memories": [
+        "My preferred programming language is Python.",
+        "I use Neovim as my editor.",
+        "My machine runs macOS.",
+        "Our production database is PostgreSQL.",
+        "We deploy on AWS.",
+        "For tests I always use pytest.",
+        "I live in Bucharest.",
+        "I work on the Gemini Platform team."
+      ],
+      "updated_memory": "I use Emacs as my editor.",
+      "stale_value": "Neovim",
+      "updated_value": "Emacs",
+      "qa_pairs": [
+        {
+          "question": "Which programming language do I prefer?",
+          "answer": "Python",
+          "relevant_fact": "My preferred programming language is Python.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "Which editor do I use?",
+          "answer": "Emacs",
+          "relevant_fact": "I use Emacs as my editor.",
+          "is_update_query": true,
+          "stale_value": "Neovim"
+        },
+        {
+          "question": "Which OS does my machine run?",
+          "answer": "macOS",
+          "relevant_fact": "My machine runs macOS.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "What is our production database?",
+          "answer": "PostgreSQL",
+          "relevant_fact": "Our production database is PostgreSQL.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "Which cloud do we deploy on?",
+          "answer": "AWS",
+          "relevant_fact": "We deploy on AWS.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "Which test framework do I use?",
+          "answer": "pytest",
+          "relevant_fact": "For tests I always use pytest.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "Which city do I live in?",
+          "answer": "Bucharest",
+          "relevant_fact": "I live in Bucharest.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "Which team do I work on?",
+          "answer": "Gemini Platform",
+          "relevant_fact": "I work on the Gemini Platform team.",
+          "is_update_query": false,
+          "stale_value": ""
+        }
+      ]
+    },
+    {
+      "sessions": [
+        [
+          "Hi, let's set up my profile.",
+          "My preferred programming language is Python.",
+          "I use Neovim as my editor.",
+          "My machine runs macOS.",
+          "Our production database is PostgreSQL.",
+          "We deploy on AWS.",
+          "For tests I always use pytest.",
+          "I live in Bucharest.",
+          "I work on the Gemini Platform team."
+        ],
+        [
+          "What's a good recipe for pancakes?",
+          "Can you explain how TCP slow start works?",
+          "Write a haiku about deadlines."
+        ],
+        [
+          "Quick update \u2014 I've changed things: I work on the Express team.",
+          "Please use that from now on."
+        ],
+        [
+          "Which programming language do I prefer?",
+          "Which editor do I use?",
+          "Which OS does my machine run?",
+          "What is our production database?",
+          "Which cloud do we deploy on?",
+          "Which test framework do I use?",
+          "Which city do I live in?",
+          "Which team do I work on?"
+        ]
+      ],
+      "memories": [
+        "My preferred programming language is Python.",
+        "I use Neovim as my editor.",
+        "My machine runs macOS.",
+        "Our production database is PostgreSQL.",
+        "We deploy on AWS.",
+        "For tests I always use pytest.",
+        "I live in Bucharest.",
+        "I work on the Gemini Platform team."
+      ],
+      "updated_memory": "I work on the Express team.",
+      "stale_value": "Gemini Platform",
+      "updated_value": "Express",
+      "qa_pairs": [
+        {
+          "question": "Which programming language do I prefer?",
+          "answer": "Python",
+          "relevant_fact": "My preferred programming language is Python.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "Which editor do I use?",
+          "answer": "Neovim",
+          "relevant_fact": "I use Neovim as my editor.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "Which OS does my machine run?",
+          "answer": "macOS",
+          "relevant_fact": "My machine runs macOS.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "What is our production database?",
+          "answer": "PostgreSQL",
+          "relevant_fact": "Our production database is PostgreSQL.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "Which cloud do we deploy on?",
+          "answer": "AWS",
+          "relevant_fact": "We deploy on AWS.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "Which test framework do I use?",
+          "answer": "pytest",
+          "relevant_fact": "For tests I always use pytest.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "Which city do I live in?",
+          "answer": "Bucharest",
+          "relevant_fact": "I live in Bucharest.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "Which team do I work on?",
+          "answer": "Express",
+          "relevant_fact": "I work on the Express team.",
+          "is_update_query": true,
+          "stale_value": "Gemini Platform"
+        }
+      ]
+    },
+    {
+      "sessions": [
+        [
+          "Hi, let's set up my profile.",
+          "My preferred programming language is Python.",
+          "I use Neovim as my editor.",
+          "My machine runs macOS.",
+          "Our production database is PostgreSQL.",
+          "We deploy on AWS.",
+          "For tests I always use pytest.",
+          "I live in Bucharest.",
+          "I work on the Gemini Platform team."
+        ],
+        [
+          "Write a haiku about deadlines.",
+          "Can you explain how TCP slow start works?",
+          "Let's discuss the weather this weekend."
+        ],
+        [
+          "Quick update \u2014 I've changed things: Our production database is MongoDB.",
+          "Please use that from now on."
+        ],
+        [
+          "Which programming language do I prefer?",
+          "Which editor do I use?",
+          "Which OS does my machine run?",
+          "What is our production database?",
+          "Which cloud do we deploy on?",
+          "Which test framework do I use?",
+          "Which city do I live in?",
+          "Which team do I work on?"
+        ]
+      ],
+      "memories": [
+        "My preferred programming language is Python.",
+        "I use Neovim as my editor.",
+        "My machine runs macOS.",
+        "Our production database is PostgreSQL.",
+        "We deploy on AWS.",
+        "For tests I always use pytest.",
+        "I live in Bucharest.",
+        "I work on the Gemini Platform team."
+      ],
+      "updated_memory": "Our production database is MongoDB.",
+      "stale_value": "PostgreSQL",
+      "updated_value": "MongoDB",
+      "qa_pairs": [
+        {
+          "question": "Which programming language do I prefer?",
+          "answer": "Python",
+          "relevant_fact": "My preferred programming language is Python.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "Which editor do I use?",
+          "answer": "Neovim",
+          "relevant_fact": "I use Neovim as my editor.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "Which OS does my machine run?",
+          "answer": "macOS",
+          "relevant_fact": "My machine runs macOS.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "What is our production database?",
+          "answer": "MongoDB",
+          "relevant_fact": "Our production database is MongoDB.",
+          "is_update_query": true,
+          "stale_value": "PostgreSQL"
+        },
+        {
+          "question": "Which cloud do we deploy on?",
+          "answer": "AWS",
+          "relevant_fact": "We deploy on AWS.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "Which test framework do I use?",
+          "answer": "pytest",
+          "relevant_fact": "For tests I always use pytest.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "Which city do I live in?",
+          "answer": "Bucharest",
+          "relevant_fact": "I live in Bucharest.",
+          "is_update_query": false,
+          "stale_value": ""
+        },
+        {
+          "question": "Which team do I work on?",
+          "answer": "Gemini Platform",
+          "relevant_fact": "I work on the Gemini Platform team.",
+          "is_update_query": false,
+          "stale_value": ""
+        }
+      ]
+    }
+  ]
+}

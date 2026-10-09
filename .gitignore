@@ -1,0 +1,37 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Local data
+*.db
+/tmp/
+mcp-server.log
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+.temp_wiki_content/
+REVIEW_CYCLE.md
+
+# Node
+node_modules/
+
+# opencode-bench A/B run artifacts (keep logs, drop bulky state)
+bench/opencode-bench/results/.opencode-v1/
+bench/opencode-bench/results/.cache/
+bench/opencode-bench/results/*/*/run*/data/
+bench/opencode-bench/results/*/*/run*/state/
