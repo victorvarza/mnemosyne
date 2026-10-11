@@ -167,6 +167,17 @@ def test_plugin_manifest_is_valid():
     assert manifest["version"]
 
 
+def test_marketplace_lists_the_plugin():
+    repo_root = PLUGIN_ROOT.parent
+    marketplace = json.loads((repo_root / ".claude-plugin" / "marketplace.json").read_text())
+    assert marketplace["name"]
+    assert marketplace["owner"]["name"]
+    entries = {entry["name"]: entry for entry in marketplace["plugins"]}
+    entry = entries["mnemosyne"]
+    assert (repo_root / entry["source"]).resolve() == PLUGIN_ROOT.resolve()
+    assert (repo_root / entry["source"] / ".claude-plugin" / "plugin.json").exists()
+
+
 def test_plugin_hooks_reference_an_executable_entrypoint():
     hooks = json.loads((PLUGIN_ROOT / "hooks" / "hooks.json").read_text())
     entries = hooks["hooks"]["UserPromptSubmit"]

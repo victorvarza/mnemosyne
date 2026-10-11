@@ -1,0 +1,13 @@
+{
+  "name": "mnemosyne",
+  "owner": {
+    "name": "Mnemosyne Team"
+  },
+  "plugins": [
+    {
+      "name": "mnemosyne",
+      "source": "./claudecode-plugin",
+      "description": "Persistent memory and authorized security assessment tools for Claude Code, backed by the local mnemo CLI."
+    }
+  ]
+}

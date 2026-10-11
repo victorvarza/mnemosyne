@@ -45,14 +45,20 @@ claudecode-plugin/
 The plugin shells out to the `mnemo` CLI, so install the client first (see the
 repository [README](../README.md)): `make client-setup`.
 
-Then make the plugin available to Claude Code. From this repository's root you
-can add it as a local marketplace/plugin, or copy `claudecode-plugin/` into your
-own project and load it. A minimal `settings.json` reference:
+Then make the plugin available to Claude Code. The repository root ships a
+`.claude-plugin/marketplace.json` (marketplace name `mnemosyne`) that lists this
+plugin, so from inside Claude Code run:
 
-```jsonc
-{
-  "plugins": ["/absolute/path/to/mnemosyne/claudecode-plugin"]
-}
+```text
+/plugin marketplace add /absolute/path/to/mnemosyne
+/plugin install mnemosyne@mnemosyne
+```
+
+Restart Claude Code if prompted. For a one-off session without installing,
+load the plugin directory directly:
+
+```bash
+claude --plugin-dir /absolute/path/to/mnemosyne/claudecode-plugin
 ```
 
 ### Environment
