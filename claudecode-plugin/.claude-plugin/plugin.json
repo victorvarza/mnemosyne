@@ -1,0 +1,16 @@
+{
+  "name": "mnemosyne",
+  "description": "Persistent memory and authorized security assessment tools for Claude Code, backed by the local mnemo CLI.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Mnemosyne Team"
+  },
+  "homepage": "https://github.com/victorvarza/mnemosyne",
+  "keywords": [
+    "memory",
+    "security",
+    "pentest",
+    "mnemosyne",
+    "claude-code"
+  ]
+}
