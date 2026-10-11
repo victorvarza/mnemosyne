@@ -31,6 +31,7 @@
     "opencode-plugin.js",
     ".opencode/plugins/",
     ".opencode/skill/",
+    "claudecode-plugin/",
     "src/",
     "docs/",
     "README.md"

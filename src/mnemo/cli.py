@@ -797,6 +797,19 @@ def context(
         print(block)
 
 
+@app.command("claudecode-hook")
+def claudecode_hook():
+    """Back the Claude Code plugin's UserPromptSubmit hook.
+
+    Reads the hook JSON payload on stdin, stores pattern-matched important
+    information, and emits relevant memories as additionalContext JSON. Mirrors
+    the OpenCode plugin's prompt/context hooks; see claudecode-plugin/.
+    """
+    from mnemo.integrations.claudecode import run_hook
+
+    raise typer.Exit(run_hook())
+
+
 @app.command()
 def score(
     content: str = typer.Argument(..., help="Memory content to score"),

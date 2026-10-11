@@ -64,7 +64,8 @@ for the worker.
 
 As an OpenCode plugin, Mnemosyne works automatically in the background. Simply install and use OpenCode normally:
 
-1. **Install the plugin**: use `.opencode/plugins/mnemosyne` for OpenCode 2
+1. **Install the plugin**: use `.opencode/plugins/mnemosyne` for OpenCode 2, or
+   `claudecode-plugin/` for [Claude Code](https://claude.com/claude-code)
 2. **Start conversing**: Mnemosyne automatically stores important context
 3. **Get contextual responses**: Relevant memories are automatically retrieved
 

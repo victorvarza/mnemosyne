@@ -42,6 +42,18 @@ or reference this repo's plugin from that project's `opencode.jsonc`:
 
 Run `npm install` in this repository first so `@opencode/plugin` resolves.
 
+### Claude Code
+
+Mnemosyne also ships a Claude Code plugin under `claudecode-plugin/`. It gives
+Claude Code the same capabilities through a `UserPromptSubmit` hook (automatic
+memory capture and context injection) and `/mnemosyne:*` slash commands
+(`remember`, `recall`, `scan`, `assess-create`, `assess-record`, `pentest`,
+`security-tools-list`, `security-tool-run`). The hook runs `mnemo
+claudecode-hook`, which reuses the same `mnemo add`/`mnemo context` pipeline as
+the OpenCode plugins. See
+[claudecode-plugin/README.md](../claudecode-plugin/README.md) for installation
+and usage.
+
 ### Legacy OpenCode 1.x
 
 The old OpenCode 1 plugin remains available as `opencode-plugin.js`. Load it
