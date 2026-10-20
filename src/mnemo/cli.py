@@ -27,6 +27,7 @@ from mnemo.ops.retrieve import retrieve
 from mnemo.security.pentest import Pentester
 from mnemo.security.redteam import run_campaign
 from mnemo.security.reports import write_json_report, write_markdown_report
+from mnemo.security.sanitize import is_safe_to_store
 from mnemo.security.scanner import full_scan
 from mnemo.security.scope import ScopePolicy, ScopeViolation
 from mnemo.security.tools import ToolMode, ToolRunner, list_tools
@@ -145,6 +146,12 @@ def add(
     memory_type: MemoryType = typer.Option(MemoryType.SEMANTIC, "--type", "-t"),
     trust_level: TrustLevel = typer.Option(TrustLevel.USER_STATED, "--trust"),
     source: str = typer.Option("cli", "--source", "-s"),
+    sanitize_content: bool = typer.Option(
+        False,
+        "--sanitize",
+        help="Reject prompt-injection or secret-bearing content before storing "
+        "(used by the plugin auto-capture path)",
+    ),
     db: Path = typer.Option(DEFAULT_DB, "--db", envvar="MNEMO_DB"),
     embed_model: str = typer.Option(
         DEFAULT_EMBED_MODEL, "--embed-model", envvar=MNEMO_EMBED_MODEL
@@ -154,6 +161,13 @@ def add(
     ),
 ):
     """Store a new memory."""
+    if sanitize_content:
+        safe, reasons = is_safe_to_store(content)
+        if not safe:
+            console.print(
+                f"[yellow]Skipped storing unsafe content: {', '.join(reasons)}[/yellow]"
+            )
+            return
     embedder = _get_embedder(embed_model, ollama_url)
     embedding = embedder.embed(content)
     store = _get_store(db, dimensions=len(embedding))

@@ -219,8 +219,26 @@ injected after 3 uses. The live session below caught this.
 
 Auto-capture is regex-based (`extractImportantInfo`): only user messages
 matching phrases such as "user prefers" or "remember … for later" are stored
-automatically. Use the `remember` tool to store anything else. Lifecycle
-maintenance (`mnemo lifecycle`) is not run by the plugin; run it manually.
+automatically. Before storing, the auto-capture path now runs the input through
+`is_safe_to_store()` (`mnemo add --sanitize`), which rejects prompt-injection
+patterns and secret-bearing content (API keys, tokens, credential assignments)
+so they never enter the store. The explicit `mnemo add` CLI path is unchanged
+and still writes input as-is by design.
+
+Lifecycle maintenance now runs automatically from the plugin: after auto-capture
+the plugin triggers `mnemo lifecycle --resolve-conflicts` as a debounced,
+fire-and-forget background task, so stale/conflicting memories are resolved
+without a manual pass. It is rate-limited and never runs on every turn:
+
+| Variable | Purpose | Default |
+|---|---|---|
+| `MNEMO_LIFECYCLE_AUTORUN` | Set to `0` to disable the automatic lifecycle pass | `1` (on) |
+| `MNEMO_LIFECYCLE_EVERY` | Auto-captures required before a lifecycle run | `3` |
+| `MNEMO_LIFECYCLE_MIN_INTERVAL` | Minimum seconds between lifecycle runs | `300` |
+
+The pass operates on the session's `MNEMO_DB`, runs off the turn's critical path
+(failures are logged as warnings, never blocking the response), and only
+conflict resolution is enabled — no aggressive pruning.
 
 ## Live session evidence
 

@@ -241,6 +241,40 @@ def test_tools_list_shows_registered_catalog():
     assert "network-recon" in result.output
 
 
+def test_add_sanitize_blocks_secret_before_storing(monkeypatch, tmp_path):
+    db = tmp_path / "memory.db"
+    # If the embedder were reached, the test would need Ollama; the sanitize
+    # gate must short-circuit before any embedding call.
+    def fail_embedder(*_args, **_kwargs):
+        raise AssertionError("embedder must not be called for blocked content")
+
+    monkeypatch.setattr(cli, "_get_embedder", fail_embedder)
+
+    result = runner.invoke(
+        cli.app,
+        ["add", "--sanitize", "the token is ghp_0123456789abcdef0123456789abcdef0123", "--db", str(db)],
+    )
+
+    assert result.exit_code == 0, result.output
+    assert "Skipped storing unsafe content" in result.output
+    assert "github_token" in result.output
+    assert not db.exists()
+
+
+def test_add_sanitize_allows_benign_content(monkeypatch, tmp_path):
+    db = tmp_path / "memory.db"
+    monkeypatch.setattr(cli, "_get_embedder", lambda *_args: _FakeEmbedder())
+    monkeypatch.setattr(cli, "_get_store", lambda *_args, **_kwargs: _FakeStore())
+
+    result = runner.invoke(
+        cli.app,
+        ["add", "--sanitize", "User prefers Python over Java", "--db", str(db)],
+    )
+
+    assert result.exit_code == 0, result.output
+    assert "Stored memory" in result.output
+
+
 def test_add_uses_environment_inference_defaults(monkeypatch):
     received: dict[str, str] = {}
 

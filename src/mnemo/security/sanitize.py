@@ -21,6 +21,22 @@ INJECTION_PATTERNS: list[tuple[re.Pattern, str]] = [
 ]
 
 
+SECRET_PATTERNS: list[tuple[re.Pattern, str]] = [
+    (re.compile(r"\b(?:sk|pk|rk)-[A-Za-z0-9]{16,}\b"), "api_key"),
+    (re.compile(r"\bAKIA[0-9A-Z]{16}\b"), "aws_access_key_id"),
+    (re.compile(r"\bgh[pousr]_[A-Za-z0-9]{30,}\b"), "github_token"),
+    (re.compile(r"\bxox[baprs]-[A-Za-z0-9-]{10,}\b"), "slack_token"),
+    (re.compile(r"-----BEGIN (?:[A-Z ]+ )?PRIVATE KEY-----"), "private_key"),
+    (re.compile(r"\beyJ[A-Za-z0-9_-]{8,}\.[A-Za-z0-9_-]{8,}\.[A-Za-z0-9_-]{8,}\b"), "jwt"),
+    (
+        re.compile(
+            r"(?i)\b(?:password|passwd|secret|api[_-]?key|access[_-]?token|token)\b\s*[:=]\s*\S{6,}"
+        ),
+        "credential_assignment",
+    ),
+]
+
+
 def sanitize(content: str) -> tuple[bool, list[str]]:
     triggered: list[str] = []
     for pattern, rule_name in INJECTION_PATTERNS:
@@ -28,6 +44,24 @@ def sanitize(content: str) -> tuple[bool, list[str]]:
             triggered.append(rule_name)
     is_safe = len(triggered) == 0
     return is_safe, triggered
+
+
+def detect_secrets(content: str) -> list[str]:
+    """Return the names of secret patterns found in ``content`` (empty if none)."""
+    return [name for pattern, name in SECRET_PATTERNS if pattern.search(content)]
+
+
+def is_safe_to_store(content: str) -> tuple[bool, list[str]]:
+    """Combine injection and secret checks for the automatic-capture write path.
+
+    Returns ``(is_safe, reasons)``. Unlike the explicit ``mnemo add`` CLI path,
+    the plugin's auto-capture uses this to avoid silently persisting injection
+    attempts or leaked credentials.
+    """
+    _, injection = sanitize(content)
+    secrets = detect_secrets(content)
+    reasons = injection + secrets
+    return len(reasons) == 0, reasons
 
 
 _CLASSIFIER_PROMPT = """Classify the following text as either BENIGN or SUSPICIOUS.

@@ -154,11 +154,15 @@ means in practice:
 - **No scopes / RBAC.** The authorization declaration on an assessment is an
   audit note, not access control or proof an engagement is approved.
 - **`mnemo add` does not sanitize.** Explicit CLI input is written to the store
-  as-is; the sanitization and detection helpers exist but are not on the `add`
-  path. Treat stored memory as untrusted context.
-- **Lifecycle is on demand.** Decay, dedup, and conflict resolution are
-  implemented and run by `mnemo lifecycle`, but nothing runs them
-  automatically — the plugin does not invoke them.
+  as-is; the sanitization and detection helpers exist but are not on the plain
+  `add` path. Treat stored memory as untrusted context. (The plugin's automatic
+  capture is an exception: it uses `mnemo add --sanitize`, which rejects
+  injection and secret-bearing content before storing.)
+- **Lifecycle runs on demand, and automatically from the plugin.** Decay, dedup,
+  and conflict resolution are implemented in `mnemo lifecycle`. The CLI runs them
+  when invoked; the OpenCode plugin now also triggers a debounced, rate-limited
+  `mnemo lifecycle --resolve-conflicts` after auto-capture (configurable via
+  `MNEMO_LIFECYCLE_*`). Aggressive pruning is still opt-in.
 - **Selection labels are synthetic.** The Phase 2 model is trained on a
   deterministic labeler; real labels (e.g. "the memory was actually cited")
   are the intended source but are not wired in yet.

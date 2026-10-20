@@ -7,7 +7,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { test } from "node:test";
 
-import { setupMnemosynePlugin } from "../../.opencode/plugins/mnemosyne/index.js";
+import { setupMnemosynePlugin, shouldRunLifecycle, __backgroundTasks } from "../../.opencode/plugins/mnemosyne/index.js";
 
 function fakeMnemo() {
   const dir = mkdtempSync(join(tmpdir(), "mnemo-v2-plugin-"));
@@ -124,7 +124,7 @@ test("V2 prompt hook stores important info and context hook injects memory", asy
   await hooks.get("context")(event);
 
   assert.deepEqual(calls(fake.log), [
-    ["add", "--", "User mentioned: Remember this for later: user prefers pytest"],
+    ["add", "--sanitize", "--", "User mentioned: Remember this for later: user prefers pytest"],
     ["context", "--top-k", "5", "--", "Remember this for later: user prefers pytest"],
   ]);
   assert.equal(event.system.length, 1);
@@ -143,4 +143,67 @@ test("V2 compaction hook injects generic memory context", async () => {
     ["context", "--top-k", "5", "--", "user preferences and project context"],
   ]);
   assert.equal(event.system.length, 1);
+});
+
+test("shouldRunLifecycle debounces by count and interval", () => {
+  // Below the capture threshold: never fire.
+  assert.equal(
+    shouldRunLifecycle({ count: 1, lastRun: 0, now: 10_000, every: 3, minIntervalMs: 1000 }),
+    false,
+  );
+  // Threshold met and interval elapsed: fire.
+  assert.equal(
+    shouldRunLifecycle({ count: 3, lastRun: 0, now: 10_000, every: 3, minIntervalMs: 1000 }),
+    true,
+  );
+  // Threshold met but too soon since the last run: hold off.
+  assert.equal(
+    shouldRunLifecycle({ count: 3, lastRun: 9_500, now: 10_000, every: 3, minIntervalMs: 1000 }),
+    false,
+  );
+  // Disabled via every <= 0.
+  assert.equal(
+    shouldRunLifecycle({ count: 99, lastRun: 0, now: 10_000, every: 0, minIntervalMs: 0 }),
+    false,
+  );
+});
+
+test("V2 auto-capture triggers debounced lifecycle after enough captures", async () => {
+  process.env.MNEMO_LIFECYCLE_EVERY = "2";
+  process.env.MNEMO_LIFECYCLE_MIN_INTERVAL = "0";
+  try {
+    const { fake, hooks } = await setup();
+
+    await hooks.get("prompt")({ prompt: { text: "user prefers ruff" } });
+    // One capture is below the threshold: no lifecycle yet.
+    assert.ok(!calls(fake.log).some((c) => c[0] === "lifecycle"));
+
+    await hooks.get("prompt")({ prompt: { text: "user prefers pytest" } });
+    await Promise.allSettled(__backgroundTasks());
+
+    assert.deepEqual(calls(fake.log), [
+      ["add", "--sanitize", "--", "User mentioned: user prefers ruff"],
+      ["add", "--sanitize", "--", "User mentioned: user prefers pytest"],
+      ["lifecycle", "--resolve-conflicts"],
+    ]);
+  } finally {
+    delete process.env.MNEMO_LIFECYCLE_EVERY;
+    delete process.env.MNEMO_LIFECYCLE_MIN_INTERVAL;
+  }
+});
+
+test("V2 auto-capture lifecycle can be disabled", async () => {
+  process.env.MNEMO_LIFECYCLE_AUTORUN = "0";
+  process.env.MNEMO_LIFECYCLE_EVERY = "1";
+  try {
+    const { fake, hooks } = await setup();
+
+    await hooks.get("prompt")({ prompt: { text: "user prefers pytest" } });
+    await Promise.allSettled(__backgroundTasks());
+
+    assert.ok(!calls(fake.log).some((c) => c[0] === "lifecycle"));
+  } finally {
+    delete process.env.MNEMO_LIFECYCLE_AUTORUN;
+    delete process.env.MNEMO_LIFECYCLE_EVERY;
+  }
 });

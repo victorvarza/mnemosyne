@@ -17,6 +17,28 @@ export function extractImportantInfo(text) {
   return null;
 }
 
+// Background tasks (e.g. the debounced lifecycle pass) are fire-and-forget so
+// they never block a turn. Tests await these to assert behavior deterministically.
+let backgroundTasks = [];
+export function __backgroundTasks() {
+  return backgroundTasks;
+}
+
+function envInt(name, fallback) {
+  const raw = process.env[name];
+  const value = raw == null ? NaN : Number.parseInt(raw, 10);
+  return Number.isFinite(value) && value >= 0 ? value : fallback;
+}
+
+// Pure debounce decision, exported for deterministic unit testing. Fire when at
+// least `every` captures have accrued AND at least `minIntervalMs` has passed
+// since the last run — so lifecycle never runs on every turn and is rate-limited.
+export function shouldRunLifecycle({ count, lastRun, now, every, minIntervalMs }) {
+  if (every <= 0) return false;
+  if (count < every) return false;
+  return now - lastRun >= minIntervalMs;
+}
+
 function splitArgs(raw) {
   if (!raw) return [];
   const matches = raw.match(/(?:[^\s"']+|"[^"]*"|'[^']*')+/g) || [];
@@ -82,6 +104,39 @@ export async function setupMnemosynePlugin(ctx) {
   const run = makeRunner(ctx);
   let lastUserText = "";
   let cached = { query: null, block: null };
+
+  backgroundTasks = [];
+  const lifecycleAutorun = (process.env.MNEMO_LIFECYCLE_AUTORUN ?? "1") !== "0";
+  const lifecycleEvery = envInt("MNEMO_LIFECYCLE_EVERY", 3);
+  const lifecycleMinIntervalMs = envInt("MNEMO_LIFECYCLE_MIN_INTERVAL", 300) * 1000;
+  let captureCount = 0;
+  let lastLifecycleRun = 0;
+
+  // Fire-and-forget: run the Phase 3 hygiene pass (conflict resolution) off the
+  // turn's critical path, debounced so it never runs per turn. Operates on the
+  // session's MNEMO_DB via the shared runner environment.
+  const maybeRunLifecycle = () => {
+    if (!lifecycleAutorun) return;
+    captureCount += 1;
+    const now = Date.now();
+    if (
+      !shouldRunLifecycle({
+        count: captureCount,
+        lastRun: lastLifecycleRun,
+        now,
+        every: lifecycleEvery,
+        minIntervalMs: lifecycleMinIntervalMs,
+      })
+    ) {
+      return;
+    }
+    captureCount = 0;
+    lastLifecycleRun = now;
+    const task = run(["lifecycle", "--resolve-conflicts"]).catch((error) => {
+      console.warn(`Mnemosyne lifecycle maintenance failed: ${error.message}`);
+    });
+    backgroundTasks.push(task);
+  };
 
   const memoryContext = (query, signal) => {
     if (cached.query === query) return cached.block;
@@ -249,7 +304,8 @@ export async function setupMnemosynePlugin(ctx) {
     const importantInfo = lastUserText && extractImportantInfo(lastUserText);
     if (!importantInfo) return;
     try {
-      await run(["add", "--", `User mentioned: ${importantInfo}`]);
+      await run(["add", "--sanitize", "--", `User mentioned: ${importantInfo}`]);
+      maybeRunLifecycle();
     } catch (error) {
       console.warn(`Mnemosyne auto-store failed: ${error.message}`);
     }
