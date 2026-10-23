@@ -35,6 +35,39 @@ List records:
 mnemo assess list web-lab
 ```
 
+## Target profiles (personalized assessment)
+
+A **target profile** is a user-provided description of the system under test
+(stack, endpoints, auth model, constraints, prior findings). A scan/test prompt
+is then personalized by retrieving the relevant profile entries and combining
+them with the prompt before the model runs — the LaMP retrieval-augmentation
+approach applied to assessment.
+
+Create and populate a profile:
+
+```bash
+mnemo profile create app-prod \
+  --target https://app.example.com \
+  --description "Customer-facing GraphQL app"
+mnemo profile add app-prod "Auth is JWT in the Authorization header"
+mnemo profile add app-prod "/api/v2 is GraphQL behind Cloudflare"
+mnemo profile import app-prod --file target-notes.md   # split a doc into entries
+mnemo profile show app-prod
+```
+
+Run a personalized assessment (retrieves relevant entries, combines with the
+prompt, calls the model):
+
+```bash
+mnemo assess run \
+  --profile app-prod \
+  --top-k 5 \
+  "Plan tests for IDOR and auth bypass on the login flow"
+
+# add --show-prompt to see the exact combined prompt
+```
+
+
 Run local source scanning:
 
 ```bash
@@ -62,6 +95,9 @@ When the plugin is loaded, prefer these tools if available:
 
 - `assessCreate`
 - `assessRecord`
+- `profileCreate`
+- `profileAdd`
+- `assessRun`
 - `scan`
 - `pentest`
 

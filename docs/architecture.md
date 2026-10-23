@@ -42,6 +42,9 @@ laptop creates embeddings through the worker and stores everything locally. See
 | Core | `core/types.py` | `Memory`, `MemoryQuery`, `MemoryResult`, enums |
 | Retrieval | `ops/retrieve.py` | Similarity + recency ranking, optional model re-rank |
 | Retrieval | `ops/inject.py` | Format the chosen memories into a prompt block |
+| Profiles | `core/profiles.py` | User-provided **target-system profiles** (dedicated tables) |
+| Profiles | `ops/retrieve.py` | `retrieve_profile()` — profile-scoped `R(q, Pu, k)` |
+| Profiles | `ops/inject.py` | `build_personalized_prompt()` — combine prompt + profile (φp) |
 | Selection | `eval/usefulness.py` | Trained model that predicts "is this memory helpful?" |
 | Lifecycle | `lifecycle/manager.py` | Decay, deduplication, conflict/stale handling |
 | Evaluation | `eval/benchmark.py`, `eval/dataset.py` | Ablation benchmark + synthetic data |
@@ -120,10 +123,11 @@ are in [evaluation.md](evaluation.md).
 | Group | Commands |
 |---|---|
 | Memory | `add`, `search`, `list`, `forget`, `stats`, `context`, `score` |
+| Profiles | `profile create/add/import/show/list/forget` |
 | Selection (Phase 2) | `generate-dataset`, `label-usefulness`, `train-usefulness` |
 | Lifecycle (Phase 3) | `lifecycle` |
 | Evaluation (Phase 4) | `benchmark` |
-| Assessment (security) | `assess create/record/preference/source-scan/list`, `scan`, `redteam`, `pentest`, `tools list/run` |
+| Assessment (security) | `assess create/record/preference/source-scan/run/list`, `scan`, `redteam`, `pentest`, `tools list/run` |
 
 Run `mnemo --help` for options. Normal memory commands use
 `~/.local/share/mnemo/memory.db` by default; `--db` selects another local path.
@@ -144,6 +148,43 @@ flowchart TD
     Rec --> Later["Retrieve context in later sessions"]
     Rec --> Pentest["mnemo pentest:<br/>active test against declared target"]
     Pentest --> Report["JSON + Markdown report"]
+```
+
+## Target profiles — personalization for assessment
+
+The profile subsystem applies the LaMP retrieval-augmentation design
+([Salemi et al., 2023](https://arxiv.org/abs/2304.11406)) to security
+assessment. In LaMP, a model is personalized by retrieving relevant items from a
+**user profile** and injecting them into the prompt rather than conditioning on
+the whole profile. Here the "user profile" is a **target-system profile**: a
+user-provided collection of entries describing a target (stack, endpoints, auth
+model, constraints, prior findings).
+
+| LaMP | Mnemosyne | Where |
+|---|---|---|
+| User profile `Pu = {(x,y)…}` | `TargetProfile` + `ProfileEntry` (dedicated tables) | `core/profiles.py` |
+| Input `x` / query `φq` | The scan/test prompt (also the retrieval query) | `cli.py: assess run` |
+| Retrieval `R(q, Pu, k)` | `retrieve_profile()` — similarity + recency + usefulness, scoped to one profile | `ops/retrieve.py` |
+| Prompt construction `φp` | `build_personalized_prompt()` | `ops/inject.py` |
+| Language model → output `y` | Ollama LLM call | `core/llm.py` |
+
+The profile is **saved/provided by the user** (`mnemo profile create/add/import`)
+and lives in dedicated `profiles` / `profile_entries` tables alongside the memory
+store, keeping the local-first invariant. When a scan/test runs
+(`mnemo assess run --profile <id> --prompt "<task>"`), the prompt is combined
+with the retrieved profile entries (In-Prompt Augmentation) and sent to the model
+for a **target-aware** assessment.
+
+```mermaid
+flowchart LR
+    P["User-provided profile<br/>(create / add / import)"] --> Store[("profile_entries<br/>+ embeddings")]
+    Prompt["Scan/test prompt (x)"] --> Q["φq: embed query"]
+    Q --> R["R(q, Pu, k)<br/>retrieve_profile()"]
+    Store --> R
+    R --> Phi["φp: build_personalized_prompt()"]
+    Prompt --> Phi
+    Phi --> LLM["Language model"]
+    LLM --> Y["Target-aware assessment (y)"]
 ```
 
 ## Scope and honest limitations

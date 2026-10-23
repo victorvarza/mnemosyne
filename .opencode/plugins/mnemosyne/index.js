@@ -265,6 +265,59 @@ export async function setupMnemosynePlugin(ctx) {
 
     addTool(
       editor,
+      "profileCreate",
+      "Create a user-owned profile describing a target system for personalized assessment",
+      objectSchema({
+        profileId: stringSchema("Stable identifier for the target profile"),
+        target: stringSchema("Target system identifier or URL"),
+        authorized: optionalStringSchema("Optional authorization declaration"),
+        description: optionalStringSchema("Short description of the target"),
+      }, ["profileId", "target"]),
+      async ({ profileId, target, authorized, description }, toolCtx) => {
+        const command = ["profile", "create", profileId, "--target", target];
+        if (authorized) command.push("--authorized", authorized);
+        if (description) command.push("--description", description);
+        return textResult(await run(command, toolCtx.signal));
+      },
+    );
+
+    addTool(
+      editor,
+      "profileAdd",
+      "Add one fact/entry (stack, endpoint, auth model, prior finding) to a target profile",
+      objectSchema({
+        profileId: stringSchema("Existing target profile identifier"),
+        content: stringSchema("A single fact about the target"),
+      }, ["profileId", "content"]),
+      async ({ profileId, content }, toolCtx) =>
+        textResult(await run(["profile", "add", profileId, "--", content], toolCtx.signal)),
+    );
+
+    addTool(
+      editor,
+      "assessRun",
+      "Personalize a scan/test prompt with a target profile and run it: retrieves the relevant " +
+        "profile entries, combines them with the prompt, and returns a target-specific assessment",
+      objectSchema({
+        prompt: stringSchema("The scan/test task to personalize to the target"),
+        profileId: stringSchema("Target profile to personalize with"),
+        topK: numberSchema("Profile entries to retrieve (default 5)"),
+      }, ["prompt", "profileId"]),
+      async ({ prompt, profileId, topK }, toolCtx) =>
+        textResult(await run([
+          "assess",
+          "run",
+          "--profile",
+          profileId,
+          "--top-k",
+          String(topK ?? 5),
+          "--",
+          prompt,
+        ], toolCtx.signal)),
+    );
+
+    addTool(
+      editor,
       "securityToolsList",
       "List Mnemo registered security tools, optionally by category",
       objectSchema({ category: optionalStringSchema("Optional tool category") }),

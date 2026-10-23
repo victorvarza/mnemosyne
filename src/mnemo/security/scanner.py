@@ -65,10 +65,19 @@ def _source_path(project_path: str) -> tuple[Path | None, str]:
     path, error = _project_path(project_path)
     if path is None:
         return None, error
+    
+    # First check for traditional 'src' directory
     source = path / "src"
-    if not source.is_dir():
-        return None, f"Source path is not a directory: {source}"
-    return source, ""
+    if source.is_dir():
+        return source, ""
+    
+    # If no 'src' directory, check if the project root itself contains Python files
+    # This handles projects where code is directly in the root directory
+    if any(path.glob("*.py")):
+        return path, ""
+    
+    # If neither exists, return error
+    return None, f"No source directory found. Searched for 'src' directory and Python files in root: {path}"
 
 
 def _failed_scan(

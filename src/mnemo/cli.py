@@ -18,12 +18,20 @@ from mnemo.config import (
 )
 from mnemo.core.embeddings import EmbeddingModel
 from mnemo.core.llm import LLMClient
+from mnemo.core.profiles import ProfileStore
 from mnemo.core.store import MemoryStore
-from mnemo.core.types import Memory, MemoryQuery, MemoryType, TrustLevel
+from mnemo.core.types import (
+    Memory,
+    MemoryQuery,
+    MemoryType,
+    ProfileEntry,
+    TargetProfile,
+    TrustLevel,
+)
 from mnemo.eval.usefulness import UsefulnessModel
 from mnemo.lifecycle import run_lifecycle
-from mnemo.ops.inject import format_memories_block
-from mnemo.ops.retrieve import retrieve
+from mnemo.ops.inject import build_personalized_prompt, format_memories_block
+from mnemo.ops.retrieve import retrieve, retrieve_profile
 from mnemo.security.pentest import Pentester
 from mnemo.security.redteam import run_campaign
 from mnemo.security.reports import write_json_report, write_markdown_report
@@ -37,8 +45,12 @@ assess_app = typer.Typer(
     help="Record authorized-assessment context and concise local records; does not execute tools."
 )
 tools_app = typer.Typer(help="List and run registered security tools locally or in Docker/Kali.")
+profile_app = typer.Typer(
+    help="Create and populate user-provided target-system profiles for personalized assessment."
+)
 app.add_typer(assess_app, name="assess")
 app.add_typer(tools_app, name="tools")
+app.add_typer(profile_app, name="profile")
 console = Console()
 
 DEFAULT_DB = Path.home() / ".local" / "share" / "mnemo" / "memory.db"
@@ -50,6 +62,35 @@ ASSESSMENT_DB_OPTION = typer.Option(DEFAULT_DB, "--db")
 def _get_store(db_path: Path, dimensions: int | None) -> MemoryStore:
     db_path.parent.mkdir(parents=True, exist_ok=True)
     return MemoryStore(db_path=db_path, dimensions=dimensions)
+
+
+def _get_profile_store(db_path: Path, dimensions: int | None) -> ProfileStore:
+    db_path.parent.mkdir(parents=True, exist_ok=True)
+    return ProfileStore(db_path=db_path, dimensions=dimensions)
+
+
+def _split_profile_document(text: str) -> list[str]:
+    """Split a user-provided profile document into retrievable entries.
+
+    Blank-line-separated paragraphs become entries; a paragraph that is a list
+    of bullet/numbered lines is split per line, so each fact is retrievable on
+    its own (mirroring LaMP's per-item user profile).
+    """
+    entries: list[str] = []
+    for block in text.split("\n\n"):
+        block = block.strip()
+        if not block:
+            continue
+        lines = [ln.strip() for ln in block.splitlines() if ln.strip()]
+        bullets = [ln for ln in lines if ln[:2] in {"- ", "* "} or ln[:1].isdigit()]
+        if len(bullets) == len(lines) and len(lines) > 1:
+            for ln in lines:
+                cleaned = ln.lstrip("-*0123456789. )").strip()
+                if cleaned:
+                    entries.append(cleaned)
+        else:
+            entries.append(block)
+    return entries
 
 
 def _get_embedder(model: str, base_url: str) -> EmbeddingModel:
@@ -487,6 +528,290 @@ def list_assessment_records(
         console.print(table)
     finally:
         store.close()
+
+
+# --- Target profiles (LaMP-style personalization) -------------------------
+
+
+@profile_app.command("create")
+def create_profile(
+    profile_id: str = typer.Argument(..., help="Stable identifier for this target profile"),
+    target: str = typer.Option(..., "--target", help="Target system identifier or URL"),
+    authorized: str = typer.Option(
+        "", "--authorized", help="Optional explicit authorization declaration for the target"
+    ),
+    description: str = typer.Option("", "--description", help="Short description of the target"),
+    db: Path = ASSESSMENT_DB_OPTION,
+    embed_model: str = typer.Option(
+        DEFAULT_EMBED_MODEL, "--embed-model", envvar=MNEMO_EMBED_MODEL
+    ),
+    ollama_url: str = typer.Option(
+        DEFAULT_OLLAMA_URL, "--ollama-url", envvar=MNEMO_OLLAMA_URL
+    ),
+):
+    """Create an empty, user-owned profile for a target system."""
+    profile_id = _require_nonempty(profile_id, "profile ID")
+    target = _require_nonempty(target, "--target")
+    embedder = _get_embedder(embed_model, ollama_url)
+    pstore: ProfileStore | None = None
+    try:
+        pstore = _get_profile_store(db, dimensions=embedder.dimensions)
+        if pstore.get_profile(profile_id) is not None:
+            console.print(f"[red]Profile '{profile_id}' already exists.[/red]")
+            raise typer.Exit(1)
+        pstore.create_profile(
+            TargetProfile(
+                id=profile_id,
+                target=target,
+                authorization=authorized,
+                description=description,
+            )
+        )
+        console.print(f"[green]Created target profile '{profile_id}' for {target}[/green]")
+    finally:
+        if pstore is not None:
+            pstore.close()
+        embedder.close()
+
+
+@profile_app.command("add")
+def add_profile_entry(
+    profile_id: str = typer.Argument(..., help="Existing target profile identifier"),
+    content: str = typer.Argument(..., help="A single fact/entry about the target"),
+    trust: TrustLevel = typer.Option(TrustLevel.USER_STATED, "--trust"),
+    source: str = typer.Option("profile", "--source", "-s"),
+    db: Path = ASSESSMENT_DB_OPTION,
+    embed_model: str = typer.Option(
+        DEFAULT_EMBED_MODEL, "--embed-model", envvar=MNEMO_EMBED_MODEL
+    ),
+    ollama_url: str = typer.Option(
+        DEFAULT_OLLAMA_URL, "--ollama-url", envvar=MNEMO_OLLAMA_URL
+    ),
+):
+    """Add one entry to a target profile."""
+    profile_id = _require_nonempty(profile_id, "profile ID")
+    content = _require_nonempty(content, "content")
+    embedder = _get_embedder(embed_model, ollama_url)
+    pstore: ProfileStore | None = None
+    try:
+        pstore = _get_profile_store(db, dimensions=embedder.dimensions)
+        if pstore.get_profile(profile_id) is None:
+            console.print(f"[red]No profile '{profile_id}'. Create it first.[/red]")
+            raise typer.Exit(1)
+        entry = ProfileEntry(
+            profile_id=profile_id,
+            content=content,
+            trust_level=trust,
+            source=source,
+            embedding=embedder.embed(content),
+        )
+        pstore.add_entry(entry)
+        console.print(f"[green]Added profile entry {entry.id[:8]}... to '{profile_id}'[/green]")
+    finally:
+        if pstore is not None:
+            pstore.close()
+        embedder.close()
+
+
+@profile_app.command("import")
+def import_profile(
+    profile_id: str = typer.Argument(..., help="Existing target profile identifier"),
+    file: Path = typer.Option(..., "--file", "-f", help="Document to split into profile entries"),
+    trust: TrustLevel = typer.Option(TrustLevel.EXTERNAL_DOCUMENT, "--trust"),
+    db: Path = ASSESSMENT_DB_OPTION,
+    embed_model: str = typer.Option(
+        DEFAULT_EMBED_MODEL, "--embed-model", envvar=MNEMO_EMBED_MODEL
+    ),
+    ollama_url: str = typer.Option(
+        DEFAULT_OLLAMA_URL, "--ollama-url", envvar=MNEMO_OLLAMA_URL
+    ),
+):
+    """Import a user-provided document, splitting it into retrievable entries."""
+    profile_id = _require_nonempty(profile_id, "profile ID")
+    resolved = file.expanduser().resolve()
+    if not resolved.is_file():
+        console.print(f"[red]File not found: {resolved}[/red]")
+        raise typer.Exit(1)
+    entries = _split_profile_document(resolved.read_text())
+    if not entries:
+        console.print("[yellow]No entries found in the document.[/yellow]")
+        raise typer.Exit(1)
+
+    embedder = _get_embedder(embed_model, ollama_url)
+    pstore: ProfileStore | None = None
+    try:
+        pstore = _get_profile_store(db, dimensions=embedder.dimensions)
+        if pstore.get_profile(profile_id) is None:
+            console.print(f"[red]No profile '{profile_id}'. Create it first.[/red]")
+            raise typer.Exit(1)
+        for text in entries:
+            pstore.add_entry(
+                ProfileEntry(
+                    profile_id=profile_id,
+                    content=text,
+                    trust_level=trust,
+                    source=str(resolved),
+                    embedding=embedder.embed(text),
+                )
+            )
+        console.print(
+            f"[green]Imported {len(entries)} entries into profile '{profile_id}'[/green]"
+        )
+    finally:
+        if pstore is not None:
+            pstore.close()
+        embedder.close()
+
+
+@profile_app.command("show")
+def show_profile(
+    profile_id: str = typer.Argument(..., help="Target profile identifier"),
+    db: Path = ASSESSMENT_DB_OPTION,
+):
+    """Show a profile's entries."""
+    pstore = _get_profile_store(db, dimensions=None)
+    try:
+        profile = pstore.get_profile(profile_id)
+        if profile is None:
+            console.print(f"[red]No profile '{profile_id}'.[/red]")
+            raise typer.Exit(1)
+        entries = pstore.list_entries(profile_id)
+        console.print(
+            f"[bold]{profile.id}[/bold] → {profile.target}  ({len(entries)} entries)"
+        )
+        table = Table(show_header=True)
+        table.add_column("ID", width=10)
+        table.add_column("Trust", width=18)
+        table.add_column("Content")
+        for entry in entries:
+            table.add_row(entry.id[:8], entry.trust_level.value, entry.content[:90])
+        console.print(table)
+    finally:
+        pstore.close()
+
+
+@profile_app.command("list")
+def list_profiles(
+    db: Path = ASSESSMENT_DB_OPTION,
+):
+    """List all target profiles."""
+    pstore = _get_profile_store(db, dimensions=None)
+    try:
+        profiles = pstore.list_profiles()
+        if not profiles:
+            console.print("[yellow]No target profiles found.[/yellow]")
+            return
+        table = Table(title=f"Target profiles ({len(profiles)} total)")
+        table.add_column("Profile", width=18)
+        table.add_column("Target", width=32)
+        table.add_column("Entries", width=8)
+        table.add_column("Description")
+        for profile in profiles:
+            table.add_row(
+                profile.id,
+                profile.target,
+                str(pstore.entry_count(profile.id)),
+                profile.description[:50],
+            )
+        console.print(table)
+    finally:
+        pstore.close()
+
+
+@profile_app.command("forget")
+def forget_profile(
+    profile_id: str = typer.Argument(..., help="Target profile identifier to delete"),
+    db: Path = ASSESSMENT_DB_OPTION,
+):
+    """Delete a profile and all its entries."""
+    pstore = _get_profile_store(db, dimensions=None)
+    try:
+        if pstore.get_profile(profile_id) is None:
+            console.print(f"[red]No profile '{profile_id}'.[/red]")
+            raise typer.Exit(1)
+        removed = pstore.delete_profile(profile_id)
+        console.print(f"[green]Deleted profile '{profile_id}' ({removed} entries)[/green]")
+    finally:
+        pstore.close()
+
+
+@assess_app.command("run")
+def run_profile_assessment(
+    prompt: str = typer.Argument(..., help="The scan/test task to personalize to the target"),
+    profile: str = typer.Option(..., "--profile", help="Target profile to personalize with"),
+    top_k: int = typer.Option(5, "--top-k", "-k", help="Profile entries to retrieve"),
+    system: str = typer.Option(
+        "You are an authorized security assessment assistant. Use the target "
+        "profile context to produce a focused, target-specific assessment plan. "
+        "Do not fabricate findings.",
+        "--system",
+        help="System prompt for the model",
+    ),
+    show_prompt: bool = typer.Option(
+        False, "--show-prompt", help="Also print the combined prompt sent to the model"
+    ),
+    db: Path = ASSESSMENT_DB_OPTION,
+    embed_model: str = typer.Option(
+        DEFAULT_EMBED_MODEL, "--embed-model", envvar=MNEMO_EMBED_MODEL
+    ),
+    llm_model: str = typer.Option(DEFAULT_LLM_MODEL, "--llm-model", envvar=MNEMO_LLM_MODEL),
+    ollama_url: str = typer.Option(
+        DEFAULT_OLLAMA_URL, "--ollama-url", envvar=MNEMO_OLLAMA_URL
+    ),
+):
+    """Personalize a scan/test prompt with a target profile, then call the model.
+
+    Implements the LaMP retrieval-augmentation flow for security assessment:
+    the prompt is the input ``x`` (and the retrieval query), the profile is the
+    user profile ``Pu``, relevant entries are retrieved (``R``), combined into
+    the prompt (``phi_p``), and sent to the language model to produce the
+    personalized output ``y``.
+    """
+    prompt = _require_nonempty(prompt, "prompt")
+    embedder = _get_embedder(embed_model, ollama_url)
+    pstore: ProfileStore | None = None
+    try:
+        pstore = _get_profile_store(db, dimensions=embedder.dimensions)
+        target_profile = pstore.get_profile(profile)
+        if target_profile is None:
+            console.print(f"[red]No profile '{profile}'. Create it first.[/red]")
+            raise typer.Exit(1)
+
+        try:
+            usefulness_model = UsefulnessModel.load_or_none()
+        except (OSError, ValueError, KeyError, TypeError):
+            usefulness_model = None
+
+        results = retrieve_profile(
+            pstore,
+            embedder,
+            profile,
+            MemoryQuery(text=prompt, top_k=top_k),
+            usefulness_model=usefulness_model,
+        )
+        combined = build_personalized_prompt(
+            prompt, results, target=target_profile.target
+        )
+    finally:
+        if pstore is not None:
+            pstore.close()
+        embedder.close()
+
+    if show_prompt:
+        console.print("[dim]--- combined prompt ---[/dim]")
+        console.print(combined)
+        console.print("[dim]--- response ---[/dim]")
+
+    llm = LLMClient(model=llm_model, base_url=ollama_url)
+    if not llm.is_available():
+        llm.close()
+        console.print(f"[red]Ollama not reachable at {ollama_url}.[/red]")
+        raise typer.Exit(1)
+    try:
+        answer = llm.generate(combined, system=system)
+    finally:
+        llm.close()
+    print(answer)
 
 
 @app.command(name="list")

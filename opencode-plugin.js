@@ -165,6 +165,56 @@ export const MnemosynePlugin = async ({ project, client, $, directory, worktree 
         },
       }),
 
+      profileCreate: tool({
+        description: "Create a user-owned profile describing a target system for personalized assessment",
+        args: {
+          profileId: tool.schema.string().describe("Stable identifier for the target profile"),
+          target: tool.schema.string().describe("Target system identifier or URL"),
+          authorized: tool.schema.string().optional().describe("Optional authorization declaration"),
+          description: tool.schema.string().optional().describe("Short description of the target"),
+        },
+        async execute(args) {
+          const command = ["profile", "create", args.profileId, "--target", args.target];
+          if (args.authorized) command.push("--authorized", args.authorized);
+          if (args.description) command.push("--description", args.description);
+          return run(command);
+        },
+      }),
+
+      profileAdd: tool({
+        description: "Add one fact/entry (stack, endpoint, auth model, prior finding) to a target profile",
+        args: {
+          profileId: tool.schema.string().describe("Existing target profile identifier"),
+          content: tool.schema.string().describe("A single fact about the target"),
+        },
+        async execute(args) {
+          return run(["profile", "add", args.profileId, "--", args.content]);
+        },
+      }),
+
+      assessRun: tool({
+        description:
+          "Personalize a scan/test prompt with a target profile and run it: retrieves the " +
+          "relevant profile entries, combines them with the prompt, and returns a target-specific assessment",
+        args: {
+          prompt: tool.schema.string().describe("The scan/test task to personalize to the target"),
+          profileId: tool.schema.string().describe("Target profile to personalize with"),
+          topK: tool.schema.number().optional().describe("Profile entries to retrieve (default 5)"),
+        },
+        async execute(args) {
+          return run([
+            "assess",
+            "run",
+            "--profile",
+            args.profileId,
+            "--top-k",
+            String(args.topK ?? 5),
+            "--",
+            args.prompt,
+          ]);
+        },
+      }),
+
       scan: tool({
         description: "Scan source code for security vulnerabilities (bandit, semgrep, trivy)",
         args: {
